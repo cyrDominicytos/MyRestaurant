@@ -2,31 +2,40 @@
 @section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
+  <style>
+   
+  </style>
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
+     
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Advanced Form</h1>
+            <h1 style="color:#0FAC6D;  font-family: 'Roboto', sans-serif; font-weight:bold;text-align:center;margin-top:30px">Enregistrer Client</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Advanced Form</li>
+              <li class="breadcrumb-item active">Enregistrer Client</li>
             </ol>
           </div>
         </div>
       </div><!-- /.container-fluid -->
     </section>
-
+<style>
+    /* .content{
+        background-image: url('{{asset('dist/img/photo2.png')}}');
+    } */
+    /* .card{
+        background-image: url('{{asset('dist/img/lockscreen-bg.jpg')}}');
+    } */
+</style>
     <section class="content">
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-6">
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="card-title">Input masks</h3>
-                </div>
+              <div class="">
+               
                 <div class="card-body">
                  
                   <div class="form-group">
@@ -97,7 +106,7 @@
   
                     <div class="input-group">
                       <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fas fa-home"></i></span>
+                        <span class="input-group-text"><i class="fas fa-home" style="c"></i></span>
                       </div>
                       <input type="text" class="form-control" >
                     </div>
@@ -110,10 +119,8 @@
             </div>
             <!-- /.col (left) -->
             <div class="col-md-6">
-              <div class="card ">
-                <div class="card-header">
-                  <h3 class="card-title">Date picker</h3>
-                </div>
+              <div class=" ">
+               
                 <div class="card-body">
                     <div class="form-group">
                         <label>Profession:</label>
@@ -131,7 +138,25 @@
                         </div>
                       
                       </div>
-                      
+                      <div class="form-group">
+                        <label>Choisisez Role</label>
+                        
+                        <div class="input-group date">
+                           
+                            <select class="form-control select2" style="width: 70%;">
+                              <option selected="selected">Gérant</option>
+                              <option>Comptable</option>
+                              <option>Chef cuisiner</option>
+                              <option>Caisier</option>
+                              <option>Serveur</option>
+                              <option>Nettoyeur</option>            
+                            </select>
+                            <div class="input-group-append" style="margin-left: 8px">
+                                <a href="{{route('updateRole')}}" class="btn-success btn"> <i class="fa fa-plus"></i></a>
+                          </div>
+                        
+                      </div>
+                 </div>
                         <!-- radio -->
                         <div class="form-group ">
                           
@@ -149,41 +174,25 @@
                           </div>
                           
                         </div>
-                        <div class="form-group">
-                            <label>Choisisez Role</label>
-                            <select class="form-control select2" style="width: 100%;">
-                              <option selected="selected">Gérant</option>
-                              <option>Comptable</option>
-                              <option>Chef cuisiner</option>
-                              <option>Caisier</option>
-                              <option>Serveur</option>
-                              <option>Nettoyeur</option>
-                            
-                            </select>
-                          </div>
-                        <div class="form-group">
-                            <label>Mot de passe:</label>
-                              <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                  <input type="password" class="form-control datetimepicker-input" />
-                                  <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                                      <div class="input-group-text"><i class="fa fa-key"></i></div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="form-group">
-                            <label>Confirmer Mot de passe:</label>
-                              <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                  <input type="password" class="form-control datetimepicker-input" />
-                                  <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                                      <div class="input-group-text"><i class="fa fa-key"></i></div>
-                                  </div>
-                              </div>
-                          </div>
-       
+                      
+                <div class="form-group">
+                  <label>Mot de passe:</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="password" class="form-control datetimepicker-input" />
+                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-key"></i></div>
+                        </div>
+                    </div>
                 </div>
-                  <div class="card-footer">
-                    <a href="https://getdatepicker.com/5-4/">  Appuyer pour modifier les fonctionnalités</a>
-                  </div>
+                <div class="form-group">
+                  <label>Confirmer Mot de passe:</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="password" class="form-control datetimepicker-input" />
+                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-key"></i></div>
+                        </div>
+                    </div>
+                </div>
                 <!-- /.card-body -->
               </div>
            
@@ -191,17 +200,18 @@
             <!-- /.col (right) -->
         </div>
         </div>
-       
-      </section>
         <div class=" login-btm login-button" style="text-align: center">
             <a href="{{route('admin')}}"  class="btn btn-outline-primary">Inscrit</a>
         </div>
+      </section>
+       
         <style>
 
 .btn-outline-primary {
+   
     border-color: #0DB8DE;
-    color: #0DB8DE;
-    border-radius: 0px;
+    color: #0FAC6D;
+    width: 55%;
     font-weight: bold;
     letter-spacing: 1px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -213,6 +223,7 @@
 }
 
 .login-btm {
+   
     text-align: center;
 }
 

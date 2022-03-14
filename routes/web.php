@@ -18,7 +18,10 @@ Route::get('Admin', function(){
 
 Route::get('Admin/newCLient', function(){
         return view('admin.newCLient');})->name('newClient');
-        
+ 
+Route::get('Admin/updateRole', function(){
+            return view('admin.updateRole');})->name('updateRole');        
+
 Route::get('/moi',[App\Http\Controllers\AdminController::class, 'show']);
 Route::get('/', function () {
     return view('welcome');
