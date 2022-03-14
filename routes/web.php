@@ -12,6 +12,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('Admin', function(){
+    return view('admin.app');})->name('admin');
+
+Route::get('Admin/newCLient', function(){
+        return view('admin.newCLient');})->name('newClient');
+        
 Route::get('/moi',[App\Http\Controllers\AdminController::class, 'show']);
 Route::get('/', function () {
     return view('welcome');
