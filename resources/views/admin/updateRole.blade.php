@@ -1,4 +1,4 @@
-@extends('admin.app')
+@extends('admin.layout.mail')
 @section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -41,15 +41,10 @@
                       <div class="form-group">
                         <label class="col-sm-2 control-label">Fonction</label>
                         <div class="input-group date">
-                         <div class="selectBox" onclick="showCheckboxes()">
-                             <select class="form-control select2" >
-                               <option>Selectionner fonctionnalités</option>
-                             </select>
-                             <div class="overSelect"></div>
-                           </div>
-                           <div id="checkboxes" >
+                        
+                           <div id="checkboxes1" >
                              <label for="module" style="margin-left: 25px">
-                                 <input type="checkbox" id="one" /> Comptable</label>
+                              <a href="{{route('updateRole')}}" class=""> <i class="fa fa-plus" style="color: green"></i></a> Gérant</label>
                              <label for="one" style="margin-left: 55px">
                                <input type="checkbox" id="one" /> Payer un fournisseur</label>
                              <label for="two" style="margin-left: 55px">
@@ -57,7 +52,17 @@
                              <label for="three" style="margin-left: 55px">
                                <input type="checkbox" id="three" /> Faire le point</label>
                            </div>
-                          
+                           
+                          <div id="checkboxes2" >
+                            <label for="module" style="margin-left: 25px">
+                             <a href="{{route('updateRole')}}" class=""> <i class="fa fa-plus" style="color: green"></i></a> Comptable</label>
+                            <label for="one" style="margin-left: 55px">
+                              <input type="checkbox" id="one" /> Payer un fournisseur</label>
+                            <label for="two" style="margin-left: 55px">
+                              <input type="checkbox" id="two" /> Facturer une commande</label>
+                            <label for="three" style="margin-left: 55px">
+                              <input type="checkbox" id="three" /> Faire le point</label>
+                          </div>
                         </div>
                     </div>
             
@@ -139,7 +144,8 @@
               var expanded = false;
 
 function showCheckboxes() {
-  var checkboxes = document.getElementById("checkboxes");
+  var checkboxes = document.getElementById("checkboxes1");
+ 
   if (!expanded) {
     checkboxes.style.display = "block";
     expanded = true;

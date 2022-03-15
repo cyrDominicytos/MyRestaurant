@@ -1,4 +1,4 @@
-@extends('admin.app')
+@extends('admin.layout.mail')
 @section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -218,7 +218,7 @@
 }
 
 .btn-outline-primary:hover {
-    background-color: #0DB8DE;
+    background-color: #f3441a;
     right: 0px;
 }
 
