@@ -24,10 +24,10 @@ class CreateUsersTable extends Migration
             $table->string('sex')->nullable();
             $table->string('adress')->nullable();
             $table->string('profil_image')->nullable();
-            $table->unsignedBigInteger('role_id');
+            $table->unsignedBigInteger('role_user_id');
             $table->rememberToken();
             $table->timestamps();
-            $table->foreign('role_id')->references('role_id')->on('roles')->onDelete('cascade');
+            $table->foreign('role_user_id')->references('role_id')->on('roles')->onDelete('cascade');
         });
     }
 

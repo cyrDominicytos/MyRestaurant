@@ -24,7 +24,7 @@ Route::get('Admin/updateRole', function(){
 
 Route::get('/moi',[App\Http\Controllers\AdminController::class, 'show']);
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();

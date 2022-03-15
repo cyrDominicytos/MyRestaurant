@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
                 '4']
                 )
         ]);
-        $user=User::create(["firstname"=>"John", "lastname"=>"Doe","email"=>"restaurant@gmail.com","password"=>Hash::make("12345678"),"role_id"=>1]);
+        $user=User::create(["firstname"=>"John", "lastname"=>"Doe","email"=>"oloucholapatrick@gmail.com","password"=>Hash::make("12345678"),"role_user_id"=>1]);
 
 
     // $table->unsignedBigInteger('role_id');
