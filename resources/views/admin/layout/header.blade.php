@@ -3,7 +3,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ $title ?? '' }},{{ config('app.name', 'Laravel') }}</title>
+    {{-- <link rel="icon" type="image/png" sizes="16x16" href=""> --}}
+    <title>{{ $title ?? '' }} {{ config('app.name', 'Laravel') }}</title>
   
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
