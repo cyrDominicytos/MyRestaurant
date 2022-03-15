@@ -1,44 +1,76 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-
-         <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
- 
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-        
-    </head>
-    <body>
+    @include('admin.layout.header')
+<body class="hold-transition login-paged">
+    {{-- <link rel="stylesheet" href="{{asset('css/app.css')}}"> --}}
+    <div class="login-box" style="margin-left:auto; margin-right:auto;margin-top:55px">
+        <div class="card card-outline card-primary">
+            <div class="card-header text-center">
+              <a href="#" class="h1"><b>Admin</b>Connexion</a>
+            </div>
+        <!-- /.login-logo -->
+        <div class="card">
+          <div class="card-body login-card-body">
+            <p class="login-box-msg">Connectez-vous pour démarrer votre session</p>
+      
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+              <div class="input-group mb-3">
+                <input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Adresse Email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                     @enderror
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-envelope"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="input-group mb-3">
+                <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Mot de passe" name="password" required autocomplete="current-password">
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-lock"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-8">
+                  <div class="icheck-primary">
+                    <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                    <label for="remember">
+                      Se rappeler de moi
+                    </label>
+                  </div>
+                </div>
+                <!-- /.col -->
+                <div class="col-4">
+                  <button type="submit" class="btn btn-primary btn-block">Connecter</button>
+                </div>
+                <!-- /.col -->
+              </div>
+            </form>
+            @if (Route::has('password.request'))
+                <p class="mb-1">
+                <a href="{{ route('password.request') }}" style="color: red">Mot de passe oublié</a>
+                </p>
+            @endif
+          </div>
+          <!-- /.login-card-body -->
+        </div>
+      </div>
+      <!-- /.login-box -->
+      
        
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-2"></div>
-            <div class="col-lg-6 col-md-8 login-box">
-                <div class="col-lg-12 login-key">
-                    <i class="fa fa-key" aria-hidden="true"></i>
-                </div>
-                <div class="col-lg-12 login-title">
-                    Connexion ADMIN 
-                </div>
-
-                <div class="col-lg-12 login-form">
-                    <div class="col-lg-12 login-form">
+    {{-- <div class="container">
+        
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -108,12 +140,13 @@
                                 @endif
                             </div>
                         </div> --}}
-                    </form>
+                    {{-- </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div>  --}}
 
 </body>
+@include('admin.layout.script')
 </html>
