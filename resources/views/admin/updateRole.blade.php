@@ -2,9 +2,7 @@
 @section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-  <style>
-   
-  </style>
+  
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
@@ -26,133 +24,86 @@
     <section class="content">
         <div class="container-fluid">
       
-                <div class="card-body">
-                    
-                     
-                   
-                        
-                        <div class="form-group">
+                <div class="card-body">       
+                     <div class="row">
+                        <div class="form-group col-md-6">
                           <label>Designation du role:</label>
                           <div class="input-group">
                             <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
                           </div>
-                      
                         </div>
-                      <div class="form-group">
-                        <label class="col-sm-2 control-label">Fonction</label>
-                        <div class="input-group date">
-                        
-                           <div id="checkboxes1" >
-                             <label for="module" style="margin-left: 25px">
-                              <a href="{{route('updateRole')}}" class=""> <i class="fa fa-plus" style="color: green"></i></a> Gérant</label>
-                             <label for="one" style="margin-left: 55px">
-                               <input type="checkbox" id="one" /> Payer un fournisseur</label>
-                             <label for="two" style="margin-left: 55px">
-                               <input type="checkbox" id="two" /> Facturer une commande</label>
-                             <label for="three" style="margin-left: 55px">
-                               <input type="checkbox" id="three" /> Faire le point</label>
-                           </div>
-                           
-                          <div id="checkboxes2" >
-                            <label for="module" style="margin-left: 25px">
-                             <a href="{{route('updateRole')}}" class=""> <i class="fa fa-plus" style="color: green"></i></a> Comptable</label>
-                            <label for="one" style="margin-left: 55px">
-                              <input type="checkbox" id="one" /> Payer un fournisseur</label>
-                            <label for="two" style="margin-left: 55px">
-                              <input type="checkbox" id="two" /> Facturer une commande</label>
-                            <label for="three" style="margin-left: 55px">
-                              <input type="checkbox" id="three" /> Faire le point</label>
+                        <div class="form-group col-md-6">
+                          <label>Blog du role:</label>
+                          <div class="input-group">
+                            <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
                           </div>
                         </div>
+                     </div>
+                     <div class="form-group ">
+                      <label>Description:</label>
+                      <div class="input-group">
+                        <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                      </div>
                     </div>
+
+                    <div class="row">
+                      <div class="col-md-6">
+                          <button class="accordion"> <i class="fa fa-plus"></i> Comptable</button>
+                        <div class="panel">
+                          <label for="module" style="margin-left: 15px">
+                            <input type="checkbox" id="one" /> Facturer </label>
+                          <label for="module" style="margin-left: 25px">
+                            <input type="checkbox" id="one" /> Fait le point de la journéé</label>
+                          <label for="module" style="margin-left: 15px">
+                              <input type="checkbox" id="one" /> Satisfaire</label>
+                        </div>
+                    </div>
+                    
+                      </div>
+                    </div>
+                    
+                  </div>     
             
-           
-          
         <div class=" login-btm login-button" style="text-align: center">
             <a href="{{route('admin')}}"  class="btn btn-outline-primary">Enregistrer le role</a>
         </div>
       </section>
        
-        <style>
-
-.selectBox {
-  position: relative;
-}
-
-.selectBox select {
-  width: 100%;
-  font-weight: bold;
-}
-
-.overSelect {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
-#checkboxes {
-  display: none;
-  border: 1px #dadada solid;
-}
-
-#checkboxes label {
-  display: block;
-}
-
-
-
-.btn-outline-primary {
-   
-    border-color: #0DB8DE;
-    color: #0FAC6D;
-    width: 55%;
-    font-weight: bold;
-    letter-spacing: 1px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-}
-
-.btn-outline-primary:hover {
-    background-color: #0DB8DE;
-    right: 0px;
-}
-
-.login-btm {
-   
-    text-align: center;
-}
-
-.login-button {
-    padding-right: 0px;
-    text-align: right;
-    margin-bottom: 25px;
-}
-
-.login-text {
-    text-align: left;
-    padding-left: 0px;
-    color: #A2A4A4;
-}
-
-.loginbttm {
-    padding: 0px;
-}
-        </style>
+  <link rel="stylesheet" href="{{asset('css/newrole.css')}}">
 
         <script>
-              var expanded = false;
+              // var expanded = false;
 
-function showCheckboxes() {
-  var checkboxes = document.getElementById("checkboxes1");
+// function showCheckboxes() {
+//   var checkboxes = document.getElementById("checkboxes1");
  
-  if (!expanded) {
-    checkboxes.style.display = "block";
-    expanded = true;
-  } else {
-    checkboxes.style.display = "none";
-    expanded = false;
-  }
+//   if (!expanded) {
+//     checkboxes.style.display = "block";
+//     expanded = true;
+//   } else {
+//     checkboxes.style.display = "none";
+//     expanded = false;
+//   }
+// }
+
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    /* Toggle between adding and removing the "active" class,
+    to highlight the button that controls the panel */
+    this.classList.toggle("active");
+
+    /* Toggle between hiding and showing the active panel */
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
 }
+
         </script>
 @endsection
