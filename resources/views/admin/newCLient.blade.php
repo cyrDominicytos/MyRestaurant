@@ -45,7 +45,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="far fa-user"></i></span>
                           </div>
-                          <input type="text" class="form-control @error('firstname') is-invalid @enderror " name="firstname" value="{{ old('firstname') }}" >
+                          <input type="text" class="form-control @error('firstname') is-invalid @enderror " name="firstname" value="{{ $firstname ?? old('firstname') }}"  autocomplete="firstname" autofocus>
                           @error('firstname')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
