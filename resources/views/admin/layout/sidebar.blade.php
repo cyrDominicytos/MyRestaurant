@@ -45,7 +45,7 @@
             </a>
             
           </li>
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
@@ -207,26 +207,26 @@
                 </a>
               </li>
             </ul>
-          </li>
+          </li> --}}
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-                Formulaire
+                Employer
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{route('newClient')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Enregistrer un client</p>
+                  <i class="fa fa-plus"></i>
+                  <p>Ajouter</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/forms/advanced.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Modifier modules</p>
+                <a href="{{route('list')}}" class="nav-link">
+                  <i class="fa fa-list nav-icon"></i>
+                  <p>Liste</p>
                 </a>
               </li>
              

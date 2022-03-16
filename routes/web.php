@@ -13,8 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('Admin', function(){
-    return view('admin.app');})->name('admin');
+Route::get('Admin', function(){return view('admin.app');})->name('admin');
+
+Route::get('Admin/list', function(){return view('admin.list');})->name('list');
 
 Route::get('Admin/newCLient',[App\Http\Controllers\AdminController::class, 'showUser'])->name('newClient');
 Route::post('Admin/newCLient',[App\Http\Controllers\AdminController::class, 'createUser'])->name('createuser');
