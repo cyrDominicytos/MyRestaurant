@@ -11,8 +11,7 @@
      
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 style="color:#0FAC6D;  font-family: 'Roboto', sans-serif; font-weight:bold;text-align:center;margin-top:30px">Enregistrer Client</h1>
-          </div>
+                 </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -32,6 +31,12 @@
 </style>
     <section class="content">
         <div class="container-fluid">
+          <div style="text-align: center">
+            <img src="{{asset('dist/img/butcher-block.png')}}" alt="">
+              <h1 style="color:#014463;  font-family: 'Roboto', sans-serif; font-weight:bold;text-align:center;">Enregistrer Client</h1>
+  
+          </div>
+          
           <div class="row">
             <div class="col-md-6">
               <div class="">
@@ -126,22 +131,21 @@
                         </div>
                       
                       </div>
-
-                      <div class="form-group">
-                        <label>Adresse:</label>
-      
-                        <div class="input-group">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-home" style="c"></i></span>
-                          </div>
-                          <input type="text" class="form-control @error('adress') is-invalid @enderror "  name="adress" value="{{ old('adress') }}">
-                          @error('adress')
-                          <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                          </span>
-                          @enderror
+                      <div class="form-group ">
+                              
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="radioPrimary1" name="sex" value="Homme" checked>
+                          <label for="radioPrimary1">
+                              Homme
+                          </label>
                         </div>
-                      
+                        <div class="icheck-primary d-inline">
+                          <input type="radio" id="radioPrimary2" name="sex" value="Femme">
+                          <label for="radioPrimary2">
+                            Femme
+                          </label>
+                        </div>
+                        
                       </div>
 
                     </div>
@@ -162,6 +166,23 @@
                                   </div>
                               </div>
                           </div> --}}
+
+                      <div class="form-group">
+                        <label>Adresse:</label>
+      
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-home" style="c"></i></span>
+                          </div>
+                          <input type="text" class="form-control @error('adress') is-invalid @enderror "  name="adress" value="{{ old('adress') }}">
+                          @error('adress')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                          @enderror
+                        </div>
+                      
+                      </div>
                           <div class="form-group">
                             <label>Date de Naissance:</label>
                             <div class="input-group">  
@@ -192,22 +213,7 @@
                           </div>
                     </div>
                             <!-- radio -->
-                            <div class="form-group ">
-                              
-                              <div class="icheck-primary d-inline">
-                                <input type="radio" id="radioPrimary1" name="sex" value="Homme" checked>
-                                <label for="radioPrimary1">
-                                    Homme
-                                </label>
-                              </div>
-                              <div class="icheck-primary d-inline">
-                                <input type="radio" id="radioPrimary2" name="sex" value="Femme">
-                                <label for="radioPrimary2">
-                                  Femme
-                                </label>
-                              </div>
-                              
-                            </div>
+                         
                           
                     <div class="form-group">
                       <label>Mot de passe:</label>
@@ -257,7 +263,7 @@
 
 .btn-outline-primary {
    
-    border-color: #0DB8DE;
+    border-color: #014463;
     color: #0FAC6D;
     width: 55%;
     font-weight: bold;
@@ -266,7 +272,7 @@
 }
 
 .btn-outline-primary:hover {
-    background-color: #f3441a;
+    background-color: #d98b37;
     right: 0px;
 }
 
