@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
+    {{-- <div class="container">
          @foreach ($user as $users)
              <h1>
                  {{ $users->role->role_name }}
@@ -20,6 +20,18 @@
                 {{ getPermissionById($role)->permission_name }} 
             </h3>
         @endforeach
+    </div> --}}
+
+    <div class="container">
+         @foreach (permissionModule() as $index => $permission )
+         <h1>{{ $index }}</h1>
+         <h3>
+            @foreach ($permission as $value )
+                <h4>{{ $value }}</h4>
+            @endforeach
+        </h3>
+         @endforeach
+
     </div>
 </body>
 </html>

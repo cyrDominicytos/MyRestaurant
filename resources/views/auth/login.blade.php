@@ -22,7 +22,7 @@
                       <span class="fas fa-envelope"></span>
                     </div>
                   </div>    
-                @error('email')
+                   @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>

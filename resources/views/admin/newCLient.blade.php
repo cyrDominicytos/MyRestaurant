@@ -37,173 +37,221 @@
               <div class="">
                
                 <div class="card-body">
-                 
-                  <div class="form-group">
-                    <label>Nom:</label>
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="far fa-user"></i></span>
+                <form action="{{ route('createuser') }}" method="post">
+                  @csrf
+                      <div class="form-group">
+                        <label>Nom:</label>
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="far fa-user"></i></span>
+                          </div>
+                          <input type="text" class="form-control @error('firstname') is-invalid @enderror " name="firstname" value="{{ old('firstname') }}" >
+                          @error('firstname')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                          @enderror
+                        </div>
+                    
                       </div>
-                      <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
-                    </div>
-                
-                  </div>
 
-  
-                  <!-- Date mm/dd/yyyy -->
-                  <div class="form-group">
-                    <label>Prénom:</label>
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="far fa-user"></i></span>
+      
+                      <!-- Date mm/dd/yyyy -->
+                      <div class="form-group">
+                        <label>Prénom:</label>
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="far fa-user"></i></span>
+                          </div>
+                          <input type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" >
+                          @error('lastname')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                          @enderror
+                        </div>
+                        <!-- /.input group -->
                       </div>
-                      <input type="text" class="form-control" >
-                    </div>
-                    <!-- /.input group -->
-                  </div>
-                  <!-- /.form group -->
-  
-                  <!-- phone mask -->
-                  <div class="form-group">
-                    <label>Téléphone:</label>
-  
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                      <!-- /.form group -->
+      
+                      <!-- phone mask -->
+                      <div class="form-group">
+                        <label>Téléphone:</label>
+      
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                          </div>
+                          <input type="tel" class="form-control  @error('phone_number') is-invalid @enderror " name="phone_number" value="{{ old('phone_number') }}">
+                          @error('phone_number')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                          @enderror
+                        </div>
+                        <!-- /.input group -->
                       </div>
-                      <input type="tel" class="form-control" >
-                    </div>
-                    <!-- /.input group -->
-                  </div>
-                 
-                  <div class="form-group">
-                    <label>Adresse Email:</label>
-  
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                    
+                      <div class="form-group">
+                        <label>Adresse Email:</label>
+      
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                          </div>
+                          <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
+                          @error('email')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                          @enderror
+                        </div>
+                      
                       </div>
-                      <input type="email" class="form-control" >
-                    </div>
-                  
-                  </div>
-                  <!-- /.form group -->
+                      <!-- /.form group -->
 
-                  <div class="form-group">
-                    <label>Provenance:</label>
-  
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fas fa-home"></i></span>
+                      <div class="form-group">
+                        <label>Provenance:</label>
+      
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-home"></i></span>
+                          </div>
+                          <input type="text" class="form-control @error('origin') is-invalid @enderror" name="origin" value="{{ old('origin') }}">
+                          @error('origin')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                          @enderror
+                        </div>
+                      
                       </div>
-                      <input type="text" class="form-control" >
-                    </div>
-                  
-                  </div>
 
-                  <div class="form-group">
-                    <label>Adresse:</label>
-  
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fas fa-home" style="c"></i></span>
+                      <div class="form-group">
+                        <label>Adresse:</label>
+      
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-home" style="c"></i></span>
+                          </div>
+                          <input type="text" class="form-control @error('adress') is-invalid @enderror "  name="adress" value="{{ old('adress') }}">
+                          @error('adress')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                          @enderror
+                        </div>
+                      
                       </div>
-                      <input type="text" class="form-control" >
-                    </div>
-                  
-                  </div>
 
+                    </div>
+                    <!-- /.card-body -->
+                  </div>
                 </div>
-                <!-- /.card-body -->
-              </div>
-            </div>
-            <!-- /.col (left) -->
-            <div class="col-md-6">
-              <div class=" ">
-               
-                <div class="card-body">
-                    <div class="form-group">
-                        <label>Profession:</label>
-                          <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                              <input type="text" class="form-control datetimepicker-input" />
-                              <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                                  <div class="input-group-text"><i class="fa fa-user"></i></div>
+                <!-- /.col (left) -->
+                <div class="col-md-6">
+                  <div class=" ">
+                  
+                    <div class="card-body">
+                        {{-- <div class="form-group">
+                            <label>Profession:</label>
+                              <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                  <input type="text" class="form-control " name="r" />
+                                  <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                      <div class="input-group-text"><i class="fa fa-user"></i></div>
+                                  </div>
                               </div>
-                          </div>
-                      </div>
-                      <div class="form-group">
-                        <label>Date de Naissance:</label>
-                        <div class="input-group">  
-                          <input type="date" class="form-control" >
-                        </div>
-                      
-                      </div>
-                      <div class="form-group">
-                        <label>Choisisez Role</label>
-                        
-                        <div class="input-group date">
-                           
-                            <select class="form-control select2" style="width: 70%;">
-                              <option selected="selected">Gérant</option>
-                              <option>Comptable</option>
-                              <option>Chef cuisiner</option>
-                              <option>Caisier</option>
-                              <option>Serveur</option>
-                              <option>Nettoyeur</option>            
-                            </select>
-                            <div class="input-group-append" style="margin-left: 8px">
-                                <a href="{{route('updateRole')}}" class="btn-success btn"> <i class="fa fa-plus"></i></a>
-                          </div>
-                        
-                      </div>
-                 </div>
-                        <!-- radio -->
-                        <div class="form-group ">
+                          </div> --}}
+                          <div class="form-group">
+                            <label>Date de Naissance:</label>
+                            <div class="input-group">  
+                              <input type="date" class="form-control @error('birthday') is-invalid @enderror "  name="birthday" value="{{ old('birthday') }}">
+                              @error('birthday')
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </span>
+                              @enderror
+                            </div>
                           
-                          <div class="icheck-primary d-inline">
-                            <input type="radio" id="radioPrimary1" name="r1" checked>
-                            <label for="radioPrimary1">
-                                Homme
-                            </label>
                           </div>
-                          <div class="icheck-primary d-inline">
-                            <input type="radio" id="radioPrimary2" name="r1">
-                            <label for="radioPrimary2">
-                              Femme
-                            </label>
+                          <div class="form-group">
+                            <label>Choisisez Role</label>
+                            
+                            <div class="input-group date">
+                              
+                                <select class="form-control select2" style="width: 70%;" name="role">
+                                  <label for="">Role</label>
+                                  @foreach ($roles as $role) 
+                                  <option value="{{ $role->role_id }}">{{ $role->role_slug }}</option>
+                                  @endforeach           
+                                </select>
+                                <div class="input-group-append" style="margin-left: 8px">
+                                    <a href="{{route('updateRole')}}" class="btn-success btn"> <i class="fa fa-plus"></i></a>
+                              </div>
+                            
                           </div>
+                    </div>
+                            <!-- radio -->
+                            <div class="form-group ">
+                              
+                              <div class="icheck-primary d-inline">
+                                <input type="radio" id="radioPrimary1" name="sex" value="Homme" checked>
+                                <label for="radioPrimary1">
+                                    Homme
+                                </label>
+                              </div>
+                              <div class="icheck-primary d-inline">
+                                <input type="radio" id="radioPrimary2" name="sex" value="Femme">
+                                <label for="radioPrimary2">
+                                  Femme
+                                </label>
+                              </div>
+                              
+                            </div>
                           
-                        </div>
-                      
-                <div class="form-group">
-                  <label>Mot de passe:</label>
-                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                        <input type="password" class="form-control datetimepicker-input" />
-                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                            <div class="input-group-text"><i class="fa fa-key"></i></div>
+                    <div class="form-group">
+                      <label>Mot de passe:</label>
+                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                            <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" />
+                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-key"></i></div>
+                            </div>
+                            @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                  <label>Confirmer Mot de passe:</label>
-                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                        <input type="password" class="form-control datetimepicker-input" />
-                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                            <div class="input-group-text"><i class="fa fa-key"></i></div>
+                    <div class="form-group">
+                      <label>Confirmer Mot de passe:</label>
+                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                            <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror " name="password_confirmation"/>
+                            <div class="input-group-append">
+                                <div class="input-group-text"><i class="fa fa-key"></i></div>
+                            </div>
+                            @error('password_confirmation')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                     </div>
+                    <!-- /.card-body -->
+
+                  </div>
+              
                 </div>
-                <!-- /.card-body -->
-              </div>
-           
+                <!-- /.col (right) -->
             </div>
-            <!-- /.col (right) -->
-        </div>
-        </div>
-        <div class=" login-btm login-button" style="text-align: center">
-            <a href="{{route('admin')}}"  class="btn btn-outline-primary">Inscrit</a>
-        </div>
+            </div>
+            <div class=" login-btm login-button" style="text-align: center">
+                <button type="submit" class="btn btn-outline-primary">Inscrit</button>
+            </div>
+      </form>
       </section>
+
+
        
         <style>
 

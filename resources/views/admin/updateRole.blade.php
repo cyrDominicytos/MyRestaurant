@@ -24,49 +24,71 @@
     <section class="content">
         <div class="container-fluid">
       
-                <div class="card-body">       
+                <div class="card-body">
+                  <form action="{{ route('createrole') }}" method="post">  
+                    @csrf    
                      <div class="row">
                         <div class="form-group col-md-6">
                           <label>Designation du role:</label>
                           <div class="input-group">
-                            <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{old('name')}}" >
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                           </div>
                         </div>
+
+                
                         <div class="form-group col-md-6">
                           <label>Blog du role:</label>
                           <div class="input-group">
-                            <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                            <input type="text" class="form-control @error('slug') is-invalid @enderror" name="slug" value="{{ old('slug') }}">
+                            @error('slug')
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </span>
+                            @enderror
                           </div>
                         </div>
+
                      </div>
                      <div class="form-group ">
                       <label>Description:</label>
                       <div class="input-group">
-                        <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                        <input type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}">
+                        @error('description')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
                       </div>
                     </div>
 
+
                     <div class="row">
+                      @foreach (permissionModule() as $index=>$permission)
                       <div class="col-md-6">
-                          <button class="accordion"> <i class="fa fa-plus"></i> Comptable</button>
-                        <div class="panel">
-                          <label for="module" style="margin-left: 15px">
-                            <input type="checkbox" id="one" /> Facturer </label>
-                          <label for="module" style="margin-left: 25px">
-                            <input type="checkbox" id="one" /> Fait le point de la journéé</label>
-                          <label for="module" style="margin-left: 15px">
-                              <input type="checkbox" id="one" /> Satisfaire</label>
-                        </div>
-                    </div>
-                    
+                          <p class="accordion"> <i class="fa fa-plus" style="margin-right:15px"> Module  {{ ucfirst($index) }}</i> </p>
+                          <div class="panel">
+                            @foreach ($permission as $perm)
+                            <label for="module" style="margin-left: 15px">
+                              <input type="checkbox" id="one" name="permission[]" value="{{ $perm->permission_id }}"> {{ $perm->permission_name }} </label>
+                            @endforeach
+                          </div>
+                          
+                      </div>
+                      @endforeach
                       </div>
                     </div>
                     
                   </div>     
             
         <div class=" login-btm login-button" style="text-align: center">
-            <a href="{{route('admin')}}"  class="btn btn-outline-primary">Enregistrer le role</a>
+            <button type="submit" class="btn btn-outline-primary">Enregistrer</button>
         </div>
+      </form> 
       </section>
        
   <link rel="stylesheet" href="{{asset('css/newrole.css')}}">

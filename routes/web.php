@@ -16,11 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('Admin', function(){
     return view('admin.app');})->name('admin');
 
-Route::get('Admin/newCLient', function(){
-        return view('admin.newCLient');})->name('newClient');
+Route::get('Admin/newCLient',[App\Http\Controllers\AdminController::class, 'showUser'])->name('newClient');
+Route::post('Admin/newCLient',[App\Http\Controllers\AdminController::class, 'createUser'])->name('createuser');
+
  
-Route::get('Admin/updateRole', function(){
-            return view('admin.updateRole');})->name('updateRole');        
+Route::get('Admin/updateRole',[App\Http\Controllers\RoleController::class, 'newRole'])->name('updateRole'); 
+Route::post('Admin/updateRole',[App\Http\Controllers\RoleController::class, 'createRole'])->name('createrole');       
 
 Route::get('/moi',[App\Http\Controllers\AdminController::class, 'show']);
 Route::get('/', function () {
