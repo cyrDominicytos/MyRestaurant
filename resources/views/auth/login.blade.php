@@ -2,6 +2,7 @@
 <html lang="{{ str_replace('_', '-',app()->getLocale()) }}">
     @include('admin.layout.header')
 <body class="hold-transition login-paged">
+    @include('flash-message')
     {{-- <link rel="stylesheet" href="{{asset('css/app.css')}}"> --}}
     <div class="login-box" style="margin-left:auto; margin-right:auto;margin-top:55px">
         <div class="card card-outline card-primary">

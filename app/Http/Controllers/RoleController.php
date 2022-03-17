@@ -42,7 +42,7 @@ class RoleController extends Controller
             "role_id"=>$roles->id,
             "permission_list"=>json_encode($request->permission)
         ]);
-         return redirect()->route('newClient');
+         return redirect()->route('listRole')->with('success','Role is successfully create');
     }
 
     public function edit($id){
@@ -51,7 +51,7 @@ class RoleController extends Controller
     }
 
     public function updateRole(Request $request,$id){
-        
+
         $this->validator($request->all())->validate();
         $roleUpdate = DB::table('roles')
                 ->where('role_id',$id)
@@ -66,7 +66,7 @@ class RoleController extends Controller
                     "permission_list"=>json_encode($request->permission)
                 ]);
 
-        return redirect()->route('newClient')->with('success', 'user is successfully update');        
+        return redirect()->route('listRole')->with('success', 'Role is successfully update');        
     }
 
     public function delete(Request $request,$id){

@@ -83,7 +83,7 @@ class AdminController extends Controller
             "role_user_id"=>$request->role,
         ]);
 
-         return redirect()->route('home');
+         return redirect()->route('list')->with('success', 'user is successfully create');
     }
 
     public function edit($id){
@@ -110,7 +110,7 @@ class AdminController extends Controller
             "sex"=>$request->sex,
             "role_user_id"=>$request->role,
         ]);
-        return redirect()->route('list');
+        return redirect()->route('list')->with('success', 'user is successfully updated');
     }
 
     public function block($id,$bannir){
