@@ -42,7 +42,7 @@
               <div class="">
                
                 <div class="card-body">
-                <form action="{{ route('createuser') }}" method="post">
+                <form action="{{ route('user_update',$user->id) }}" method="post">
                   @csrf
                       <div class="form-group">
                         <label>Nom:</label>
@@ -50,7 +50,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="far fa-user"></i></span>
                           </div>
-                          <input type="text" class="form-control @error('firstname') is-invalid @enderror " name="firstname" value="{{ $firstname ?? old('firstname') }}"  autocomplete="firstname" autofocus>
+                          <input type="text" class="form-control @error('firstname') is-invalid @enderror " name="firstname" value="{{ $user->firstname }}"  autocomplete="firstname" autofocus>
                           @error('firstname')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
@@ -68,7 +68,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="far fa-user"></i></span>
                           </div>
-                          <input type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" >
+                          <input type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ $user->lastname }}" >
                           @error('lastname')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
@@ -87,7 +87,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-phone"></i></span>
                           </div>
-                          <input type="tel" class="form-control  @error('phone_number') is-invalid @enderror " name="phone_number" value="{{ old('phone_number') }}">
+                          <input type="tel" class="form-control  @error('phone_number') is-invalid @enderror " name="phone_number" value="{{ $user->phone_number }}">
                           @error('phone_number')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
@@ -104,7 +104,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                           </div>
-                          <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
+                          <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $user->email }}" >
                           @error('email')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
@@ -122,7 +122,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-home"></i></span>
                           </div>
-                          <input type="text" class="form-control @error('origin') is-invalid @enderror" name="origin" value="{{ old('origin') }}">
+                          <input type="text" class="form-control @error('origin') is-invalid @enderror" name="origin" value="{{ $user->origin }}">
                           @error('origin')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
@@ -132,20 +132,18 @@
                       
                       </div>
                       <div class="form-group ">
-   
                         <div class="icheck-primary d-inline">
-                          <input type="radio" id="radioPrimary1" name="sex" value="Homme" checked >
+                          <input type="radio" id="radioPrimary1" name="sex" value="Homme" {{ $user->sex=='Homme' ? 'checked' : '' }} >
                           <label for="radioPrimary1">
                               Homme
                           </label>
                         </div>
                         <div class="icheck-primary d-inline">
-                          <input type="radio" id="radioPrimary2" name="sex" value="Femme" >
+                          <input type="radio" id="radioPrimary2" name="sex" value="Femme"  {{ $user->sex=='Femme' ? 'checked' : '' }}>
                           <label for="radioPrimary2">
                             Femme
                           </label>
                         </div>
-                        
                       </div>
 
                     </div>
@@ -174,7 +172,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-home" style="c"></i></span>
                           </div>
-                          <input type="text" class="form-control @error('adress') is-invalid @enderror "  name="adress" value="{{ old('adress') }}">
+                          <input type="text" class="form-control @error('adress') is-invalid @enderror "  name="adress" value="{{ $user->adress }}">
                           @error('adress')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
@@ -186,7 +184,7 @@
                           <div class="form-group">
                             <label>Date de Naissance:</label>
                             <div class="input-group">  
-                              <input type="date" class="form-control @error('birthday') is-invalid @enderror "  name="birthday" value="{{ old('birthday') }}">
+                              <input type="date" class="form-control @error('birthday') is-invalid @enderror "  name="birthday" value="{{ $user->birthday }}">
                               @error('birthday')
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
@@ -202,47 +200,17 @@
                               
                                 <select class="form-control select2" style="width: 70%;" name="role">
                                   <label for="">Role</label>
-                                  @foreach ($roles as $role) 
-                                  <option value="{{ $role->role_id }}">{{ $role->role_slug }}</option>
-                                  @endforeach           
+                                  {{-- @foreach ($roles as $role)  --}}
+                                  <option value="{{ $user->role->role_id }}">{{ $user->role->role_name }}</option>
+                                  {{-- @endforeach            --}}
                                 </select>
                                 <div class="input-group-append" style="margin-left: 8px">
-                                    <a href="{{route('new_Role')}}" class="btn-success btn"> <i class="fa fa-plus"></i></a>
+                                    <a href="{{ route('edit_Role',$user->role->role_id) }} " class="btn-success btn"> <i class="fa fa-plus"></i></a>
                               </div>
                             
                           </div>
                     </div>
                             <!-- radio -->
-                         
-                          
-                    <div class="form-group">
-                      <label>Mot de passe:</label>
-                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                            <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" />
-                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                                <div class="input-group-text"><i class="fa fa-key"></i></div>
-                            </div>
-                            @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="form-group">
-                      <label>Confirmer Mot de passe:</label>
-                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                            <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror " name="password_confirmation"/>
-                            <div class="input-group-append">
-                                <div class="input-group-text"><i class="fa fa-key"></i></div>
-                            </div>
-                            @error('password_confirmation')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
                     <!-- /.card-body -->
 
                   </div>

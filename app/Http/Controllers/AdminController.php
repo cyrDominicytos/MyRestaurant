@@ -23,19 +23,17 @@ class AdminController extends Controller
     {
         return Validator::make($data, [
             'firstname' => ['required', 'string', 'max:255'],
-            'lastname' => ['required', 'string', 'max:255'],
+            'lastname' => ['required', 'string', 'max:255','unique:users'],
             'phone_number' => ['required', 'string', 'max:255',],
             'email' => ['required', 'string','email', 'max:255',],
             'origin' => ['required', 'string', 'max:255',],
             'adress' => ['required', 'string', 'max:255',],
             'birthday'=> ['required', 'date'],
-            'password' => ['required', 'string', 'max:255','min:8'],
-            'password_confirmation'=> ['required', 'string', 'max:255','min:6|required_with:password|same:password','min:8'],
             
         ]);
     }
     
-    public function show(){
+    public function new(){
         $roleModel= new Role();
         $user = User::all();
         $role=Role::all();
@@ -64,6 +62,11 @@ class AdminController extends Controller
         $roles=Role::all();
         return view('admin.newCLient',compact('roles'));
     }
+
+    public function show(){
+      $users=User::all();
+      return view('admin.list',compact('users'));
+    }
     public function createUser(Request $request){
         // dd($request->all());
         $this->validator($request->all())->validate();
@@ -82,27 +85,31 @@ class AdminController extends Controller
 
          return redirect()->route('home');
     }
+
+    public function edit($id){
+        $user = User::findOrFail($id);
+        return view('admin.editClient', compact('user'));
+    }
+
+    public function destroy($id){
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->route('list')->with('success', 'user is successfully deleted');
+    }
+
+    public function update(Request $request ,$id){
+        $this->validator($request->all())->validate();
+        $user= User::whereId($id)->update([
+            "firstname"=>$request->firstname,
+            "lastname"=>$request->lastname,
+            "phone_number"=>$request->phone_number,
+            "email"=>$request->email,
+            "origin"=>$request->origin,
+            "adress"=>$request->adress,
+            "birthday"=>$request->birthday,
+            "sex"=>$request->sex,
+            "role_user_id"=>$request->role,
+        ]);
+        return redirect()->route('list');
+    }
 }
-
-
-        // $this->validator($request->all())->validate();
-            //     $validate=$request->validate([
-    //         "username"=>"required",
-    //         "card_number"=>"required",
-    //         "mm"=>"required|numeric",
-    //         "yy"=>"required|numeric",
-    //         "cvv"=>"required",
-    //     ]);
-    //   if (!$validate) {
-    //     return back()->withErrors($validate)->withInput();
-    //   }
-    //   $ptm=new Portemonnaie($request->all());
-    //   $ptm->total_buy_price=$total_buy_price;
-    //   $ptm->username=$request->username;
-    //   $ptm->card_number=$request->card_number;
-    //   $ptm->cvv=$request->cvv;
-    //   $ptm->waiting_price=$waiting_price;
-    //   $ptm->expiration=$request->mm."/".$request->yy;
-    //   $ptm->total_account=100000;
-    //   $ptm->id_client=$id_client;
-    //  $ptm->save();

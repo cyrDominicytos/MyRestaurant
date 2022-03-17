@@ -15,16 +15,22 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('Admin', function(){return view('admin.app');})->name('admin');
 
-Route::get('Admin/list', function(){return view('admin.list');})->name('list');
+Route::get('Admin/list',[App\Http\Controllers\AdminController::class,'show'])->name('list');
+Route::get('Admin/edit/{id}',[App\Http\Controllers\AdminController::class,'edit'])->name('user_edit');
+Route::get('Admin/delete/{id}',[App\Http\Controllers\AdminController::class,'destroy'])->name('user_delete');
+Route::post('Admin/update/{id}',[App\Http\Controllers\AdminController::class,'update'])->name('user_update');
 
 Route::get('Admin/newCLient',[App\Http\Controllers\AdminController::class, 'showUser'])->name('newClient');
 Route::post('Admin/newCLient',[App\Http\Controllers\AdminController::class, 'createUser'])->name('createuser');
 
- 
-Route::get('Admin/updateRole',[App\Http\Controllers\RoleController::class, 'newRole'])->name('updateRole'); 
-Route::post('Admin/updateRole',[App\Http\Controllers\RoleController::class, 'createRole'])->name('createrole');       
 
-Route::get('/moi',[App\Http\Controllers\AdminController::class, 'show']);
+ 
+Route::get('Admin/updateRole',[App\Http\Controllers\RoleController::class, 'newRole'])->name('new_Role'); 
+Route::post('Admin/updateRole',[App\Http\Controllers\RoleController::class, 'createRole'])->name('createrole');   
+Route::get('Admin/editRole/{id}',[App\Http\Controllers\RoleController::class, 'edit'])->name('edit_Role');
+Route::post('Admin/updateRole/{id}',[App\Http\Controllers\RoleController::class, 'update'])->name('update_Role');     
+
+Route::get('/moi',[App\Http\Controllers\AdminController::class, 'new']);
 Route::get('/', function () {
     return view('auth.login');
 });

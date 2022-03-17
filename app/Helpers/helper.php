@@ -7,7 +7,20 @@ if(!function_exists('getPermissionById')){
     function getPermissionById($id){
        $modelPermission=new Permission();
        $result=$modelPermission->where('permission_id',$id)->first();
-       return $result;
+       $temp=[]; $perm=[]; $index="";
+       if($index==$result->permission_module || $index=='' ){
+        $index=$result->permission_module;
+        $temp[count($temp)]=$result;
+        $perm[$index]=$temp;
+       }
+       else{
+        $perm[$index]=$temp;
+        $temp=[];
+        $index=$result->permission_module;
+        $temp[count($temp)]=$result;
+       }
+       $perm[$index]=$temp;
+       return $perm;
     }
     
 }

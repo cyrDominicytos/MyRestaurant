@@ -11,7 +11,7 @@ class RoleController extends Controller
 {
     //
     public function newRole(){
-        return view('admin.updateRole');
+        return view('admin.newRole');
     }
 
     protected function validator(array $data)
@@ -37,5 +37,32 @@ class RoleController extends Controller
             "permission_list"=>json_encode($request->permission)
         ]);
          return redirect()->route('newClient');
+    }
+
+    public function edit($id){
+
+        $role=DB::table('roles')->where('role_id',$id)->first();
+        $permi_role=DB::table('permission_role')->where('role_id',$id)->first();
+        $permission=json_decode($permi_role->permission_list);
+        
+        return view('admin.editRole',compact('role','permission'));
+    }
+
+    public function updateRole(Request $request,$id){
+        $this->validator($request->all())->validate();
+        $roleUpdate = DB::table('roles')
+                ->where('role_id',$id)
+                ->update([
+                    "role_name"=>$request->name,
+                    "role_slug"=>$request->slug,
+                    "role_description"=>$request->description
+                ]);
+        $permi_role_update=DB::table('permission_role')
+                ->where('role_id',$id)
+                ->update([
+                    "permission_list"=>json_encode($request->permission)
+                ]);
+
+        return redirect()->route('newClient')->with('success', 'user is successfully update');        
     }
 }
