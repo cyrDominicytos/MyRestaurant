@@ -81,9 +81,10 @@ class RoleController extends Controller
             }
             else{
                 $role=DB::table('roles')->where('role_id',$id)->delete();
+                return redirect()->route('listRole')->with('success', 'user is successfully deleted');
             }
         }
         
-        return redirect()->route('listRole')->with('success', 'user is successfully deleted');
+        
     }
 }

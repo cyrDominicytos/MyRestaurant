@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CheckBanned
 {
@@ -18,7 +19,7 @@ class CheckBanned
     {
         if(auth()->check() && (auth()->user()->isbannir==0)){
             Auth::logout();
-            $request->session()->invalid();
+            $request->session()->invalidate();
             $request->session()->regenerateToken();
             return redirect()->route('login')->with('error','Your account is suspend please contact Admin');
         }

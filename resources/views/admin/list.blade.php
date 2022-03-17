@@ -50,11 +50,15 @@
                               <a  class="nav-link" type="button"   aria-expanded="false" data-toggle="dropdown"><i class="fa fa-cogs" style="color: black"></i></a>
                               <div class="dropdown-menu ">
                                   <a class="dropdown-item" href="{{ route('user_edit', $user->id) }}" style="font-size: 12px;color:green; font-weight:bold"><i class="fa fa-edit" style="margin-right:10px;color:green"></i>Editer</a>
-                                  <a class="dropdown-item" href="" style="font-size: 12px;color:rgb(49, 105, 189); font-weight:bold"><i class="fa fa-lock" style="margin-right:10px;color:rgb(49, 105, 189)"></i>Bloquer</a> 
-                                  <a class="dropdown-item" href="" style="font-size: 12px;color:red; font-weight:bold"><i class="fa fa-trash" style="margin-right:10px;color:red"></i>Supprimer</a>                                              
+                                  @if ($user->isbannir)
+                                    <a class="dropdown-item" href="{{ route('user_block',['id'=>$user->id,'bannir'=>$user->isbannir]) }}" style="font-size: 12px;color:rgb(49, 105, 189); font-weight:bold"><i class="fa fa-lock" style="margin-right:10px;color:rgb(49, 105, 189)"></i>Bloquer</a> 
+                                  @else
+                                    <a class="dropdown-item" href="{{ route('user_block',['id'=>$user->id,'bannir'=>$user->isbannir]) }}" style="font-size: 12px;color:rgb(49, 105, 189); font-weight:bold"><i class="fa fa-lock" style="margin-right:10px;color:rgb(189, 49, 159)"></i>Debloquer</i></a> 
+                                  @endif
+                                  
+                                  <a class="dropdown-item" href="{{ route('user_delete',$user->id) }}" style="font-size: 12px;color:red; font-weight:bold"><i class="fa fa-trash" style="margin-right:10px;color:red"></i>Supprimer</a>                                              
                               </div> 
                           </div>
-                          {{-- {{ route('user_delete',$user->id) }} --}}
                           </td>
                         </tr>
                       @endforeach

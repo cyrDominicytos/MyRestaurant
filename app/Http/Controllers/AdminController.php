@@ -112,4 +112,20 @@ class AdminController extends Controller
         ]);
         return redirect()->route('list');
     }
+
+    public function block($id,$bannir){
+        if($bannir){
+            $user=User::whereId($id)->update([
+                'isbannir' =>false,
+            ]);
+            return redirect()->route('list')->with('error', 'le compte a été bloquer');
+        }else{
+            $user=User::whereId($id)->update([
+                'isbannir' =>true,
+            ]);
+            return redirect()->route('list')->with('success', 'le compte a été debloquer');
+        }
+
+        
+    }
 }
