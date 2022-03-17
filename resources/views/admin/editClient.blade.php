@@ -1,6 +1,9 @@
 @extends('admin.layout.mail')
 @section('content')
 
+  <style>
+   
+  </style>
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
@@ -28,7 +31,7 @@
     <section class="content">
         <div class="container-fluid">
           <div style="text-align: center">
-            <img src="{{asset('dist/img/butcher-block.png')}}" alt="">
+            {{-- <img src="{{asset('dist/img/butcher-block.png')}}" alt=""> --}}
               <h1 style="color:#014463;  font-family: 'Roboto', sans-serif; font-weight:bold;text-align:center;">Enregistrer Client</h1>
   
           </div>
@@ -46,7 +49,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="far fa-user"></i></span>
                           </div>
-                          <input type="text" class="form-control @error('firstname') is-invalid @enderror " name="firstname" value="{{ $user->firstname }}"  autocomplete="firstname" autofocus>
+                          <input type="text" class="form-control @error('firstname') is-invalid @enderror " name="firstname" value="{{ $user->firstname }}"  >
                           @error('firstname')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
@@ -111,31 +114,16 @@
                       </div>
                       <!-- /.form group -->
 
-                      <div class="form-group">
-                        <label>Provenance:</label>
-      
-                        <div class="input-group">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-home"></i></span>
-                          </div>
-                          <input type="text" class="form-control @error('origin') is-invalid @enderror" name="origin" value="{{ $user->origin }}">
-                          @error('origin')
-                          <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                          </span>
-                          @enderror
-                        </div>
-                      
-                      </div>
+                     
                       <div class="form-group ">
                         <div class="icheck-primary d-inline">
-                          <input type="radio" id="radioPrimary1" name="sex" value="Homme" >
+                          <input type="radio" id="radioPrimary1" name="sex" value="Homme" {{$user->sex=='Homme' ? 'checked' : ''}} >
                           <label for="radioPrimary1">
                               Homme
                           </label>
                         </div>
                         <div class="icheck-primary d-inline">
-                          <input type="radio" id="radioPrimary2" name="sex" value="Femme" >
+                          <input type="radio" id="radioPrimary2" name="sex" value="Femme"  {{ $user->sex=='Femme' ? 'checked' : '' }} >
                           <label for="radioPrimary2">
                             Femme
                           </label>
@@ -160,7 +148,22 @@
                                   </div>
                               </div>
                           </div> --}}
-
+                          <div class="form-group">
+                            <label>Provenance:</label>
+          
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-home"></i></span>
+                              </div>
+                              <input type="text" class="form-control @error('origin') is-invalid @enderror" name="origin" value="{{ $user->origin }}">
+                              @error('origin')
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </span>
+                              @enderror
+                            </div>
+                          
+                          </div>
                       <div class="form-group">
                         <label>Adresse:</label>
       
@@ -207,6 +210,9 @@
                           </div>
                     </div>
                             <!-- radio -->
+                         
+                          
+
                     <!-- /.card-body -->
 
                   </div>
@@ -216,7 +222,7 @@
             </div>
             </div>
             <div class=" login-btm login-button" style="text-align: center">
-                <button type="submit" class="btn btn-outline-primary">Enregistrer</button>
+                <button type="submit" class="btn btn-outline-primary">Inscrit</button>
             </div>
       </form>
       </section>

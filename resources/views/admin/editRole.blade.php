@@ -13,7 +13,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Creer Role</li>
+              <li class="breadcrumb-item active">Modifier Role</li>
             </ol>
           </div>
         </div>
@@ -67,30 +67,18 @@
 
 
                     <div class="row">
-                      @foreach (permissionModule(rolePermission($role->role_id)) as $index=>$permission)
+                      @foreach (permissionModule() as $index=>$permission)
                       <div class="col-md-6">
                           <p class="accordion"> <i class="fa fa-plus" style="margin-right:15px"> Module  {{ ucfirst($index) }}</i> </p>
                           <div class="panel">
                             @foreach ($permission as $perm)
                             <label for="module" style="margin-left: 15px">
-                              <input type="checkbox" id="one" name="permission[]" value="{{ $perm->permission_id }}"> {{ $perm->permission_name }} </label>
+                              <input type="checkbox" id="one" name="permission[]" value="{{ $perm->permission_id }}"  {{ in_array($perm->permission_id, $assign_permission_list)  ? ("checked") :  ""}} > {{ $perm->permission_name }} </label>
                             @endforeach
                           </div>
                       </div>
                       @endforeach
 
-
-                     @foreach (permissionEdit(rolePermission($role->role_id)) as $index=>$permission)
-                    <div class="col-md-6">
-                        <p class="accordion"> <i class="fa fa-plus" style="margin-right:15px"> Module {{ ucfirst($index) }} </i> </p>
-                        <div class="panel">
-                        @foreach ($permission as $perm)
-                          <label for="module" style="margin-left: 15px">
-                            <input type="checkbox" id="one" name="permission[]" value="{{ getPermissionById($perm)->permission_id }}" checked> {{ getPermissionById($perm)->permission_name }} </label>
-                        @endforeach
-                        </div>
-                    </div> 
-                    @endforeach 
                     </div> 
                   </div>     
             

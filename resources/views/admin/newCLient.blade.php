@@ -28,7 +28,7 @@
     <section class="content">
         <div class="container-fluid">
           <div style="text-align: center">
-            <img src="{{asset('dist/img/butcher-block.png')}}" alt="">
+            {{-- <img src="{{asset('dist/img/butcher-block.png')}}" alt=""> --}}
               <h1 style="color:#014463;  font-family: 'Roboto', sans-serif; font-weight:bold;text-align:center;">Enregistrer Client</h1>
   
           </div>

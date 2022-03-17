@@ -21,30 +21,30 @@ if(!function_exists('rolePermission')){
     }
 }
 
-if(!function_exists('permissionEdit')){
-    function permissionEdit($arry){
-        $index="";$temp=[];$perm_edit=[];
-       foreach($arry as $per){
-          if($index==getPermissionById($per)->permission_module || $index==''){
-             $index=getPermissionById($per)->permission_module;
-             $temp[count($temp)]=$per;
-          }else{
-            $perm_edit[$index]=$temp;
-            $temp=[];
-            $index=getPermissionById($per)->permission_module;
-            $temp[count($temp)]=$per;
-          }
-       }
-       $perm_edit[$index]=$temp;
-       return $perm_edit;
-    }
-}
+// if(!function_exists('permissionEdit')){
+//     function permissionEdit($arry){
+//         $index="";$temp=[];$perm_edit=[];
+//        foreach($arry as $per){
+//           if($index==getPermissionById($per)->permission_module || $index==''){
+//              $index=getPermissionById($per)->permission_module;
+//              $temp[count($temp)]=$per;
+//           }else{
+//             $perm_edit[$index]=$temp;
+//             $temp=[];
+//             $index=getPermissionById($per)->permission_module;
+//             $temp[count($temp)]=$per;
+//           }
+//        }
+//        $perm_edit[$index]=$temp;
+//        return $perm_edit;
+//     }
+// }
 
 if(!function_exists('permissionModule')){
     
-    function permissionModule($arry=null){
+    function permissionModule(){
           $temp=[]; $perm=[]; $index="";
-          $permissions=Permission::all()->whereNotIn('permission_id',$arry);
+          $permissions=Permission::all();
           foreach($permissions as $permission){
             if($index==$permission->permission_module || $index=="")
             {
