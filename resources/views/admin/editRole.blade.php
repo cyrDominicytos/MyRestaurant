@@ -68,18 +68,17 @@
 
 
                     <div class="row">
-                      @foreach ($permission as $perm)
-                      @foreach (getPermissionById($perm) as $index =>$permission)
+                      @foreach (permissionModule() as $index=>$permission)
                       <div class="col-md-6">
                           <p class="accordion"> <i class="fa fa-plus" style="margin-right:15px"> Module  {{ ucfirst($index) }}</i> </p>
                           <div class="panel">
                             @foreach ($permission as $perm)
                             <label for="module" style="margin-left: 15px">
-                              <input type="checkbox" id="one" name="permission[]" value="{{ $perm->permission_id }}" checked> {{ $perm->permission_name  }}</label>
+                              <input type="checkbox" id="one" name="permission[]" value="{{ $perm->permission_id }}"> {{ $perm->permission_name }} </label>
                             @endforeach
                           </div>
+                          
                       </div>
-                      @endforeach
                       @endforeach
                       </div>
                     </div>

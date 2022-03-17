@@ -6,7 +6,8 @@
     <div class="wrapper">
         @include('admin.layout.navbar')
         @include('admin.layout.sidebar')
-
+        
+        @include('flash-message')
         @yield('content')
         
         @include('admin.layout.footer')

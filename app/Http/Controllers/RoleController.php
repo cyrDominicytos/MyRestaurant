@@ -44,7 +44,7 @@ class RoleController extends Controller
         $role=DB::table('roles')->where('role_id',$id)->first();
         $permi_role=DB::table('permission_role')->where('role_id',$id)->first();
         $permission=json_decode($permi_role->permission_list);
-        
+
         return view('admin.editRole',compact('role','permission'));
     }
 
