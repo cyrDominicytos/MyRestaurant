@@ -46,7 +46,7 @@
                             <div class="nav-item dropdown">
                                 <a  class="dropdown-toggle" type="button"   aria-expanded="false" data-toggle="dropdown" style="color: black">Doit</a>
                                 <div class="dropdown-menu ">
-                                    <a class="dropdown-item" href="" style="font-size: 12px;color:black; font-weight:bold">{{ getPermissionById($role->role_id)->permission_module }}</a>
+                                    <a class="dropdown-item" href="" style="font-size: 12px;color:black; font-weight:bold">{{ getPermissionById($role->role_id)->permission_name }}</a>
                                 </div> 
                             </div>
                           </td>
