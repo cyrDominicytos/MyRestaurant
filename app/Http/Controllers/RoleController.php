@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Role;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -10,6 +11,11 @@ use Illuminate\Support\Facades\Validator;
 class RoleController extends Controller
 {
     //
+
+    public function showRole(){
+        $roles=Role::all();
+        return view('admin.listRole',compact('roles'));
+    }
     public function newRole(){
         return view('admin.newRole');
     }
@@ -64,5 +70,21 @@ class RoleController extends Controller
                 ]);
 
         return redirect()->route('newClient')->with('success', 'user is successfully update');        
+    }
+
+    public function delete(Request $request,$id){
+
+        $role=DB::table('roles')->where('role_id',$id)->first();
+        $user=User::all();
+        foreach($user as $rols){
+            if($role->role_id == $rols->role_user_id){
+              return redirect()->route('listRole')->with('error', 'user is affected by this role');
+            }
+            else{
+                $role->delete();
+            }
+        }
+        
+        return redirect()->route('list')->with('success', 'user is successfully deleted');
     }
 }

@@ -133,13 +133,13 @@
                       </div>
                       <div class="form-group ">
                         <div class="icheck-primary d-inline">
-                          <input type="radio" id="radioPrimary1" name="sex[]" value="Homme" {{ $user->sex=='Homme' ? 'checked' : '' }} >
+                          <input type="radio" id="radioPrimary1" name="sex" value="Homme" >
                           <label for="radioPrimary1">
                               Homme
                           </label>
                         </div>
                         <div class="icheck-primary d-inline">
-                          <input type="radio" id="radioPrimary2" name="sex[]" value="Femme"  {{ $user->sex=='Femme' ? 'checked' : '' }}>
+                          <input type="radio" id="radioPrimary2" name="sex" value="Femme" >
                           <label for="radioPrimary2">
                             Femme
                           </label>

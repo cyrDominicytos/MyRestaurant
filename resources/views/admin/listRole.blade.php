@@ -20,6 +20,7 @@
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
+    @include('flash-message')
     <section class="content">
         <div class="container-fluid">
           <div class="row">
@@ -40,32 +41,31 @@
                     </tr>
                     </thead>
                     <tbody>
-                     
+                     @foreach ($roles as $role)
                         <tr>
-                          <td>1</td>
-                          <td>Gérant</td>
+                          <td>{{ $role->role_id }}</td>
+                          <td>{{ $role->role_name }}</td>
                           <td>
                             <div class="nav-item dropdown">
                                 <a  class="dropdown-toggle" type="button"   aria-expanded="false" data-toggle="dropdown" style="color: black">Doit</a>
                                 <div class="dropdown-menu ">
-                                    <a class="dropdown-item" href="" style="font-size: 12px;color:black; font-weight:bold">Editer</a>
-                                    <a class="dropdown-item" href="" style="font-size: 12px;color:black; font-weight:bold">Supprimer</a>
+                                    <a class="dropdown-item" href="" style="font-size: 12px;color:black; font-weight:bold">{{ getPermissionById($role->role_id)->permission_module }}</a>
                                 </div> 
                             </div>
                           </td>
-                          <td>Assurer la perfection</td>
+                          <td>{{ $role->role_description }}</td>
                           <td>
                             <div class="nav-item dropdown">
                               <a  class="nav-link" type="button"   aria-expanded="false" data-toggle="dropdown"><i class="fa fa-cogs" style="color: black"></i></a>
                               <div class="dropdown-menu ">
-                                  <a class="dropdown-item" href="" style="font-size: 12px;color:green; font-weight:bold"><i class="fa fa-edit" style="margin-right:10px;color:green"></i>Editer</a>
-                                  <a class="dropdown-item" href="" style="font-size: 12px;color:red; font-weight:bold"><i class="fa fa-trash" style="margin-right:10px;color:red"></i>Supprimer</a>
+                                  <a class="dropdown-item" href="{{ route('edit_Role',$role->role_id) }}" style="font-size: 12px;color:green; font-weight:bold"><i class="fa fa-edit" style="margin-right:10px;color:green"></i>Editer</a>
+                                  <a class="dropdown-item" href="{{ route('delete_Role',$role->role_id) }}" style="font-size: 12px;color:red; font-weight:bold"><i class="fa fa-trash" style="margin-right:10px;color:red"></i>Supprimer</a>
                               </div> 
                           </div>
                           
                           </td>
                         </tr>
-                    
+                        @endforeach
                     </tbody>
                    
                   </table>

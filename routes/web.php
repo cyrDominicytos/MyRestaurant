@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('Admin', function(){return view('admin.app');})->name('admin');
-Route::get('Admin/listRole', function(){return view('admin.listRole');})->name('listRole');
+Route::get('Admin/listRole',[App\Http\Controllers\RoleController::class,'showRole'])->name('listRole');
 
 Route::get('Admin/list',[App\Http\Controllers\AdminController::class,'show'])->name('list');
 Route::get('Admin/edit/{id}',[App\Http\Controllers\AdminController::class,'edit'])->name('user_edit');
@@ -29,7 +29,8 @@ Route::post('Admin/newCLient',[App\Http\Controllers\AdminController::class, 'cre
 Route::get('Admin/updateRole',[App\Http\Controllers\RoleController::class, 'newRole'])->name('new_Role'); 
 Route::post('Admin/updateRole',[App\Http\Controllers\RoleController::class, 'createRole'])->name('createrole');   
 Route::get('Admin/editRole/{id}',[App\Http\Controllers\RoleController::class, 'edit'])->name('edit_Role');
-Route::post('Admin/updateRole/{id}',[App\Http\Controllers\RoleController::class, 'update'])->name('update_Role');     
+Route::post('Admin/updateRole/{id}',[App\Http\Controllers\RoleController::class, 'update'])->name('update_Role'); 
+Route::get('Admin/delete/{id}',[App\Http\Controllers\RoleController::class, 'delete'])->name('delete_Role');    
 
 Route::get('/moi',[App\Http\Controllers\AdminController::class, 'new']);
 Route::get('/', function () {
