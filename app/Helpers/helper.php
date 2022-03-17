@@ -17,18 +17,34 @@ if(!function_exists('rolePermission')){
     function rolePermission($id){
         $permi_role=DB::table('permission_role')->where('role_id',$id)->first();
         $permission=json_decode($permi_role->permission_list);
-        foreach($permission as $perm){
-           $rolePerm=getPermissionById($perm)->permission_name;
-        }
-        return $rolePerm;
+        return $permission;
+    }
+}
+
+if(!function_exists('permissionEdit')){
+    function permissionEdit($arry){
+        $index="";$temp=[];$perm_edit=[];
+       foreach($arry as $per){
+          if($index==getPermissionById($per)->permission_module || $index==''){
+             $index=getPermissionById($per)->permission_module;
+             $temp[count($temp)]=$per;
+          }else{
+            $perm_edit[$index]=$temp;
+            $temp=[];
+            $index=getPermissionById($per)->permission_module;
+            $temp[count($temp)]=$per;
+          }
+       }
+       $perm_edit[$index]=$temp;
+       return $perm_edit;
     }
 }
 
 if(!function_exists('permissionModule')){
     
-    function permissionModule(){
+    function permissionModule($arry=null){
           $temp=[]; $perm=[]; $index="";
-          $permissions=Permission::all();
+          $permissions=Permission::all()->whereNotIn('permission_id',$arry);
           foreach($permissions as $permission){
             if($index==$permission->permission_module || $index=="")
             {

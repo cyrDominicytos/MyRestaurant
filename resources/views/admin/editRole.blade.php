@@ -67,7 +67,7 @@
 
 
                     <div class="row">
-                      @foreach (permissionModule() as $index=>$permission)
+                      @foreach (permissionModule(rolePermission($role->role_id)) as $index=>$permission)
                       <div class="col-md-6">
                           <p class="accordion"> <i class="fa fa-plus" style="margin-right:15px"> Module  {{ ucfirst($index) }}</i> </p>
                           <div class="panel">
@@ -76,12 +76,22 @@
                               <input type="checkbox" id="one" name="permission[]" value="{{ $perm->permission_id }}"> {{ $perm->permission_name }} </label>
                             @endforeach
                           </div>
-                          
                       </div>
                       @endforeach
-                      </div>
-                    </div>
-                    
+
+
+                     @foreach (permissionEdit(rolePermission($role->role_id)) as $index=>$permission)
+                    <div class="col-md-6">
+                        <p class="accordion"> <i class="fa fa-plus" style="margin-right:15px"> Module {{ ucfirst($index) }} </i> </p>
+                        <div class="panel">
+                        @foreach ($permission as $perm)
+                          <label for="module" style="margin-left: 15px">
+                            <input type="checkbox" id="one" name="permission[]" value="{{ getPermissionById($perm)->permission_id }}" checked> {{ getPermissionById($perm)->permission_name }} </label>
+                        @endforeach
+                        </div>
+                    </div> 
+                    @endforeach 
+                    </div> 
                   </div>     
             
         <div class=" login-btm login-button" style="text-align: center">

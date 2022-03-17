@@ -46,15 +46,12 @@ class RoleController extends Controller
     }
 
     public function edit($id){
-
         $role=DB::table('roles')->where('role_id',$id)->first();
-        $permi_role=DB::table('permission_role')->where('role_id',$id)->first();
-        $permission=json_decode($permi_role->permission_list);
-
-        return view('admin.editRole',compact('role','permission'));
+        return view('admin.editRole',compact('role'));
     }
 
     public function updateRole(Request $request,$id){
+        
         $this->validator($request->all())->validate();
         $roleUpdate = DB::table('roles')
                 ->where('role_id',$id)

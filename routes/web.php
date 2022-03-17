@@ -30,7 +30,7 @@ Route::post('Admin/newCLient',[App\Http\Controllers\AdminController::class, 'cre
 Route::get('Admin/updateRole',[App\Http\Controllers\RoleController::class, 'newRole'])->name('new_Role'); 
 Route::post('Admin/updateRole',[App\Http\Controllers\RoleController::class, 'createRole'])->name('createrole');   
 Route::get('Admin/editRole/{id}',[App\Http\Controllers\RoleController::class, 'edit'])->name('edit_Role');
-Route::post('Admin/updateRole/{id}',[App\Http\Controllers\RoleController::class, 'update'])->name('update_Role'); 
+Route::post('Admin/updateRole/{id}',[App\Http\Controllers\RoleController::class, 'updateRole'])->name('update_Role'); 
 Route::get('Admin/deleteRole/{id}',[App\Http\Controllers\RoleController::class, 'delete'])->name('delete_Role');    
 
 Route::get('/moi',[App\Http\Controllers\AdminController::class, 'new']);
