@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('Admin', function(){return view('admin.app');})->name('admin');
+Route::get('Admin/listRole', function(){return view('admin.listRole');})->name('listRole');
 
 Route::get('Admin/list',[App\Http\Controllers\AdminController::class,'show'])->name('list');
 Route::get('Admin/edit/{id}',[App\Http\Controllers\AdminController::class,'edit'])->name('user_edit');

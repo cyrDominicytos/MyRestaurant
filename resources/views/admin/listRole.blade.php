@@ -7,14 +7,14 @@
         <div class="row mb-2">
           <div class="col-sm-6">
       
-                <h3 class="card-title" style="color: #014463; font-size:25px;font-weight:bold">Liste de employers dans votre restaurant</h3>
+                <h3 class="card-title" style="color: #014463; font-size:25px;font-weight:bold">Liste des roles</h3>
              
          
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Liste des employers</li>
+              <li class="breadcrumb-item active">Liste des Roles</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -33,33 +33,39 @@
                     <thead>
                     <tr style="color: #014463">
                       <th>N°</th>
-                      <th>Nom et Prénom</th>
-                      <th>Adresse Email</th>
-                      <th>Numéro</th>
-                      <th>Role</th>
+                      <th>Designation du Role</th>
+                      <th>Liste des permissions</th>
+                      <th>Descirption</th>
                       <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
-                      @foreach ($users as $user)
+                     
                         <tr>
-                          <td>{{ $user->id }}</td>
-                          <td>{{ $user->firstname }} {{ $user->lastname }} </td>
-                          <td>{{ $user->email }}</td>
-                          <td>{{ $user->phone_number }}</td>
-                          <td>{{ $user->role->role_name }}</td>
+                          <td>1</td>
+                          <td>Gérant</td>
+                          <td>
+                            <div class="nav-item dropdown">
+                                <a  class="dropdown-toggle" type="button"   aria-expanded="false" data-toggle="dropdown" style="color: black">Doit</a>
+                                <div class="dropdown-menu ">
+                                    <a class="dropdown-item" href="" style="font-size: 12px;color:black; font-weight:bold">Editer</a>
+                                    <a class="dropdown-item" href="" style="font-size: 12px;color:black; font-weight:bold">Supprimer</a>
+                                </div> 
+                            </div>
+                          </td>
+                          <td>Assurer la perfection</td>
                           <td>
                             <div class="nav-item dropdown">
                               <a  class="nav-link" type="button"   aria-expanded="false" data-toggle="dropdown"><i class="fa fa-cogs" style="color: black"></i></a>
                               <div class="dropdown-menu ">
-                                  <a class="dropdown-item" href="{{ route('user_edit', $user->id) }}" style="font-size: 12px;color:green; font-weight:bold"><i class="fa fa-edit" style="margin-right:10px;color:green"></i>Editer</a>
-                                  <a class="dropdown-item" href="{{ route('user_delete',$user->id) }}" style="font-size: 12px;color:red; font-weight:bold"><i class="fa fa-trash" style="margin-right:10px;color:red"></i>Supprimer</a>
+                                  <a class="dropdown-item" href="" style="font-size: 12px;color:green; font-weight:bold"><i class="fa fa-edit" style="margin-right:10px;color:green"></i>Editer</a>
+                                  <a class="dropdown-item" href="" style="font-size: 12px;color:red; font-weight:bold"><i class="fa fa-trash" style="margin-right:10px;color:red"></i>Supprimer</a>
                               </div> 
                           </div>
                           
                           </td>
                         </tr>
-                      @endforeach
+                    
                     </tbody>
                    
                   </table>

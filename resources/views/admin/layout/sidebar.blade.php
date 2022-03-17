@@ -210,7 +210,7 @@
           </li> --}}
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
+              <i class="nav-icon fas fa-users"></i>
               <p>
                 Employer
                 <i class="fas fa-angle-left right"></i>
@@ -232,6 +232,32 @@
              
             </ul>
           </li>
+          {{-- Role --}}
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Role
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('new_Role')}}" class="nav-link">
+                  <i class="fa fa-plus"></i>
+                  <p>Ajouter</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('listRole')}}" class="nav-link">
+                  <i class="fa fa-list nav-icon"></i>
+                  <p>Liste</p>
+                </a>
+              </li>
+             
+            </ul>
+          </li>
+
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>

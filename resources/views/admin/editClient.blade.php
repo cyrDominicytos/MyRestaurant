@@ -220,7 +220,7 @@
             </div>
             </div>
             <div class=" login-btm login-button" style="text-align: center">
-                <button type="submit" class="btn btn-outline-primary">Inscrit</button>
+                <button type="submit" class="btn btn-outline-primary">Enregistrer</button>
             </div>
       </form>
       </section>
