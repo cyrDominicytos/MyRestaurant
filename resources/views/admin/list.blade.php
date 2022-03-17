@@ -1,15 +1,12 @@
 @extends('admin.layout.mail')
 @section('content')
-<div class="content-wrapper">
+
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
-          <div class="col-sm-6">
-      
+          <div class="col-sm-6">  
                 <h3 class="card-title" style="color: #014463; font-size:25px;font-weight:bold">Liste de employers dans votre restaurant</h3>
-             
-         
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -53,10 +50,11 @@
                               <a  class="nav-link" type="button"   aria-expanded="false" data-toggle="dropdown"><i class="fa fa-cogs" style="color: black"></i></a>
                               <div class="dropdown-menu ">
                                   <a class="dropdown-item" href="{{ route('user_edit', $user->id) }}" style="font-size: 12px;color:green; font-weight:bold"><i class="fa fa-edit" style="margin-right:10px;color:green"></i>Editer</a>
-                                  <a class="dropdown-item" href="{{ route('user_delete',$user->id) }}" style="font-size: 12px;color:red; font-weight:bold"><i class="fa fa-trash" style="margin-right:10px;color:red"></i>Supprimer</a>
+                                  <a class="dropdown-item" href="" style="font-size: 12px;color:rgb(49, 105, 189); font-weight:bold"><i class="fa fa-lock" style="margin-right:10px;color:rgb(49, 105, 189)"></i>Bloquer</a> 
+                                  <a class="dropdown-item" href="" style="font-size: 12px;color:red; font-weight:bold"><i class="fa fa-trash" style="margin-right:10px;color:red"></i>Supprimer</a>                                              
                               </div> 
                           </div>
-                          
+                          {{-- {{ route('user_delete',$user->id) }} --}}
                           </td>
                         </tr>
                       @endforeach
