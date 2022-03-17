@@ -74,17 +74,16 @@ class RoleController extends Controller
 
     public function delete(Request $request,$id){
 
-        $role=DB::table('roles')->where('role_id',$id)->first();
         $user=User::all();
         foreach($user as $rols){
-            if($role->role_id == $rols->role_user_id){
+            if($id == $rols->role_user_id){
               return redirect()->route('listRole')->with('error', 'user is affected by this role');
             }
             else{
-                $role->delete();
+                $role=DB::table('roles')->where('role_id',$id)->delete();
             }
         }
         
-        return redirect()->route('list')->with('success', 'user is successfully deleted');
+        return redirect()->route('listRole')->with('success', 'user is successfully deleted');
     }
 }

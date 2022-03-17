@@ -29,7 +29,8 @@ class User extends Authenticatable
         'adress',
         'profil_image',
         'phone_number',
-        'origin'
+        'origin',
+        'isbannir'
     ];
 
     /**

@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('adress')->nullable();
             $table->string('phone_number')->nullable();
             $table->string('origin')->nullable();
+            $table->boolean('isbannir')->default(true);
             $table->string('profil_image')->nullable();
             $table->unsignedBigInteger('role_user_id');
             $table->rememberToken();
