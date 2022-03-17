@@ -219,13 +219,13 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{route('newClient')}}" class="nav-link">
-                  <i class="fa fa-plus"></i>
+                  <i class="fa fa-plus nav-icon" style="color: rgb(29, 181, 192)"></i>
                   <p>Ajouter</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('list')}}" class="nav-link">
-                  <i class="fa fa-list nav-icon"></i>
+                  <i class="fa fa-list nav-icon" style="color: rgb(54, 196, 206)"></i>
                   <p>Liste</p>
                 </a>
               </li>
@@ -235,22 +235,22 @@
           {{-- Role --}}
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
+              <i class="nav-icon fas fa-users"></i>
               <p>
                 Role
-                <i class="fas fa-angle-left right"></i>
+                <i class="fas fa-angle-left right" ></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{route('new_Role')}}" class="nav-link">
-                  <i class="fa fa-plus"></i>
+                  <i class="fas fa-plus nav-icon" style="color: rgb(54, 196, 206)"></i>
                   <p>Ajouter</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('listRole')}}" class="nav-link">
-                  <i class="fa fa-list nav-icon"></i>
+                  <i class="fa fa-list nav-icon" style="color: rgb(54, 196, 206)"></i>
                   <p>Liste</p>
                 </a>
               </li>
