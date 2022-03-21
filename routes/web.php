@@ -17,7 +17,9 @@ Route::get('Admin', function(){return view('admin.app');})->name('admin');
 Route::get('Admin/listRole',[App\Http\Controllers\RoleController::class,'showRole'])->name('listRole');
 
 Route::get('Admin/list',[App\Http\Controllers\AdminController::class,'show'])->name('list');
+
 Route::get('Admin/edit/{id}',[App\Http\Controllers\AdminController::class,'edit'])->name('user_edit');
+
 Route::get('Admin/delete/{id}',[App\Http\Controllers\AdminController::class,'destroy'])->name('user_delete');
 Route::post('Admin/update/{id}',[App\Http\Controllers\AdminController::class,'update'])->name('user_update');
 Route::get('Admin/bannir/{id}/{bannir}',[App\Http\Controllers\AdminController::class,'block'])->name('user_block');

@@ -6,8 +6,10 @@ use App\Models\Role;
 use App\Models\User;
 use App\Models\Permission;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -23,7 +25,7 @@ class AdminController extends Controller
     {
         return Validator::make($data, [
             'firstname' => ['required', 'string', 'max:255'],
-            'lastname' => ['required', 'string', 'max:255','unique:users'],
+            'lastname' => ['required', 'string', 'max:255',],
             'phone_number' => ['required', 'string', 'max:255',],
             'email' => ['required', 'string','email', 'max:255',],
             'origin' => ['required', 'string', 'max:255',],
@@ -87,8 +89,12 @@ class AdminController extends Controller
     }
 
     public function edit($id){
-        $user = User::findOrFail($id);
-        return view('admin.editClient', compact('user'));
+        $roles=Role::all();
+        $user = User::find($id) ;
+        if(!$user){
+            return redirect()->route('list')->with('error', " L'utilsateur n'existe pas dans la base de données ");
+        }
+        return view('admin.editClient', compact('user','roles'));
     }
 
     public function destroy($id){
@@ -98,7 +104,22 @@ class AdminController extends Controller
     }
 
     public function update(Request $request ,$id){
-        $this->validator($request->all())->validate();
+        //$this->validator($request->all())->validate();
+        $user=User::findOrFail($id);
+        $validate=$request->validate([
+            'firstname' => ['required', 'string', 'max:255'],
+            'lastname' => ['required', 'string', 'max:255',],
+            'phone_number' => ['required', 'string', 'max:255',
+                              Rule::unique('users')->where(fn ($query) => $query->where('phone_number','!=',$user->phone_number)),
+                              ],
+            'email' => ['required', 'string','email', 'max:255', 
+                        Rule::unique('users')->where(fn ($query) => $query->where('email','!=',$user->email)),
+                    ],
+            'origin' => ['required', 'string', 'max:255',],
+            'adress' => ['required', 'string', 'max:255',],
+            'birthday'=> ['required', 'date'],
+        ]);
+
         $user= User::whereId($id)->update([
             "firstname"=>$request->firstname,
             "lastname"=>$request->lastname,
@@ -110,22 +131,25 @@ class AdminController extends Controller
             "sex"=>$request->sex,
             "role_user_id"=>$request->role,
         ]);
-        return redirect()->route('list')->with('success', 'user is successfully updated');
+        return redirect()->route('list')->with('success', 'user is successfully update');
     }
 
-    public function block($id,$bannir){
-        if($bannir){
-            $user=User::whereId($id)->update([
-                'isbannir' =>false,
-            ]);
-            return redirect()->route('list')->with('error', 'le compte a été bloquer');
-        }else{
-            $user=User::whereId($id)->update([
-                'isbannir' =>true,
-            ]);
-            return redirect()->route('list')->with('success', 'le compte a été debloquer');
+    public function block($id,$banned){
+        if(Auth::user()->id ==$id){
+            return redirect()->route('list')->with('error','Impossible de bloquer cet utilisateur');
         }
-
-        
+        else{
+            if($banned){
+                $user=User::whereId($id)->update([
+                    'isbanned' =>false,
+                ]);
+                return redirect()->route('list')->with('error', ' le compte a été debloquer');
+            }else{
+                $user=User::whereId($id)->update([
+                    'isbanned' =>true,
+                ]);
+                return redirect()->route('list')->with('success', 'le compte a été bloquer');
+            }
+        }   
     }
 }

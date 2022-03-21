@@ -30,7 +30,7 @@ class User extends Authenticatable
         'profil_image',
         'phone_number',
         'origin',
-        'isbannir'
+        'isbanned'
     ];
 
     /**

@@ -199,12 +199,12 @@
                               
                                 <select class="form-control select2" style="width: 70%;" name="role">
                                   <label for="">Role</label>
-                                  {{-- @foreach ($roles as $role)  --}}
+                                  @foreach ($roles as $role) 
                                   <option value="{{ $user->role->role_id }}">{{ $user->role->role_name }}</option>
-                                  {{-- @endforeach            --}}
+                                  @endforeach           
                                 </select>
                                 <div class="input-group-append" style="margin-left: 8px">
-                                    <a href="{{ route('edit_Role',$user->role->role_id) }} " class="btn-success btn"> <i class="fa fa-plus"></i></a>
+                                    <a href="{{ route('new_Role') }} " class="btn-success btn"> <i class="fa fa-plus"></i></a>
                               </div>
                             
                           </div>
