@@ -47,7 +47,7 @@
                           <td>{{ $user->phone_number }}</td>
                           <td>
                             @if ($user->isbanned)
-                                {{ __('Non Actif') }}
+                                {{ __('Inactif') }}
                             @else
                                 {{ __('Actif') }}
                             @endif

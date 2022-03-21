@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Role;
 use App\Models\User;
+use App\Mail\UserMail;
 use App\Models\Permission;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -11,12 +12,13 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
     public function __construct(){
-        //parent::__construct();
+        $this->middleware('auth');
     }
 
 
@@ -27,11 +29,12 @@ class AdminController extends Controller
             'firstname' => ['required', 'string', 'max:255'],
             'lastname' => ['required', 'string', 'max:255',],
             'phone_number' => ['required', 'string', 'max:255',],
-            'email' => ['required', 'string','email', 'max:255',],
+            'email' => ['required', 'string','email', 'max:255','unique:users'],
             'origin' => ['required', 'string', 'max:255',],
             'adress' => ['required', 'string', 'max:255',],
             'birthday'=> ['required', 'date'],
-            
+            'password' => ['required', 'string', 'min:8',],
+            'password_confirmation' => ['required','same:password',],
         ]);
     }
     
@@ -72,19 +75,34 @@ class AdminController extends Controller
     public function createUser(Request $request){
         // dd($request->all());
         $this->validator($request->all())->validate();
-        $user=User::create([
-            "firstname"=>$request->firstname,
-            "lastname"=>$request->lastname,
-            "phone_number"=>$request->phone_number,
-            "email"=>$request->email,
-            "origin"=>$request->origin,
-            "adress"=>$request->adress,
-            "birthday"=>$request->birthday,
-            "password"=>Hash::make($request->password),
-            "sex"=>$request->sex,
-            "role_user_id"=>$request->role,
-        ]);
+        // $user=User::create([
+        //     "firstname"=>$request->firstname,
+        //     "lastname"=>$request->lastname,
+        //     "phone_number"=>$request->phone_number,
+        //     "email"=>$request->email,
+        //     "origin"=>$request->origin,
+        //     "adress"=>$request->adress,
+        //     "birthday"=>$request->birthday,
+        //     "password"=>Hash::make($request->password),
+        //     "sex"=>$request->sex,
+        //     "role_user_id"=>$request->role,
+        // ]);
+        $user=new User();
+        $user->firstname=$request['firstname'];
+        $user->lastname=$request['lastname'];
+        $user->phone_number=$request['phone_number'];
+        $user->email=$request['email'];
+        $user->origin=$request['origin'];
+        $user->adress=$request['adress'];
+        $user->birthday=$request['birthday'];
+        $user->password=Hash::make($request['password']);
+        $user->sex=$request['sex'];
+        $user->role_user_id=$request['role'];
+        $user->save();
+      // send mail to user
 
+        Mail::to($user->email)->send(new UserMail($user));
+        
          return redirect()->route('list')->with('success', 'user is successfully create');
     }
 
@@ -98,6 +116,9 @@ class AdminController extends Controller
     }
 
     public function destroy($id){
+        if(Auth::user()->id==$id){
+            return redirect()->route('list')->with('error', " impossible de supprimer cet utilisateur ");
+        }
         $user = User::findOrFail($id);
         $user->delete();
         return redirect()->route('list')->with('success', 'user is successfully deleted');
@@ -135,6 +156,7 @@ class AdminController extends Controller
     }
 
     public function block($id,$banned){
+        
         if(Auth::user()->id ==$id){
             return redirect()->route('list')->with('error','Impossible de bloquer cet utilisateur');
         }

@@ -78,7 +78,9 @@
                           </div>
                       </div>
                       @endforeach
-
+                      @if($errors->has('permission'))
+                        <div class="error alert-danger" role="alert">{{ $errors->first('permission') }}</div>
+                      @endif
                     </div> 
                   </div>     
             

@@ -46,9 +46,11 @@
                             <div class="nav-item dropdown">
                                 <a  class="dropdown-toggle" type="button"   aria-expanded="false" data-toggle="dropdown" style="color: black">Doit</a>
                                 <div class="dropdown-menu ">
-                                  @foreach (rolePermission($role->role_id) as $permission)
+                                  @if(is_array(rolePermission($role->role_id)) || is_object(rolePermission($role->role_id)))
+                                  @foreach(rolePermission($role->role_id) as $permission)
                                     <a class="dropdown-item" href="" style="font-size: 12px;color:black; font-weight:bold">{{ getPermissionById($permission)->permission_name }}</a>
                                   @endforeach
+                                  @endif
                                 </div> 
                             </div>
                           </td>

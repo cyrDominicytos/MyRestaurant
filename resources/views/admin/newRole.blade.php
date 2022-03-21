@@ -58,10 +58,10 @@
                       <div class="input-group">
                         <input type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}">
                         @error('description')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                      @enderror
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                        @enderror
                       </div>
                     </div>
 
@@ -79,7 +79,10 @@
                           
                       </div>
                       @endforeach
-                      </div>
+
+                      @if($errors->has('permission'))
+                        <div class="error alert-danger" role="alert">{{ $errors->first('permission') }}</div>
+                      @endif
                     </div>
                     
                   </div>     
