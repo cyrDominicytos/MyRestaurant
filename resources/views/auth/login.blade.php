@@ -3,7 +3,7 @@
     @include('admin.layout.header')
 <body class="hold-transition login-paged">
     @include('flash-message')
-    {{-- <link rel="stylesheet" href="{{asset('css/app.css')}}"> --}}
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <div class="login-box" style="margin-left:auto; margin-right:auto;margin-top:55px">
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
@@ -55,7 +55,7 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-4">
-                  <button type="submit" class="btn btn-primary btn-block">Connecter</button>
+                  <button type="submit" class="btn btn-primary btn-block" style="background-color:rgb(61, 67, 79)">Connecter</button>
                 </div>
                 <!-- /.col -->
               </div>
