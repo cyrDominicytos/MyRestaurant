@@ -48,7 +48,11 @@ class RoleController extends Controller
     }
 
     public function edit($id){
+        
         $role=DB::table('roles')->where('role_id',$id)->first();
+        if(!$role){
+            return redirect()->route('listRole')->with('error',"Ce role n'existe pas");
+        }
         $assign_permission_list=rolePermission($id);
         return view('admin.editRole',compact('role','assign_permission_list'));
     }
