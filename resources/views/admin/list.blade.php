@@ -6,7 +6,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">  
-                <h3 class="card-title" style="color: #014463; font-size:25px;font-weight:bold">Liste de employers dans votre restaurant</h3>
+                <h3 class="card-title" style="color: #014463; font-size:25px;font-weight:bold">Liste des utilisateurs dans votre restaurant</h3>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -14,7 +14,7 @@
               <li class="breadcrumb-item active">Liste des employers</li>
             </ol>
           </div><!-- /.col -->
-        </div><!-- /.row -->
+        </div><!-- /.row -->The password is incorrect
       </div><!-- /.container-fluid -->
     </div>
     <section class="content">
@@ -47,9 +47,11 @@
                           <td>{{ $user->phone_number }}</td>
                           <td>
                             @if ($user->isbanned)
-                                {{ __('Inactif') }}
+                            <a class="btn btn-danger" href="{{ route('user_block',['id'=>$user->id,'bannir'=>$user->isbanned]) }}" role="button" >{{ __('Inactif') }}</a>
+                                
                             @else
-                                {{ __('Actif') }}
+                            <a class="btn btn-success" href="{{ route('user_block',['id'=>$user->id,'bannir'=>$user->isbanned]) }}" role="button" >{{ __('Actif') }}</a>
+                                
                             @endif
                           </td>
                           <td>{{ $user->role->role_name }}</td>

@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\Validator;
 
 class RoleController extends Controller
 {
-    //
+    public function __construct(){
+        $this->middleware('auth');
+    }
 
     public function showRole(){
         $roles=Role::all();

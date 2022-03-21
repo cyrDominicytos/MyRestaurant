@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Route::group(['middleware'=>['auth']
 
 Route::group(['middleware'=>['auth']], function(){
     Route::get('Admin', function(){return view('admin.app');})->name('admin');

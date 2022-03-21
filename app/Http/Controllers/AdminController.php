@@ -28,13 +28,13 @@ class AdminController extends Controller
         return Validator::make($data, [
             'firstname' => ['required', 'string', 'max:255'],
             'lastname' => ['required', 'string', 'max:255',],
-            'phone_number' => ['required', 'string', 'max:255',],
+            'phone_number' => ['required', 'string', 'max:255','unique:users'],
             'email' => ['required', 'string','email', 'max:255','unique:users'],
             'origin' => ['required', 'string', 'max:255',],
             'adress' => ['required', 'string', 'max:255',],
             'birthday'=> ['required', 'date'],
             'password' => ['required', 'string', 'min:8',],
-            'password_confirmation' => ['required','same:password',],
+            'password_confirmation' => ['required','same:password','min:8'],
         ]);
     }
     

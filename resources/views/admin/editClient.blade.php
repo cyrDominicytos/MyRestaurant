@@ -7,7 +7,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
-     
+      
         <div class="row mb-2">
           <div class="col-sm-6">
                  </div>
@@ -32,7 +32,7 @@
         <div class="container-fluid">
           <div style="text-align: center">
             {{-- <img src="{{asset('dist/img/butcher-block.png')}}" alt=""> --}}
-              <h1 style="color:#014463;  font-family: 'Roboto', sans-serif; font-weight:bold;text-align:center;">Enregistrer Client</h1>
+              <h1 style="color:#014463;  font-family: 'Roboto', sans-serif; font-weight:bold;text-align:center;">Modifier  Utilisateur</h1>
   
           </div>
           
