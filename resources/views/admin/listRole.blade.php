@@ -47,7 +47,7 @@
                                 <a  class="dropdown-toggle" type="button"   aria-expanded="false" data-toggle="dropdown" style="color: black">Doit</a>
                                 <div class="dropdown-menu ">
                                   @if(is_array(rolePermission($role->role_id)) || is_object(rolePermission($role->role_id)))
-                                  <?php $index=0 ;?>
+                                  <? $index=0 ;?>
                                   @foreach(rolePermission($role->role_id) as $permission)
                                      <? $index=+ ;?>
                                      @if ($index<=4)
