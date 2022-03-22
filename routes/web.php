@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware'=>['auth']], function(){
     Route::get('Admin', function(){return view('admin.app');})->name('admin');
+    Route::get('Admin/profile', function(){return view('admin.profile');})->name('profile');
     Route::get('Admin/listRole',[App\Http\Controllers\RoleController::class,'showRole'])->name('listRole');
     
     Route::get('Admin/list',[App\Http\Controllers\AdminController::class,'show'])->name('list');
