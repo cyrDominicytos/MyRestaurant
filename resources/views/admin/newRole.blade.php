@@ -41,7 +41,7 @@
 
                 
                         <div class="form-group col-md-6">
-                          <label>Slog du role*:</label>
+                          <label>Slug du role*:</label>
                           <div class="input-group">
                             <input type="text" class="form-control @error('slug') is-invalid @enderror" name="slug" value="{{ old('slug') }}">
                             @error('slug')
