@@ -28,7 +28,7 @@
                     @csrf    
                      <div class="row">
                         <div class="form-group col-md-6">
-                          <label>Designation du role:</label>
+                          <label>Designation du role*:</label>
                           <div class="input-group">
                             <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{old('name')}}" >
                             @error('name')
@@ -41,7 +41,7 @@
 
                 
                         <div class="form-group col-md-6">
-                          <label>Slog du role:</label>
+                          <label>Slog du role*:</label>
                           <div class="input-group">
                             <input type="text" class="form-control @error('slug') is-invalid @enderror" name="slug" value="{{ old('slug') }}">
                             @error('slug')
@@ -54,7 +54,7 @@
 
                      </div>
                      <div class="form-group ">
-                      <label>Description:</label>
+                      <label>Description*:</label>
                       <div class="input-group">
                         <input type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}">
                         @error('description')
@@ -69,7 +69,7 @@
                     <div class="row">
                       @foreach (permissionModule() as $index=>$permission)
                       <div class="col-md-6">
-                          <p class="accordion"> <i class="fa fa-plus" style="margin-right:15px"> Module  {{ ucfirst($index) }}</i> </p>
+                          <p class="accordion"> <i class="fa fa-plus" style="margin-right:15px"> Module*  {{ ucfirst($index) }}</i> </p>
                           <div class="panel">
                             @foreach ($permission as $perm)
                             <label for="module" style="margin-left: 15px">

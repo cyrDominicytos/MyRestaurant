@@ -41,20 +41,25 @@
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
             <img src="{{asset('dist/img/user1-128x128.jpg')}}" alt="User Avatar" class="img-size-32 mr-3 img-circle">
-            <span class="badge badge-warning navbar-badge" style="color: black">Profile</span>
+            <span class="badge badge-warning navbar-badge" style="color: black">{{Auth::user()->firstname}}</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             
             <div class="dropdown-divider"></div>
             <a href="#" class="dropdown-item">
-              <i class="fas fa-user mr-2"></i> Profile
-             
+              <i class="fas fa-user mr-2"></i> {{Auth::user()->firstname}} {{Auth::user()->lastname}}
             </a>
+
             <div class="dropdown-divider"></div>
             <a href="#" class="dropdown-item">
               <i class="fas fa-cog mr-2"></i> Paramètre
-              
             </a>
+
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <i class="fas fa-key mr-2"></i> Réintialiser Mot de passe
+            </a>
+
             <div class="dropdown-divider"></div>
             <div class="" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="{{ route('logout') }}"

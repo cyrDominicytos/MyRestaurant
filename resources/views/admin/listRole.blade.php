@@ -60,10 +60,10 @@
                               <a  class="nav-link" type="button"   aria-expanded="false" data-toggle="dropdown"><i class="fa fa-cogs" style="color: black"></i></a>
                               <div class="dropdown-menu ">
                                   <a class="dropdown-item" href="{{ route('edit_Role',$role->role_id) }}" style="font-size: 12px;color:green; font-weight:bold"><i class="fa fa-edit" style="margin-right:10px;color:green"></i>Editer</a>
-                                  <a class="dropdown-item" href="{{ route('delete_Role',$role->role_id) }}" style="font-size: 12px;color:red; font-weight:bold"><i class="fa fa-trash" style="margin-right:10px;color:red"></i>Supprimer</a>
+                                  <a class="dropdown-item " href="#myModal" data-toggle="modal" style="font-size: 12px;color:red; font-weight:bold"><i class="fa fa-trash" style="margin-right:10px;color:red"></i>Supprimer</a>
                               </div> 
                           </div>
-                          
+                          {{-- {{ route('delete_Role',$role->role_id) }} --}}
                           </td>
                         </tr>
                         @endforeach
@@ -80,5 +80,5 @@
           <!-- /.row -->
         </div>
         <!-- /.container-fluid -->
-
+        @include('admin.layout.modalConfirmation')
 @endsection

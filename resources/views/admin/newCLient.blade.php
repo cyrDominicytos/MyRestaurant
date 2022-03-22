@@ -41,7 +41,7 @@
                 <form action="{{ route('createuser') }}" method="post">
                   @csrf
                       <div class="form-group">
-                        <label>Nom:</label>
+                        <label>Nom*:</label>
                         <div class="input-group">
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="far fa-user"></i></span>
@@ -59,7 +59,7 @@
       
                       <!-- Date mm/dd/yyyy -->
                       <div class="form-group">
-                        <label>Prénom:</label>
+                        <label>Prénom*:</label>
                         <div class="input-group">
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="far fa-user"></i></span>
@@ -77,7 +77,7 @@
       
                       <!-- phone mask -->
                       <div class="form-group">
-                        <label>Téléphone:</label>
+                        <label>Téléphone*:</label>
       
                         <div class="input-group">
                           <div class="input-group-prepend">
@@ -94,7 +94,7 @@
                       </div>
                     
                       <div class="form-group">
-                        <label>Adresse Email:</label>
+                        <label>Adresse Email*:</label>
       
                         <div class="input-group">
                           <div class="input-group-prepend">
@@ -118,12 +118,12 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-home"></i></span>
                           </div>
-                          <input type="text" class="form-control @error('origin') is-invalid @enderror" name="origin" value="{{ old('origin') }}">
-                          @error('origin')
+                          <input type="text" class="form-control " name="origin" value="{{ old('origin') }}">
+                          {{-- @error('origin')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
                           </span>
-                          @enderror
+                          @enderror --}}
                         </div>
                       
                       </div>
@@ -164,7 +164,7 @@
                           </div> --}}
 
                       <div class="form-group">
-                        <label>Adresse:</label>
+                        <label>Adresse*:</label>
       
                         <div class="input-group">
                           <div class="input-group-prepend">
@@ -180,7 +180,7 @@
                       
                       </div>
                           <div class="form-group">
-                            <label>Date de Naissance:</label>
+                            <label>Date de Naissance*:</label>
                             <div class="input-group">  
                               <input type="date" class="form-control @error('birthday') is-invalid @enderror "  name="birthday" value="{{ old('birthday') }}">
                               @error('birthday')
@@ -192,7 +192,7 @@
                           
                           </div>
                           <div class="form-group">
-                            <label>Choisisez Role</label>
+                            <label>Choisisez Role*</label>
                             
                             <div class="input-group date">
                               
@@ -212,7 +212,7 @@
                          
                           
                     <div class="form-group">
-                      <label>Mot de passe:</label>
+                      <label>Mot de passe*:</label>
                         <div class="input-group date" id="reservationdate" data-target-input="nearest">
                             <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" />
                             <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
@@ -226,7 +226,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                      <label>Confirmer Mot de passe:</label>
+                      <label>Confirmer Mot de passe*:</label>
                         <div class="input-group date" id="reservationdate" data-target-input="nearest">
                             <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror " name="password_confirmation"/>
                             <div class="input-group-append">

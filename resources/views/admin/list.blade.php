@@ -46,12 +46,14 @@
                           <td>{{ $user->email }}</td>
                           <td>{{ $user->phone_number }}</td>
                           <td>
-                            @if ($user->isbanned)
-                            <a class="btn btn-danger" href="{{ route('user_block',['id'=>$user->id,'bannir'=>$user->isbanned]) }}" role="button" >{{ __('Inactif') }}</a>
-                                
+                            @if ($user->id != Auth::user()->id)
+                              @if ($user->isbanned)
+                              <a class="btn btn-danger" href="{{ route('user_block',['id'=>$user->id,'bannir'=>$user->isbanned]) }}" role="button" >{{ __('Inactif') }}</a>
+                              @else
+                              <a class="btn btn-success" href="{{ route('user_block',['id'=>$user->id,'bannir'=>$user->isbanned]) }}" role="button" >{{ __('Actif') }}</a>         
+                              @endif 
                             @else
-                            <a class="btn btn-success" href="{{ route('user_block',['id'=>$user->id,'bannir'=>$user->isbanned]) }}" role="button" >{{ __('Actif') }}</a>
-                                
+                                <?= $user->isbanned ? "<span class='' disabled  >Inactif</span>":"<span class='' disabled  >Connecté</span>" ?>
                             @endif
                           </td>
                           <td>{{ $user->role->role_name }}</td>
@@ -60,15 +62,19 @@
                               <a  class="nav-link" type="button"   aria-expanded="false" data-toggle="dropdown"><i class="fa fa-cogs" style="color: black"></i></a>
                               <div class="dropdown-menu ">
                                   <a class="dropdown-item" href="{{ route('user_edit', $user->id) }}" style="font-size: 12px;color:green; font-weight:bold"><i class="fa fa-edit" style="margin-right:10px;color:green"></i>Editer</a>
-                                  @if ($user->isbanned)
-                                    <a class="dropdown-item" href="{{ route('user_block',['id'=>$user->id,'bannir'=>$user->isbanned]) }}" style="font-size: 12px;color:rgb(49, 105, 189); font-weight:bold"><i class="fa fa-lock" style="margin-right:10px;color:rgb(49, 105, 189)"></i>Debloquer</a> 
-                                  @else
-                                    <a class="dropdown-item" href="{{ route('user_block',['id'=>$user->id,'bannir'=>$user->isbanned]) }}" style="font-size: 12px;color:rgb(49, 105, 189); font-weight:bold"><i class="fa fa-lock" style="margin-right:10px;color:rgb(189, 49, 159)"></i>Bloquer</i></a> 
-                                  @endif
+                                  @if ($user->id != Auth::user()->id)
+                                      @if ($user->isbanned)
+                                      <a class="dropdown-item" href="{{ route('user_block',['id'=>$user->id,'bannir'=>$user->isbanned]) }}" style="font-size: 12px;color:rgb(49, 105, 189); font-weight:bold"><i class="fa fa-lock" style="margin-right:10px;color:rgb(49, 105, 189)"></i>Debloquer</a> 
+                                      @else
+                                      <a class="dropdown-item" href="{{ route('user_block',['id'=>$user->id,'bannir'=>$user->isbanned]) }}" style="font-size: 12px;color:rgb(49, 105, 189); font-weight:bold"><i class="fa fa-lock" style="margin-right:10px;color:rgb(49, 105, 189)"></i>Bloquer</i></a> 
+                                      @endif 
+                                      <a class="dropdown-item" href="#myModal" data-toggle="modal"  style="font-size: 12px;color:red; font-weight:bold"><i class="fa fa-trash" style="margin-right:10px;color:red"></i>Supprimer</a>                                  
+                                @endif
+                                
                                   
-                                  <a class="dropdown-item" href="{{ route('user_delete',$user->id) }}" style="font-size: 12px;color:red; font-weight:bold"><i class="fa fa-trash" style="margin-right:10px;color:red"></i>Supprimer</a>                                              
-                              </div> 
+                                  </div> 
                           </div>
+                          {{-- {{ route('user_delete',$user->id) }} --}}
                           </td>
                         </tr>
                       @endforeach
@@ -86,5 +92,6 @@
         </div>
         <!-- /.container-fluid -->
       </section>
+      @include('admin.layout.modalConfirmation')
 </div>
 @endsection

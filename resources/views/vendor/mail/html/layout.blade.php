@@ -6,6 +6,10 @@
 <meta name="color-scheme" content="light">
 <meta name="supported-color-schemes" content="light">
 <style>
+
+    .container{
+        background-color: #f1f1f1;
+    }
 @media only screen and (max-width: 600px) {
 .inner-body {
 width: 100% !important;
@@ -29,7 +33,8 @@ width: 100% !important;
 <tr>
 <td align="center">
 <table class="content" width="100%" cellpadding="0" cellspacing="0" role="presentation"> --}}
-{{ $header ?? '' }}
+<div class="container">
+    {{ $header ?? '' }}
 
 <!-- Email Body -->
 <tr>
@@ -41,6 +46,8 @@ width: 100% !important;
 {{ Illuminate\Mail\Markdown::parse($slot) }}
 
 {{ $subcopy ?? '' }}
+<br>
+<div style='color: rgb(92, 7, 56); font-size: 14px;'>===========<br>Equipe Gestion Restaurant <br> 22/03/22  </div>
 </td>
 </tr>
 </table>
@@ -48,9 +55,18 @@ width: 100% !important;
 </tr>
 
 {{ $footer ?? '' }}
+<table class="footer" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+<td>
+    <td class="content-cell" align="center">
+       
+    </tr>
+</td>
 </table>
+
+</div>
+{{-- </table>
 </td>
 </tr>
-</table>
+</table> --}}
 </body>
 </html>
