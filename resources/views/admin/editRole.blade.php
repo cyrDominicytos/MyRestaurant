@@ -30,7 +30,7 @@
                         <div class="form-group col-md-6">
                           <label>Designation du role:</label>
                           <div class="input-group">
-                            <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $role->role_name }}" >
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $role->role_name }}" required >
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -43,7 +43,7 @@
                         <div class="form-group col-md-6">
                           <label>Slug du role:</label>
                           <div class="input-group">
-                            <input type="text" class="form-control @error('slug') is-invalid @enderror" name="slug" value="{{ $role->role_slug }}">
+                            <input type="text" class="form-control @error('slug') is-invalid @enderror" name="slug" value="{{ $role->role_slug }}" required>
                             @error('slug')
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
@@ -56,7 +56,7 @@
                      <div class="form-group ">
                       <label>Description:</label>
                       <div class="input-group">
-                        <input type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ $role->role_description }}">
+                        <input type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ $role->role_description }}" required >
                         @error('description')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -73,7 +73,7 @@
                           <div class="panel">
                             @foreach ($permission as $perm)
                             <label for="module" style="margin-left: 15px">
-                              <input type="checkbox" id="one" name="permission[]" value="{{ $perm->permission_id }}"  {{ in_array($perm->permission_id, $assign_permission_list)  ? ("checked") :  ""}} > {{ $perm->permission_name }} </label>
+                              <input type="checkbox" id="one" name="permission[]" value="{{ $perm->permission_id }}"  {{ in_array($perm->permission_id, $assign_permission_list)  ? ("checked") : ""}} > {{ $perm->permission_name }} </label>
                             @endforeach
                           </div>
                       </div>

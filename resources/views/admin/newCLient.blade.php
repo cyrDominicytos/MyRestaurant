@@ -46,7 +46,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="far fa-user"></i></span>
                           </div>
-                          <input type="text" class="form-control @error('firstname') is-invalid @enderror " name="firstname" value="{{ $firstname ?? old('firstname') }}"  autocomplete="firstname" autofocus>
+                          <input type="text" class="form-control @error('firstname') is-invalid @enderror " name="firstname" value="{{ $firstname ?? old('firstname') }}"  autocomplete="firstname" autofocus required>
                           @error('firstname')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
@@ -64,7 +64,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="far fa-user"></i></span>
                           </div>
-                          <input type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" >
+                          <input type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required>
                           @error('lastname')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
@@ -83,7 +83,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-phone"></i></span>
                           </div>
-                          <input type="tel" class="form-control  @error('phone_number') is-invalid @enderror " name="phone_number" value="{{ old('phone_number') }}">
+                          <input type="tel" class="form-control  @error('phone_number') is-invalid @enderror " name="phone_number" value="{{ old('phone_number') }}" required>
                           @error('phone_number')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
@@ -100,7 +100,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                           </div>
-                          <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
+                          <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required>
                           @error('email')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
@@ -118,7 +118,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-home"></i></span>
                           </div>
-                          <input type="text" class="form-control " name="origin" value="{{ old('origin') }}">
+                          <input type="text" class="form-control " name="origin" value="{{ old('origin') }}" >
                           {{-- @error('origin')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
@@ -130,7 +130,7 @@
                       <div class="form-group ">
    
                         <div class="icheck-primary d-inline">
-                          <input type="radio" id="radioPrimary1" name="sex" value="Homme" checked >
+                          <input type="radio" id="radioPrimary1" name="sex" value="Homme" checked required>
                           <label for="radioPrimary1">
                               Homme
                           </label>
@@ -170,7 +170,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-home" style="c"></i></span>
                           </div>
-                          <input type="text" class="form-control @error('adress') is-invalid @enderror "  name="adress" value="{{ old('adress') }}">
+                          <input type="text" class="form-control @error('adress') is-invalid @enderror "  name="adress" value="{{ old('adress') }}" required>
                           @error('adress')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
@@ -182,7 +182,7 @@
                           <div class="form-group">
                             <label>Date de Naissance*:</label>
                             <div class="input-group">  
-                              <input type="date" class="form-control @error('birthday') is-invalid @enderror "  name="birthday" value="{{ old('birthday') }}" min="1980-01-01" max="2015-01-01" >
+                              <input type="date" class="form-control @error('birthday') is-invalid @enderror "  name="birthday" value="{{ old('birthday') }}" min="1980-01-01" max="2015-01-01" required>
                               @error('birthday')
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
@@ -228,7 +228,7 @@
                     <div class="form-group">
                       <label>Confirmer Mot de passe*:</label>
                         <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                            <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror " name="password_confirmation"/>
+                            <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror " name="password_confirmation" required/>
                             <div class="input-group-append">
                                 <div class="input-group-text"><i class="fa fa-key"></i></div>
                             </div>

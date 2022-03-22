@@ -67,7 +67,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="far fa-user"></i></span>
                           </div>
-                          <input type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ $user->lastname }}" min="1980-01-01" max="2015-01-01" >
+                          <input type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ $user->lastname }}" min="1980-01-01" max="2015-01-01" required>
                           @error('lastname')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
@@ -86,7 +86,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-phone"></i></span>
                           </div>
-                          <input type="tel" class="form-control  @error('phone_number') is-invalid @enderror " name="phone_number" value="{{ $user->phone_number }}">
+                          <input type="tel" class="form-control  @error('phone_number') is-invalid @enderror " name="phone_number" value="{{ $user->phone_number }}"required >
                           @error('phone_number')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
@@ -103,7 +103,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                           </div>
-                          <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $user->email }}" >
+                          <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $user->email }}" required>
                           @error('email')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
@@ -171,7 +171,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-home" style="c"></i></span>
                           </div>
-                          <input type="text" class="form-control @error('adress') is-invalid @enderror "  name="adress" value="{{ $user->adress }}">
+                          <input type="text" class="form-control @error('adress') is-invalid @enderror "  name="adress" value="{{ $user->adress }}" required>
                           @error('adress')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
@@ -183,7 +183,7 @@
                           <div class="form-group">
                             <label>Date de Naissance*:</label>
                             <div class="input-group">  
-                              <input type="date" class="form-control @error('birthday') is-invalid @enderror "  name="birthday" value="{{ $user->birthday }}">
+                              <input type="date" class="form-control @error('birthday') is-invalid @enderror "  name="birthday" value="{{ $user->birthday }}" min="1980-01-01" max="2015-01-01" required>
                               @error('birthday')
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
