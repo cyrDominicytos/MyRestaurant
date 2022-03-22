@@ -1,31 +1,30 @@
-<div id="myModal" class="modal fade">
+<div id="myModalLock" class="modal fade">
     <div class="modal-dialog modal-confirm">
       <div class="modal-content">
         <div class="modal-header flex-column">
           <div class="icon-box">
             <i class="fa fa-exclamation" style="margin-right:10px;color:red"></i>
           </div>	
-          @if(Request::path()=="Admin/list")					
-          <h4 class="modal-title w-100">Voulez-vous vraiment supprimer cet utilisateur?</h4>
-          @else
-          <h4 class="modal-title w-100">Voulez-vous vraiment supprimer cet role?</h4>
+          @if ($user->isbanned)
+          
+          <h4 class="modal-title w-100">Voulez-vous vraiment deBloquer cet utilisateur? {{$user->isbanned}}</h4>
+           @else
+          <h4 class="modal-title w-100">Voulez-vous vraiment Bloquer cet utilisateur? {{$user->isbanned}}</h4>
           @endif	
          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         </div>
         <div class="modal-body">
-          @if(Request::path()=="Admin/list")
           <p style="color: red">Cet utilisateur ne peut plus être récuperer après l'avoir supprimer.</p>
-          @else
-          <p style="color: red">Cet role ne peut plus être récuperer après l'avoir supprimer.</p>
-           @endif
         </div>
         <div class="modal-footer justify-content-center">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
-          @if(Request::path()=="Admin/list")
-          <a  href="{{ route('user_delete',$user->id) }} " class="btn btn-danger">Supprimer</a>
-          @else					
-          <a  href="{{ route('delete_Role',$role->role_id) }} " class="btn btn-danger">Supprimer</a>
-          @endif
+          <button type="button" class="btn btn-success" data-dismiss="modal"> <i class="fa"></i> Non</button>
+          @if ($user->id != Auth::user()->id)
+              @if ($user->isbanned)
+              <a style="color: white" href="{{ route('user_block',['id'=>$user->id,'bannir'=>$user->isbanned]) }} " class="btn btn-danger"> <i class="fa fa-check"></i> oui debloquer</a>
+              @else					
+              <a style="color: white" href="{{ route('user_block',['id'=>$user->id,'bannir'=>$user->isbanned]) }} " class="btn btn-danger"> <i class="fa fa-check"></i> oui bloquer</a>
+              @endif
+           @endif
         </div>
       </div>
     </div>
