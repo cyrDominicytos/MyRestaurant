@@ -14,19 +14,19 @@
               <li class="breadcrumb-item active">Liste des employers</li>
             </ol>
           </div><!-- /.col -->
-        </div><!-- /.row -->The password is incorrect
+        </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
     <section class="content">
         <div class="container-fluid">
           <div class="row">
             <div class="col-12">
-            
+          
               <div class="card">
               
                 <!-- /.card-header -->
                 <div class="card-body">
-                  <table id="example1" class="table table-bordered table-striped">
+                  <table id="example2" class="table table-bordered table-striped">
                     <thead>
                     <tr style="color: #014463">
                       <th>N°</th>

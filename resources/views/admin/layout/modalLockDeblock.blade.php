@@ -5,26 +5,19 @@
           <div class="icon-box">
             <i class="fa fa-exclamation" style="margin-right:10px;color:red"></i>
           </div>	
-          @if ($user->isbanned)
-          
-          <h4 class="modal-title w-100">Voulez-vous vraiment deBloquer cet utilisateur? {{$user->isbanned}}</h4>
-           @else
-          <h4 class="modal-title w-100">Voulez-vous vraiment Bloquer cet utilisateur? {{$user->isbanned}}</h4>
-          @endif	
+      
+          <h4 class="modal-title w-100">Voulez-vous vraiment supprimer cet categorie?</h4>
+ 	
          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         </div>
         <div class="modal-body">
-          <p style="color: red">Cet utilisateur ne peut plus être récuperer après l'avoir supprimer.</p>
+          <p style="color: red">Cet categories ne peut plus être récuperer après l'avoir supprimer.</p>
         </div>
         <div class="modal-footer justify-content-center">
           <button type="button" class="btn btn-success" data-dismiss="modal"> <i class="fa"></i> Non</button>
-          @if ($user->id != Auth::user()->id)
-              @if ($user->isbanned)
-              <a style="color: white" href="{{ route('user_block',['id'=>$user->id,'bannir'=>$user->isbanned]) }} " class="btn btn-danger"> <i class="fa fa-check"></i> oui debloquer</a>
-              @else					
-              <a style="color: white" href="{{ route('user_block',['id'=>$user->id,'bannir'=>$user->isbanned]) }} " class="btn btn-danger"> <i class="fa fa-check"></i> oui bloquer</a>
-              @endif
-           @endif
+      					
+              <a style="color: white" href=" " class="btn btn-danger"> <i class="fa fa-check"></i> oui bloquer</a>
+        
         </div>
       </div>
     </div>

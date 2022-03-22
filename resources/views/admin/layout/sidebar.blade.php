@@ -262,29 +262,103 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-                Gestion Menu
+                 Menu
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-list-alt" style="color: rgb(54, 196, 206)"></i>
+                  <p>
+                     Categories de Mets
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+               <ul class="nav nav-treeview">
+               <li class="nav-item">
+                <a href="{{route('newCategory')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ajouter</p>
+                </a>
+               </li>
+               <li class="nav-item">
+                <a href="{{route('listCategory')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Liste</p>
+                </a>
+               </li>
+               </ul>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-cheese " style="color: rgb(54, 196, 206)"></i>
+                  <p>
+                      Mets
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+               <ul class="nav nav-treeview">
+               <li class="nav-item">
+                <a href="{{route('newFood')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ajouter</p>
+                </a>
+               </li>
+               <li class="nav-item">
+                <a href="{{route('listFood')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Liste</p>
+                </a>
+               </li>
+               </ul>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-bell" style="color: rgb(54, 196, 206)"></i>
+                  <p>
+                     Menu du jour
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+               <ul class="nav nav-treeview">
+               <li class="nav-item">
                 <a href="pages/tables/simple.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Simple Tables</p>
+                  <p>Ajouter</p>
                 </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
+               </li>
+               <li class="nav-item">
+                <a href="pages/tables/simple.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>DataTables</p>
+                  <p>Liste</p>
                 </a>
+               </li>
+               </ul>
               </li>
+
               <li class="nav-item">
-                <a href="pages/tables/jsgrid.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>jsGrid</p>
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-poll" style="color: rgb(54, 196, 206)"></i>
+                  <p>
+                     Menu du Restaurant
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
                 </a>
+               <ul class="nav nav-treeview">
+             
+               <li class="nav-item">
+                <a href="pages/tables/simple.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Liste</p>
+                </a>
+               </li>
+               </ul>
               </li>
+
+              
             </ul>
           </li>
          

@@ -13,9 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['middleware'=>['auth']], function(){
+Route::group(['middleware'=>['auth']], function(){ 
     Route::get('Admin', function(){return view('admin.app');})->name('admin');
+
     Route::get('Admin/profile', function(){return view('admin.profile');})->name('profile');
+    Route::get('Admin/newCategory', function(){return view('admin.menu.newCategory');})->name('newCategory');
+    Route::get('Admin/listCategory', function(){return view('admin.menu.listCategory');})->name('listCategory');
+    Route::get('Admin/newFood', function(){return view('admin.menu.newFood');})->name('newFood');
+    Route::get('Admin/listFood', function(){return view('admin.menu.listFood');})->name('listFood');
+
     Route::get('Admin/listRole',[App\Http\Controllers\RoleController::class,'showRole'])->name('listRole');
     
     Route::get('Admin/list',[App\Http\Controllers\AdminController::class,'show'])->name('list');
