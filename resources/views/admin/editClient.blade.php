@@ -67,7 +67,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="far fa-user"></i></span>
                           </div>
-                          <input type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ $user->lastname }}" >
+                          <input type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ $user->lastname }}" min="1980-01-01" max="2015-01-01" >
                           @error('lastname')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>

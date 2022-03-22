@@ -33,7 +33,7 @@ class AdminController extends Controller
             'email' => ['required', 'string','email', 'max:255','unique:users'],
             'origin' => ['required', 'string', 'max:255',],
             'adress' => ['required', 'string', 'max:255',],
-            'birthday'=> ['required', 'date','after:2015-01-01'],
+            'birthday'=> ['required', 'date',],
             'password' => ['required', 'string', 'min:8',],
             'password_confirmation' => ['required','same:password','min:8'],
         ]);
@@ -140,7 +140,7 @@ class AdminController extends Controller
                     ],
             'origin' => ['required', 'string', 'max:255',],
             'adress' => ['required', 'string', 'max:255',],
-            'birthday'=> ['required', 'date'],
+            'birthday'=> ['required', 'date',],
         ]);
 
         $user= User::whereId($id)->update([

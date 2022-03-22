@@ -182,7 +182,7 @@
                           <div class="form-group">
                             <label>Date de Naissance*:</label>
                             <div class="input-group">  
-                              <input type="date" class="form-control @error('birthday') is-invalid @enderror "  name="birthday" value="{{ old('birthday') }}">
+                              <input type="date" class="form-control @error('birthday') is-invalid @enderror "  name="birthday" value="{{ old('birthday') }}" min="1980-01-01" max="2015-01-01" >
                               @error('birthday')
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
