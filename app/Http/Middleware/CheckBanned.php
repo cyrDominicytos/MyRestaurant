@@ -17,11 +17,11 @@ class CheckBanned
      */
     public function handle(Request $request, Closure $next)
     {
-        if(auth()->check() && (auth()->user()->isbannir==1)){
+        if(auth()->check() && (auth()->user()->isbanned==1)){
             Auth::logout();
             $request->session()->invalidate();
             $request->session()->regenerateToken();
-            return redirect()->route('login')->with('error','Your account is suspend please contact Admin');
+            return redirect()->route('login')->with('error','Imposible de se connecter, Votre compte a été desactiver momentanément');
         }
         return $next($request);
     }

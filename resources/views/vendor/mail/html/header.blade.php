@@ -1,8 +1,6 @@
 <tr>
-<td class="header">
-<a href="{{ $url }}" style="display: inline-block;">
-<h1 style="color: rgb(19, 3, 31); text-align:center; font-family:cursive; font-size:25px">Gestion des Restaurant</h1>
+<td class="header" style="margin-top: 15px">
 
-</a>
+<h1 style="color: rgb(196, 9, 9); text-align:center; font-family:cursive; font-size:25px">Gestion des Restaurant</h1>
 </td>
 </tr>
