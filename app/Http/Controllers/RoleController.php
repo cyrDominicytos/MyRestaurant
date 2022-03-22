@@ -79,8 +79,8 @@ class RoleController extends Controller
     public function delete(Request $request,$id){
 
         $user=User::all();
-        foreach($user as $rols){
-            if($id == $rols->role_user_id){
+        foreach($user as $users){
+            if($id == $users->role_user_id){
               return redirect()->route('listRole')->with('error', 'user is affected by this role');
             }
             else{

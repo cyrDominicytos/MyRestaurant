@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Mail\UserMail;
 use App\Models\Permission;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Validation\Rule;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
@@ -32,7 +33,7 @@ class AdminController extends Controller
             'email' => ['required', 'string','email', 'max:255','unique:users'],
             'origin' => ['required', 'string', 'max:255',],
             'adress' => ['required', 'string', 'max:255',],
-            'birthday'=> ['required', 'date'],
+            'birthday'=> ['required', 'date','after:2015-01-01'],
             'password' => ['required', 'string', 'min:8',],
             'password_confirmation' => ['required','same:password','min:8'],
         ]);
@@ -65,6 +66,7 @@ class AdminController extends Controller
      
     public function showUser(){
         $roles=Role::all();
+        $date = Carbon::now()->format('Y-m-d');
         return view('admin.newCLient',compact('roles'));
     }
 

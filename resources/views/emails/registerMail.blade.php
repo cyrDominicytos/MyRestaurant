@@ -1,4 +1,4 @@
-use Carbon\Carbon;
+
 use Illuminate\Support\Facades\Auth;
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Auth;
         <div style='background: #fff; padding: 10px; margin:15px 0'><b>Message </b> : 
          <br>Veuillez bien vouloir ce rapprochez de nous merci.
         </div>
-        <div></div>
+        <div>
+            <b>Date et heure : </b>{{ Carbon\Carbon::now() }}
+        </div>
         </div>
         <br>
         <div style='color: blue; font-size: 14px;'>===========<br>Equipe </div>
