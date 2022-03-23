@@ -219,7 +219,7 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{route('newClient')}}" class="nav-link">
-                  <i class="fa fa-plus nav-icon" style="color: rgb(29, 181, 192)"></i>
+                  <i class="fa fa-plus-square nav-icon" style="color: rgb(29, 181, 192)"></i>
                   <p>Ajouter</p>
                 </a>
               </li>
@@ -244,7 +244,7 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{route('new_Role')}}" class="nav-link">
-                  <i class="fas fa-plus nav-icon" style="color: rgb(54, 196, 206)"></i>
+                  <i class="fa fa-folder-plus nav-icon" style="color: rgb(54, 196, 206)"></i>
                   <p>Ajouter</p>
                 </a>
               </li>
@@ -278,7 +278,7 @@
                <ul class="nav nav-treeview">
                <li class="nav-item">
                 <a href="{{route('newCategory')}}" class="nav-link">
-                  <i class="far fa-chess-king nav-icon"></i>
+                  <i class="fa fa-cart-plus nav-icon"></i>
                   <p>Ajouter</p>
                 </a>
                </li>
@@ -302,7 +302,7 @@
                <ul class="nav nav-treeview">
                <li class="nav-item">
                 <a href="{{route('newFood')}}" class="nav-link">
-                  <i class="far fa-chess-king nav-icon"></i>
+                  <i class="fa fa-cart-plus nav-icon"></i>
                   <p>Ajouter</p>
                 </a>
                </li>
@@ -331,13 +331,13 @@
                 </a>
                <ul class="nav nav-treeview">
                <li class="nav-item">
-                <a href="pages/tables/simple.html" class="nav-link">
-                  <i class="far fa-chess-king nav-icon"></i>
+                <a href="{{route('newMenuDay')}}" class="nav-link">
+                  <i class="fa fa-cart-plus nav-icon"></i>
                   <p>Ajouter</p>
                 </a>
                </li>
                <li class="nav-item">
-                <a href="pages/tables/simple.html" class="nav-link">
+                <a href="{{route('listMenuDay')}}" class="nav-link">
                   <i class="fa fa-clipboard-list nav-icon"></i>
                   <p>Liste</p>
                 </a>
