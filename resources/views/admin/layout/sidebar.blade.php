@@ -278,13 +278,13 @@
                <ul class="nav nav-treeview">
                <li class="nav-item">
                 <a href="{{route('newCategory')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="far fa-chess-king nav-icon"></i>
                   <p>Ajouter</p>
                 </a>
                </li>
                <li class="nav-item">
                 <a href="{{route('listCategory')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fa fa-clipboard-list nav-icon"></i>
                   <p>Liste</p>
                 </a>
                </li>
@@ -302,14 +302,20 @@
                <ul class="nav nav-treeview">
                <li class="nav-item">
                 <a href="{{route('newFood')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="far fa-chess-king nav-icon"></i>
                   <p>Ajouter</p>
                 </a>
                </li>
                <li class="nav-item">
                 <a href="{{route('listFood')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fa fa-clipboard-list nav-icon"></i>
                   <p>Liste</p>
+                </a>
+               </li>
+               <li class="nav-item">
+                <a href="{{route('listMenuFood')}}" class="nav-link">
+                  <i class="fa fa-clipboard-list nav-icon"></i>
+                  <p>Liste Menu</p>
                 </a>
                </li>
                </ul>
@@ -326,13 +332,13 @@
                <ul class="nav nav-treeview">
                <li class="nav-item">
                 <a href="pages/tables/simple.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="far fa-chess-king nav-icon"></i>
                   <p>Ajouter</p>
                 </a>
                </li>
                <li class="nav-item">
                 <a href="pages/tables/simple.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fa fa-clipboard-list nav-icon"></i>
                   <p>Liste</p>
                 </a>
                </li>
@@ -351,7 +357,7 @@
              
                <li class="nav-item">
                 <a href="pages/tables/simple.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fa fa-clipboard-list nav-icon"></i>
                   <p>Liste</p>
                 </a>
                </li>
