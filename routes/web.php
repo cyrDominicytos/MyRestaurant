@@ -28,6 +28,7 @@ Route::group(['middleware'=>['auth']], function(){
 
     Route::get('Admin/newFood', function(){return view('admin.menu.newFood');})->name('newFood');
     Route::get('Admin/listFood', function(){return view('admin.menu.listFood');})->name('listFood');
+    Route::get('Admin/listMenuFood', function(){return view('admin.menu.listMenuFood');})->name('listMenuFood');
 
     Route::get('Admin/listRole',[App\Http\Controllers\RoleController::class,'showRole'])->name('listRole');
     

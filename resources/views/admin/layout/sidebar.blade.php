@@ -314,7 +314,7 @@
                </li>
                <li class="nav-item">
                 <a href="{{route('listMenuFood')}}" class="nav-link">
-                  <i class="fa fa-clipboard-list nav-icon"></i>
+                  <i class="fa fa-list-alt nav-icon"></i>
                   <p>Liste Menu</p>
                 </a>
                </li>
