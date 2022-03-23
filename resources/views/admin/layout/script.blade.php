@@ -37,6 +37,8 @@
 
 <!-- OPTIONAL SCRIPTS -->
 <script src="{{asset('plugins/chart.js/Chart.min.js')}}"></script>
+<!-- bs-custom-file-input -->
+<script src="{{asset('../../plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
 
 <!-- DataTables  & Plugins -->
 <script src="{{asset('../../plugins/datatables/jquery.dataTables.min.js')}}"></script>
