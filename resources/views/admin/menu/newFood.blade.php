@@ -56,7 +56,6 @@
                           <div class="form-group">
                             <label>Status</label>
                             <select class="form-control custom-select" name="met_status" id="met_status" required>
-                              <option>Selectionner status du Mets</option>
                               @foreach (status() as $index =>$status)
                                 <option value="{{ $index }}">{{ $status  }}</option>
                               @endforeach

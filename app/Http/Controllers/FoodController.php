@@ -58,8 +58,8 @@ class FoodController extends Controller
      $met->met_status=$request->met_status;
      $met->met_type=$request->met_type;
      $met->categorie_met_id=$request->categorie_met_id;
-
-
+     $met->save();
+  
      return redirect()->route('listFood')->with('success','Met creér avec succès');
     }
 }
