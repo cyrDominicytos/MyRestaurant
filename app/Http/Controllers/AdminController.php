@@ -30,7 +30,7 @@ class AdminController extends Controller
             'firstname' => ['required', 'string', 'max:255'],
             'lastname' => ['required', 'string', 'max:255',],
             'phone_number' => ['required', 'string', 'max:255','unique:users'],
-            'email' => ['required', 'string','email', 'max:255','unique:users'],
+            'email' => ['required', 'string','email', 'max:255','unique:users','regex:/^.+@.+$/i',],
             'origin' => ['required', 'string', 'max:255',],
             'adress' => ['required', 'string', 'max:255',],
             'birthday'=> ['required', 'date',],

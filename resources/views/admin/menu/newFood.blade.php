@@ -69,7 +69,6 @@
                           <div class="form-group">
                             <label>Type</label>
                             <select class="form-control custom-select" name="met_type" required>
-                                <option>Selectionner Type Mets</option>
                               @foreach (metType() as $index =>$type)
                                   <option value="{{ $index }}">{{ $type }}</option>
                               @endforeach
@@ -80,7 +79,6 @@
                             <div class="form-group">
                                 <label>Categories</label>
                                 <select class="form-control custom-select" name="category" required>
-                                  <option>Selectionner Categories Mets</option>
                                   @foreach ($category as $cat)
                                       <option value="{{ $cat->met_categorie_id}}">{{ $cat->met_categorie_name }}</option>
                                   @endforeach
@@ -92,8 +90,8 @@
                       <label for="exampleInputFile">Image Mets</label>
                       <div class="input-group">
                         <div class="custom-file">
-                          <label class="custom-file-label" for="exampleInputFile">Selectionner l'image de votre mets </label>
-                          <input type="file" class=" form-control custom-file-input @error('met_image') is-invalid @enderror" id="met_image" name="met_image">
+                          <input type="file" class="form-control custom-file-input @error('met_image') is-invalid @enderror" id="exampleInputFile" name="met_image" required>
+                          <label class="custom-file-label" for="exampleInputFile"> </label>
                           @error('met_image')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -103,7 +101,6 @@
                       </div>
                     </div>
                     <div class="form-group">
-                        <label>Description</label>
                         <textarea class="form-control @error('met_description') is-invalid @enderror" rows="3" placeholder="Decriver votre Mets." name="met_description" required></textarea>
                         @error('met_description')
                           <span class="invalid-feedback" role="alert">
