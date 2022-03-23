@@ -31,7 +31,7 @@ Route::group(['middleware'=>['auth']], function(){
     Route::post('Admin/createFood',[App\Http\Controllers\FoodController::class,'create'])->name('create_Food');
     Route::get('Admin/editFood/{id}', [App\Http\Controllers\FoodController::class,'show'])->name('edit_Food');
     Route::get('Admin/deleteFood/{id}', [App\Http\Controllers\FoodController::class,'delete'])->name('delete_Food');
-    Route::pos('Admin/updateFood/{id}', [App\Http\Controllers\FoodController::class,'update'])->name('update_Food');
+    Route::post('Admin/updateFood/{id}', [App\Http\Controllers\FoodController::class,'update'])->name('update_Food');
 
     Route::get('Admin/listFood',[App\Http\Controllers\FoodController::class,'lisFood'])->name('listFood');
     Route::get('Admin/listMenuFood', [App\Http\Controllers\FoodController::class,'lisFoodMenu'])->name('listMenuFood');
