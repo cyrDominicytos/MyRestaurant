@@ -20,11 +20,11 @@ class FoodController extends Controller
     {
         return Validator::make($data, [
             'met_name' => ['required', 'string', 'max:255','unique:mets'],
-            'met_price' => ['required', 'string', 'max:255'], 
+            'met_price' => ['required', 'numeric',], 
             'met_description' => ['required', 'string', 'max:255'],
             'met_image'=>['required', 'string', 'max:255'],
-            'met_status'=>['required', 'string', 'max:255'],
-            'met_type'=>['required', 'string', 'max:255'],
+            'met_status'=>['required', 'integer'],
+            'met_type'=>['required', 'string',],
             'category'=>['required', 'string', 'max:255'],
         ]);
     }
