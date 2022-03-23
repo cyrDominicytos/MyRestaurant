@@ -78,3 +78,10 @@ if(!function_exists('metJour')){
         return $jour;
     }
 }
+
+if(!function_exists('status')){
+    function status(){
+        $status=array("1"=>"En Stock", "2"=>"Pas en Stock");
+        return $stauts;
+    }
+}
