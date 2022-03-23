@@ -86,24 +86,13 @@
                         </div>
                       </div>
 
-                      {{-- <div class="form-group">
-                        <label for="exampleInputFile">File input</label>
-                        <div class="input-group">
-                          <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="exampleInputFile">
-                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                          </div>
-                          <div class="input-group-append">
-                            <span class="input-group-text">Upload</span>
-                          </div>
-                        </div>
-                      </div> --}}
+                     
                     <div class="form-group">
                       <label for="exampleInputFile">Image Mets</label>
                       <div class="input-group">
                         <div class="custom-file">
                           <input type="file" class="form-control custom-file-input @error('met_image') is-invalid @enderror" id="exampleInputFile" name="met_image" value="{{ old('met_image') }}" required>
-                          <label class="custom-file-label" for="exampleInputFile"> </label>
+                          <label class="custom-file-label" for="exampleInputFile"> Selectionner Image </label>
                           @error('met_image')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
