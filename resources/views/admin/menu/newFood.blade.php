@@ -78,7 +78,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Categories</label>
-                                <select class="form-control custom-select" name="category" required>
+                                <select class="form-control custom-select" name="categorie_met_id" required>
                                   @foreach ($category as $cat)
                                       <option value="{{ $cat->met_categorie_id}}">{{ $cat->met_categorie_name }}</option>
                                   @endforeach
@@ -87,7 +87,7 @@
                         </div>
                       </div>
 
-                      <div class="form-group">
+                      {{-- <div class="form-group">
                         <label for="exampleInputFile">File input</label>
                         <div class="input-group">
                           <div class="custom-file">
@@ -98,8 +98,7 @@
                             <span class="input-group-text">Upload</span>
                           </div>
                         </div>
-                      </div>
-{{-- 
+                      </div> --}}
                     <div class="form-group">
                       <label for="exampleInputFile">Image Mets</label>
                       <div class="input-group">
@@ -113,7 +112,7 @@
                           @enderror
                         </div>
                       </div>
-                    </div> --}}
+                    </div>
                     <div class="form-group">
                         <textarea class="form-control @error('met_description') is-invalid @enderror" rows="3" placeholder="Decriver votre Mets." name="met_description" required></textarea>
                         @error('met_description')

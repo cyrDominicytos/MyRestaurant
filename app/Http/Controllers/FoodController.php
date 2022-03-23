@@ -25,7 +25,7 @@ class FoodController extends Controller
             'met_image'=>['required', 'image','mimes:jpeg,png,jpg,gif,svg|max:2048',],
             'met_status'=>['required', 'integer'],
             'met_type'=>['required', 'integer',],
-            'category'=>['required','integer'],
+            'categorie_met_id'=>['required','integer'],
         ]);
 
         // 'imageFile' => 'required',
