@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
@@ -25,10 +26,10 @@ class RoleController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string', 'max:255'],
-            'slug' => ['required', 'string', 'max:255',],
-            'permission'=>['required',],
+            'role_name' => ['required', 'string', 'max:255','unique:roles'],
+            'role_description' => ['required', 'string', 'max:255'],
+            'role_slug' => ['required', 'string', 'max:255',],
+            'permission'=>['required'],
         ]);
     }
 
@@ -46,7 +47,7 @@ class RoleController extends Controller
         ]);
          return redirect()->route('listRole')->with('success','Role is successfully create');
     }
-
+    
     public function edit($id){
         
         $role=DB::table('roles')->where('role_id',$id)->first();
@@ -58,14 +59,22 @@ class RoleController extends Controller
     }
 
     public function updateRole(Request $request,$id){
+        $role=DB::table('roles')->where('role_id',$id)->first();
+        $validate=$request->validate([
+            'role_name'=> ['required', 'string', 'max:255',
+                              Rule::unique('roles')->where(fn ($query) => $query->where('role_name','!=',$role->role_name)),
+                              ],
+            'role_description' => ['required', 'string', 'max:255'],
+            'role_slug' => ['required', 'string', 'max:255',],
+            'permission'=>['required'],
 
-        $this->validator($request->all())->validate();
+        ]);
         $roleUpdate = DB::table('roles')
                 ->where('role_id',$id)
                 ->update([
-                    "role_name"=>$request->name,
-                    "role_slug"=>$request->slug,
-                    "role_description"=>$request->description
+                    "role_name"=>$request->role_name,
+                    "role_slug"=>$request->role_slug,
+                    "role_description"=>$request->role_description
                 ]);
         $permi_role_update=DB::table('permission_role')
                 ->where('role_id',$id)
@@ -78,17 +87,14 @@ class RoleController extends Controller
 
     public function delete(Request $request,$id){
 
-        $user=User::all();
-        foreach($user as $users){
-            if($id == $users->role_user_id){
-              return redirect()->route('listRole')->with('error', 'user is affected by this role');
-            }
-            else{
-                $role=DB::table('roles')->where('role_id',$id)->delete();
-                return redirect()->route('listRole')->with('success', 'user is successfully deleted');
-            }
+
+        $user=User::where('role_user_id',$id)->first();
+        if($user){
+            return redirect()->route('listRole')->with('error', 'user is affected by this role');
+        }else{
+            $role=DB::table('roles')->where('role_id',$id)->delete();
+            return redirect()->route('listRole')->with('success', 'user is successfully deleted');
         }
-        
         
     }
 }

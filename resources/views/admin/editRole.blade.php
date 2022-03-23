@@ -30,8 +30,8 @@
                         <div class="form-group col-md-6">
                           <label>Designation du role:</label>
                           <div class="input-group">
-                            <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $role->role_name }}" required >
-                            @error('name')
+                            <input type="text" class="form-control @error('role_name') is-invalid @enderror" name="role_name" value="{{ $role->role_name }}" required >
+                            @error('role_name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -43,8 +43,8 @@
                         <div class="form-group col-md-6">
                           <label>Slug du role:</label>
                           <div class="input-group">
-                            <input type="text" class="form-control @error('slug') is-invalid @enderror" name="slug" value="{{ $role->role_slug }}" required>
-                            @error('slug')
+                            <input type="text" class="form-control @error('role_slug') is-invalid @enderror" name="role_slug" value="{{ $role->role_slug }}" required>
+                            @error('role_slug')
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
                               </span>
@@ -56,8 +56,8 @@
                      <div class="form-group ">
                       <label>Description:</label>
                       <div class="input-group">
-                        <input type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ $role->role_description }}" required >
-                        @error('description')
+                        <input type="text" class="form-control @error('role_description') is-invalid @enderror" name="role_description" value="{{ $role->role_description }}" required >
+                        @error('role_description')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>

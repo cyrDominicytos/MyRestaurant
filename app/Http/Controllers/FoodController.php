@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Met;
 use App\Models\MetCategory;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
@@ -18,7 +19,7 @@ class FoodController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'met_categorie_name' => ['required', 'string', 'max:255'],
+            'met_categorie_name' => ['required', 'string', 'max:255','unique:met_categories'],
             'met_categorie_description' => ['required', 'string', 'max:255'],
         ]);
     }
@@ -36,7 +37,7 @@ class FoodController extends Controller
         $category->met_categorie_name=$request['met_categorie_name'];
         $category->met_categorie_description=$request['met_categorie_description'];
         $category->save();
-        return redirect()->route('listCategory')->with('success'," Categories créer avec succes");
+        return redirect()->route('listCategory')->with('success'," Categories créer avec succès");
     }
 
     public function list(){
@@ -45,23 +46,34 @@ class FoodController extends Controller
     }
 
     public function update(Request $request ,$id){
+        
         $category_met=DB::table('met_categories')->where('met_categorie_id',$id)->first();
-        if(!$category_me){
-            return redirect()->route('listCategory')->with('error',"Cette Categories n'existe pas");
-        }
-        return view('admin.menu.newCategory',compact('category_met'));
+        $validate=$request->validate([
+            'met_categorie_name'=> ['required', 'string', 'max:255',
+                              Rule::unique('met_categories')->where(fn ($query) => $query->where('met_categorie_name','!=',$category_met->met_categorie_name)),
+                              ],
+            'met_categorie_description' => ['required', 'string', 'max:255'],
+
+        ]);
+        $categorieUpdate = DB::table('met_categories')
+                ->where('met_categorie_id',$id)
+                ->update([
+                    "met_categorie_name"=>$request->met_categorie_name,
+                    "met_categorie_description"=>$request->met_categorie_description,
+                ]);
+
+        return redirect()->route('listCategory')->with('success','Categorie mise à jour avec succés');                
     }
 
-    public function delete($id){
-        $mets=Met::all();
-        foreach($mets as $met){
-            if($id == $met->categorie_met_id){
-              return redirect()->route('listRole')->with('error', 'La categorie est affecter à un met');
-            }
-            else{
-                $role=DB::table('met_categories')->where('met_categorie_id',$id)->delete();
-                return redirect()->route('listRole')->with('success', 'user is successfully deleted');
-            }
+    public function delete(Request $request ,$id){
+        $mets=Met::where('met_categorie_id',$id)->first();
+        if($mets){
+            return redirect()->route('listCategory')->with('error', 'Categorie est affecter à un met');
         }
+        else{
+            $role=DB::table('met_categories')->where('met_categorie_id',$id)->delete();
+            return redirect()->route('listCategory')->with('success', 'Categorie supprimer avec succès');
+        }
+        
     }
 }

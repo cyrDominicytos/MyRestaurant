@@ -27,7 +27,8 @@
               
                 <!-- /.card-header -->
                 <div class="card-body">
-                  <table id="example1" class="table table-bordered table-striped">
+                  @if(count($category_met)!=null)
+                  <table id="example2" class="table table-bordered table-striped">
                     <thead>
                     <tr style="color: #014463">
                       <th>N°</th>
@@ -58,6 +59,9 @@
                     </tbody>
                       
                   </table>
+                  @else
+                  <div class="alert alert-info">Aucune categorie disponible</div>
+                  @endif
                 </div>
                 <!-- /.card-body -->
               </div>
