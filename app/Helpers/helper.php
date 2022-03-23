@@ -80,8 +80,11 @@ if(!function_exists('metJour')){
 }
 
 if(!function_exists('status')){
-    function status(){
+    function status($met_status=null){
         $status=array("1"=>"En Stock", "2"=>"Pas en Stock");
+        if ($met_status!==null) {
+            return $status[$met_status];
+        }
         return $status;
     }
 }

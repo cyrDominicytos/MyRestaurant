@@ -62,4 +62,13 @@ class FoodController extends Controller
   
      return redirect()->route('listFood')->with('success','Met creér avec succès');
     }
+    
+    public function lisFood(){
+        $foods=Met::all();
+        return view('admin.menu.listFood',compact('foods'));
+    }
+    public function lisFoodMenu(){
+        $foods=Met::all();
+        return view('admin.menu.listMenuFood',compact('foods'));
+    }
 }

@@ -27,6 +27,7 @@
               
                 <!-- /.card-header -->
                 <div class="card-body">
+                  @if ($foods!=null)
                   <table id="example2" class="table table-bordered table-striped">
                     <thead style="background-color: rgb(216, 44, 44)">
                     <tr style="color: #ffffff">
@@ -38,20 +39,29 @@
                     </tr>
                     </thead>
                     <tbody>
-                    
+                    @foreach ($foods as $food)
                         <tr>
-                          <td>015</td>
-                          <td>Amala</td>
-                          <td> Matières grasses </td>
-                          <td><span class="right badge badge-success">En stock</span></td>
-                          <td>5000f </td>
+                          <td>{{ $food->met_id }}</td>
+                          <td>{{ $food->met_name }}</td>
+                          <td> {{ $food->category->met_categorie_name }} </td>
+                          <td>
+                            @if(status($food->met_status)=="En Stock")
+                            <span class="right badge badge-success">{{  status($food->met_status) }}</span></td>
+                            @else
+                            <span class="right badge badge-danger">{{  status($food->met_status) }}</span></td>
+                            @endif
+                          <td> {{ $food->met_price }}</td>
                         </tr>
-                      
+                      @endforeach
                     </tbody>
                    
                   </table>
+                  @else
+                  <div class="alert alert-info"> Aucun Met disponible </div>
+                  @endif
                 </div>
                 <!-- /.card-body -->
+
               </div>
               <!-- /.card -->
             </div>

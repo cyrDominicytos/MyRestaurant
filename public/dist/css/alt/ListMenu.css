@@ -39,8 +39,8 @@ h2 {
 
 .card h5 {
     overflow: hidden;
-    height: 56px;
-    font-weight: 900;
+    height: 100px;
+    font-weight: 500;
     font-size: 1rem
 }
 
