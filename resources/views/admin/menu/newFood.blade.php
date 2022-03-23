@@ -32,7 +32,7 @@
                   <div class="card-body">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Nom </label>
-                      <input type="text" class="form-control @error('met_name') is-invalid @enderror " name="met_name" id="exampleInputEmail1" placeholder="Enter le nom du mets" required>
+                      <input type="text" class="form-control @error('met_name') is-invalid @enderror " name="met_name" id="exampleInputEmail1" placeholder="Enter le nom du mets" value="{{ old('met_name') }}" required>
                       @error('met_name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -44,7 +44,7 @@
                           <!-- text input -->
                           <div class="form-group">
                             <label>Prix </label>
-                            <input type="text" class="form-control @error('met_price') is-invalid @enderror " name="met_price" placeholder="Enter le prix du mets" required>
+                            <input type="text" class="form-control @error('met_price') is-invalid @enderror " name="met_price" placeholder="Enter le prix du mets"  value="{{ old('met_price') }}"  required>
                             @error('met_price')
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
@@ -102,7 +102,7 @@
                       <label for="exampleInputFile">Image Mets</label>
                       <div class="input-group">
                         <div class="custom-file">
-                          <input type="file" class="form-control custom-file-input @error('met_image') is-invalid @enderror" id="exampleInputFile" name="met_image" required>
+                          <input type="file" class="form-control custom-file-input @error('met_image') is-invalid @enderror" id="exampleInputFile" name="met_image" value="{{ old('met_image') }}" required>
                           <label class="custom-file-label" for="exampleInputFile"> </label>
                           @error('met_image')
                             <span class="invalid-feedback" role="alert">
@@ -113,7 +113,7 @@
                       </div>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control @error('met_description') is-invalid @enderror" rows="3" placeholder="Decriver votre Mets." name="met_description" required></textarea>
+                        <textarea class="form-control @error('met_description') is-invalid @enderror" rows="3" placeholder="Decriver votre Mets." name="met_description" value="{{ old('met_description') }}" required></textarea>
                         @error('met_description')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>

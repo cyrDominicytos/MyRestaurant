@@ -30,7 +30,7 @@
               @csrf
                 <div class="form-group">
                     <label for="inputSubject">Nom de la Categorie <span style="color: red">*</span></label>
-                    <input type="text"  class="form-control @error('met_categorie_name') is-invalid @enderror " name="met_categorie_name"  placeholder="Nom de la Categorie" name="met_categorie_name" value="{{ isset($category_met) ? $category_met->met_categorie_name: '' }}" required/>
+                    <input type="text"  class="form-control @error('met_categorie_name') is-invalid @enderror " name="met_categorie_name"  placeholder="Nom de la Categorie" name="met_categorie_name" value="{{ isset($category_met) ? $category_met->met_categorie_name: old('met_categorie_name') }}" required/>
                     @error('met_categorie_name')
                       <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
@@ -39,7 +39,7 @@
                   </div>
                   <div class="form-group">
                     <label for="inputMessage">Description</label>
-                    <textarea  class="form-control @error('met_categorie_description') is-invalid @enderror" name="met_categorie_description" rows="4" placeholder="Description de la categorie"  required>{{ isset($category_met) ? $category_met->met_categorie_description : '' }}</textarea>
+                    <textarea  class="form-control @error('met_categorie_description') is-invalid @enderror" name="met_categorie_description" rows="4" placeholder="Description de la categorie"  required>{{ isset($category_met) ? $category_met->met_categorie_description : old('met_categorie_description') }}</textarea>
                     @error('met_categorie_description')
                       <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
