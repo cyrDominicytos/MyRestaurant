@@ -39,7 +39,7 @@
                   </div>
                   <div class="form-group">
                     <label for="inputMessage">Description</label>
-                    <textarea  class="form-control @error('met_categorie_description') is-invalid @enderror " name="met_categorie_description" rows="4" placeholder="Description de la categorie"  required>{{ isset($category_met) ? $category_met->met_categorie_description : '' }}</textarea>
+                    <textarea  class="form-control @error('met_categorie_description') is-invalid @enderror" name="met_categorie_description" rows="4" placeholder="Description de la categorie"  required>{{ isset($category_met) ? $category_met->met_categorie_description : '' }}</textarea>
                     @error('met_categorie_description')
                       <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>

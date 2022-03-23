@@ -27,27 +27,39 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form>
+                <form action="{{ route('create_Food') }}" method="post" enctype="multipart/form-data">
+                  @csrf
                   <div class="card-body">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Nom </label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter le nom du mets">
+                      <input type="text" class="form-control @error('met_name') is-invalid @enderror " name="met_name" id="exampleInputEmail1" placeholder="Enter le nom du mets" required>
+                      @error('met_name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
                           <!-- text input -->
                           <div class="form-group">
                             <label>Prix </label>
-                            <input type="text" class="form-control" placeholder="Enter le prix du mets">
+                            <input type="text" class="form-control @error('met_price') is-invalid @enderror " name="met_price" placeholder="Enter le prix du mets" required>
+                            @error('met_price')
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </span>
+                            @enderror
                           </div>
                         </div>
                         <div class="col-sm-6">
                           <div class="form-group">
                             <label>Status</label>
-                            <select class="custom-select">
-                                <option>Selectionner status du Mets</option>
-                              <option>En stock</option>
-                              <option>Pas en stock</option>
+                            <select class="form-control custom-select" name="met_status" id="met_status" required>
+                              <option>Selectionner status du Mets</option>
+                              @foreach (status() as $index =>$status)
+                                <option value="{{ $index }}">{{ $status  }}</option>
+                              @endforeach
                             </select>
                           </div>
                         </div>
@@ -56,22 +68,22 @@
                         <div class="col-sm-6">
                           <div class="form-group">
                             <label>Type</label>
-                            <select class="custom-select">
+                            <select class="form-control custom-select" name="met_type" required>
                                 <option>Selectionner Type Mets</option>
-                              <option>Pétit dejeuner</option>
-                              <option>Dejeuner</option>
-                              <option>Diner</option>
+                              @foreach (metType() as $index =>$type)
+                                  <option value="{{ $index }}">{{ $type }}</option>
+                              @endforeach
                             </select>
                           </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Categories</label>
-                                <select class="custom-select">
+                                <select class="form-control custom-select" name="category" required>
                                   <option>Selectionner Categories Mets</option>
-                                  <option>Légumes</option>
-                                  <option>Matières Grasse</option>
-                                  <option>...</option>
+                                  @foreach ($category as $cat)
+                                      <option value="{{ $cat->met_categorie_id}}">{{ $cat->met_categorie_name }}</option>
+                                  @endforeach
                                 </select>
                               </div>
                         </div>
@@ -80,14 +92,24 @@
                       <label for="exampleInputFile">Image Mets</label>
                       <div class="input-group">
                         <div class="custom-file">
-                          <input type="file" class="custom-file-input" id="exampleInputFile">
-                          <label class="custom-file-label" for="exampleInputFile">Enregistrer l'image de votre mets </label>
+                          <label class="custom-file-label" for="exampleInputFile">Selectionner l'image de votre mets </label>
+                          <input type="file" class=" form-control custom-file-input @error('met_image') is-invalid @enderror" id="met_image" name="met_image">
+                          @error('met_image')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                          @enderror
                         </div>
                       </div>
                     </div>
                     <div class="form-group">
                         <label>Description</label>
-                        <textarea class="form-control" rows="3" placeholder="Decriver votre Mets."></textarea>
+                        <textarea class="form-control @error('met_description') is-invalid @enderror" rows="3" placeholder="Decriver votre Mets." name="met_description" required></textarea>
+                        @error('met_description')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                        @enderror
                       </div>
                   </div>
                   <!-- /.card-body -->

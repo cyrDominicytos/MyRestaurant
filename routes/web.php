@@ -18,15 +18,19 @@ Route::group(['middleware'=>['auth']], function(){
 
     Route::get('Admin/profile', function(){return view('admin.profile');})->name('profile');
 
-    Route::get('Admin/newCategory',[App\Http\Controllers\FoodController::class,'show'])->name('newCategory');
-    Route::post('Admin/createCatgory',[App\Http\Controllers\FoodController::class,'create'])->name('create_category');
-    Route::get('Admin/editCatgory/{id}',[App\Http\Controllers\FoodController::class,'show'])->name('edit_category');
-    Route::post('Admin/updateCatgory/{id}',[App\Http\Controllers\FoodController::class,'update'])->name('update_category');
-    Route::get('Admin/deleteCatgory/{id}',[App\Http\Controllers\FoodController::class,'delete'])->name('delete_category');
+    //  Route category food
+    Route::get('Admin/newCategory',[App\Http\Controllers\CategorieFoodController::class,'show'])->name('newCategory');
+    Route::post('Admin/createCatgory',[App\Http\Controllers\CategorieFoodController::class,'create'])->name('create_category');
+    Route::get('Admin/editCatgory/{id}',[App\Http\Controllers\CategorieFoodController::class,'show'])->name('edit_category');
+    Route::post('Admin/updateCatgory/{id}',[App\Http\Controllers\CategorieFoodController::class,'update'])->name('update_category');
+    Route::get('Admin/deleteCatgory/{id}',[App\Http\Controllers\CategorieFoodController::class,'delete'])->name('delete_category');
+    Route::get('Admin/listCategory',[App\Http\Controllers\CategorieFoodController::class,'list'])->name('listCategory');
 
-    Route::get('Admin/listCategory',[App\Http\Controllers\FoodController::class,'list'])->name('listCategory');
+    // Route mFood
+    Route::get('Admin/newFood',[App\Http\Controllers\FoodController::class,'show'])->name('newFood');
+    Route::post('Admin/createFood',[App\Http\Controllers\FoodController::class,'create'])->name('create_Food');
 
-    Route::get('Admin/newFood', function(){return view('admin.menu.newFood');})->name('newFood');
+
     Route::get('Admin/listFood', function(){return view('admin.menu.listFood');})->name('listFood');
     Route::get('Admin/listMenuFood', function(){return view('admin.menu.listMenuFood');})->name('listMenuFood');
 
