@@ -16,7 +16,7 @@
         <div class="modal-footer justify-content-center">
           <button type="button" class="btn btn-success" data-dismiss="modal"> <i class="fa"></i> Non</button>
       					
-              <a style="color: white" href=" " class="btn btn-danger"> <i class="fa fa-check"></i> oui bloquer</a>
+              <a style="color: white" href="{{ route('delete_category',$category->met_categorie_id) }} " class="btn btn-danger"> <i class="fa fa-check"></i> oui bloquer</a>
         
         </div>
       </div>

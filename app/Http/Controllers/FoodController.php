@@ -66,7 +66,7 @@ class FoodController extends Controller
     }
 
     public function delete(Request $request ,$id){
-        $mets=Met::where('met_categorie_id',$id)->first();
+        $mets=Met::where('categorie_met_id',$id)->first();
         if($mets){
             return redirect()->route('listCategory')->with('error', 'Categorie est affecter à un met');
         }

@@ -26,7 +26,7 @@
           </div>
           <div class="col-7">
   
-            <form action="{{ isset($category_met) ? route('edit_category',$category_met->met_categorie_id) : route('create_category') }}" method="POST">
+            <form action="{{ isset($category_met) ? route('update_category',$category_met->met_categorie_id) : route('create_category') }}" method="POST">
               @csrf
                 <div class="form-group">
                     <label for="inputSubject">Nom de la Categorie <span style="color: red">*</span></label>

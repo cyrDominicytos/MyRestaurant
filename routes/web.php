@@ -21,6 +21,8 @@ Route::group(['middleware'=>['auth']], function(){
     Route::get('Admin/newCategory',[App\Http\Controllers\FoodController::class,'show'])->name('newCategory');
     Route::post('Admin/createCatgory',[App\Http\Controllers\FoodController::class,'create'])->name('create_category');
     Route::get('Admin/editCatgory/{id}',[App\Http\Controllers\FoodController::class,'show'])->name('edit_category');
+    Route::post('Admin/updateCatgory/{id}',[App\Http\Controllers\FoodController::class,'update'])->name('update_category');
+    Route::get('Admin/deleteCatgory/{id}',[App\Http\Controllers\FoodController::class,'delete'])->name('delete_category');
 
     Route::get('Admin/listCategory',[App\Http\Controllers\FoodController::class,'list'])->name('listCategory');
 
