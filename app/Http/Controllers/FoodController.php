@@ -33,7 +33,7 @@ class FoodController extends Controller
         // 'file' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,pdf|max:2048'
         // 'imageUpload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     }
-    public function show(){
+    public function show($id=null){
         $category=MetCategory::all();
         return view('admin.menu.newFood',compact('category'));
     }
@@ -70,5 +70,13 @@ class FoodController extends Controller
     public function lisFoodMenu(){
         $foods=Met::all();
         return view('admin.menu.listMenuFood',compact('foods'));
+    }
+
+    public function update(Request $request, $id){
+
+    }
+
+    public function delete($id){
+
     }
 }

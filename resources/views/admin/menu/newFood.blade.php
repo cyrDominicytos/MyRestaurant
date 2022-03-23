@@ -102,8 +102,8 @@
                       <label for="exampleInputFile">Image Mets</label>
                       <div class="input-group">
                         <div class="custom-file">
-                          <input type="file" class="form-control custom-file-input @error('met_image') is-invalid @enderror" id="exampleInputFile" name="met_image" value="{{ old('met_image') }}" required>
-                          <label class="custom-file-label" for="exampleInputFile"> </label>
+                          <input type="file" class="custom-file-input @error('met_image') is-invalid @enderror" id="exampleInputFile" name="met_image" value="{{ old('met_image') }}" required>
+                          <label class="custom-file-label" for="exampleInputFile"> Selectionner l'image du met  </label>
                           @error('met_image')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
