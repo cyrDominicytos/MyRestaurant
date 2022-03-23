@@ -37,26 +37,26 @@
                     </tr>
                     </thead>
                     <tbody>
-                  
+                      @foreach ($category_met as $category )
                         <tr>
-                          <td>1</td>
-                          <td>Fruits Légumes</td>
+                          <td>{{ $category->met_categorie_id }}</td>
+                          <td>{{ $category->met_categorie_name }}</td>
                         
-                          <td>Les légumes sont très très très bon pour la santé</td>
+                          <td>{{ $category->met_categorie_description }}</td>
                           <td>
                             <div class="nav-item dropdown">
                               <a  class="nav-link" type="button"   aria-expanded="false" data-toggle="dropdown"><i class="fa fa-cogs" style="color: black"></i></a>
                               <div class="dropdown-menu ">
-                                  <a class="dropdown-item" href="" style="font-size: 12px;color:green; font-weight:bold"><i class="fa fa-edit" style="margin-right:10px;color:green"></i>Editer</a>
+                                  <a class="dropdown-item" href="{{ route('edit_category',$category->met_categorie_id) }}" style="font-size: 12px;color:green; font-weight:bold"><i class="fa fa-edit" style="margin-right:10px;color:green"></i>Editer</a>
                                   <a class="dropdown-item " href="#myModalLock" data-toggle="modal" style="font-size: 12px;color:red; font-weight:bold"><i class="fa fa-trash" style="margin-right:10px;color:red"></i>Supprimer</a>
                               </div> 
                           </div>
                           
                           </td>
                         </tr>
-                     
+                      @endforeach
                     </tbody>
-                   
+                      
                   </table>
                 </div>
                 <!-- /.card-body -->

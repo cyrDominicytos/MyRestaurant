@@ -67,7 +67,7 @@ if(!function_exists('permissionModule')){
 
 if(!function_exists('metType')){
     function metType(){
-        $type=array("1"=>"Entréé", "2"=>"Resistant", "3"=>"Decès");
+        $type=array("1"=>"Entrées", "2"=>"Resistant", "3"=>"Deserts");
         return $type;
     }
 }

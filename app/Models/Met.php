@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\MetCategory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Met extends Model
 {
@@ -19,4 +20,8 @@ class Met extends Model
         'categorie_met_id',
     ];
 
+
+    public function category() {
+        return $this->belongsTo(MetCategory::class,'categorie_met_id','met_categorie_id');
+    }
 }

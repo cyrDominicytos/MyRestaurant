@@ -17,8 +17,13 @@ Route::group(['middleware'=>['auth']], function(){
     Route::get('Admin', function(){return view('admin.app');})->name('admin');
 
     Route::get('Admin/profile', function(){return view('admin.profile');})->name('profile');
-    Route::get('Admin/newCategory', function(){return view('admin.menu.newCategory');})->name('newCategory');
-    Route::get('Admin/listCategory', function(){return view('admin.menu.listCategory');})->name('listCategory');
+
+    Route::get('Admin/newCategory',[App\Http\Controllers\FoodController::class,'show'])->name('newCategory');
+    Route::post('Admin/createCatgory',[App\Http\Controllers\FoodController::class,'create'])->name('create_category');
+    Route::get('Admin/editCatgory/{id}',[App\Http\Controllers\FoodController::class,'show'])->name('edit_category');
+
+    Route::get('Admin/listCategory',[App\Http\Controllers\FoodController::class,'list'])->name('listCategory');
+
     Route::get('Admin/newFood', function(){return view('admin.menu.newFood');})->name('newFood');
     Route::get('Admin/listFood', function(){return view('admin.menu.listFood');})->name('listFood');
 
