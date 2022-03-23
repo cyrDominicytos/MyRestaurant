@@ -24,8 +24,8 @@ class FoodController extends Controller
             'met_description' => ['required', 'string', 'max:255'],
             'met_image'=>['required', 'image','mimes:jpeg,png,jpg,gif,svg|max:2048',],
             'met_status'=>['required', 'integer'],
-            'met_type'=>['required', 'string',],
-            'category'=>['required'],
+            'met_type'=>['required', 'integer',],
+            'category'=>['required','integer'],
         ]);
 
         // 'imageFile' => 'required',
@@ -39,16 +39,26 @@ class FoodController extends Controller
     }
 
     public function create(Request $request){
-        dd($request->met_image);
-        $filename=trim().'.'.$request->met_image->extension();
         
-        $image=$request->met_image->storeAs('images',$filename,'public');
+
         // $filename=$imageName.'.'.$request->imageUpload->extension(); 
         // $path=$request->imageUpload->move(
         //     'assets/img',
         //     $filename,
         // );
      $this->validator($request->all())->validate();
+
+     $filename=$request->met_image->getClientOriginalName();
+     $path=$request->met_image->storeAs('images',$filename,'public');
+     $met=new Met();
+     $met->met_name=$request->met_name;
+     $met->met_price=$request->met_price;
+     $met->met_description=$request->met_description;
+     $met->met_image=$path;
+     $met->met_status=$request->met_status;
+     $met->met_type=$request->met_type;
+     $met->categorie_met_id=$request->categorie_met_id;
+
 
      return redirect()->route('listFood')->with('success','Met creér avec succès');
     }
