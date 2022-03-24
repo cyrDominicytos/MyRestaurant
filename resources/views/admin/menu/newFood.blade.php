@@ -27,12 +27,12 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form action="{{ route('create_Food') }}" method="post" enctype="multipart/form-data">
+                <form action=" {{ isset($met) ? route('update_Food',$met->met_id) : route('create_Food') }}" method="post" enctype="multipart/form-data">
                   @csrf
                   <div class="card-body">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Nom </label>
-                      <input type="text" class="form-control @error('met_name') is-invalid @enderror " name="met_name" id="exampleInputEmail1" placeholder="Enter le nom du mets" value="{{ old('met_name') }}" required>
+                      <input type="text" class="form-control @error('met_name') is-invalid @enderror " name="met_name" id="exampleInputEmail1" placeholder="Enter le nom du mets" value="{{isset($met) ? $met->met_name : old('met_name') }}" required>
                       @error('met_name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -44,7 +44,7 @@
                           <!-- text input -->
                           <div class="form-group">
                             <label>Prix </label>
-                            <input type="text" class="form-control @error('met_price') is-invalid @enderror " name="met_price" placeholder="Enter le prix du mets"  value="{{ old('met_price') }}"  required>
+                            <input type="text" class="form-control @error('met_price') is-invalid @enderror " name="met_price" placeholder="Enter le prix du mets"  value="{{ isset($met) ? $met->met_price : old('met_price') }}"  required>
                             @error('met_price')
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
@@ -56,6 +56,9 @@
                           <div class="form-group">
                             <label>Status</label>
                             <select class="form-control custom-select" name="met_status" id="met_status" required>
+                              @if(isset($met))
+                              <option value="{{ $met->met_status }}">{{ status($met->met_status)  }}</option>
+                              @endif
                               @foreach (status() as $index =>$status)
                                 <option value="{{ $index }}">{{ $status  }}</option>
                               @endforeach
@@ -68,6 +71,9 @@
                           <div class="form-group">
                             <label>Type</label>
                             <select class="form-control custom-select" name="met_type" required>
+                              @if(isset($met))
+                              <option value="{{ $met->met_type }}">{{ metType($met->met_type) }}</option>
+                              @endif
                               @foreach (metType() as $index =>$type)
                                   <option value="{{ $index }}">{{ $type }}</option>
                               @endforeach
@@ -78,6 +84,9 @@
                             <div class="form-group">
                                 <label>Categories</label>
                                 <select class="form-control custom-select" name="categorie_met_id" required>
+                                  @if(isset($met))
+                                  <option value="{{ $met->met_categorie_id}}">{{ $met->met_categorie_name }}</option>
+                                  @endif
                                   @foreach ($category as $cat)
                                       <option value="{{ $cat->met_categorie_id}}">{{ $cat->met_categorie_name }}</option>
                                   @endforeach
@@ -91,18 +100,19 @@
                       <label for="exampleInputFile">Image Mets</label>
                       <div class="input-group">
                         <div class="custom-file">
-                          <input type="file" class="form-control custom-file-input @error('met_image') is-invalid @enderror" id="exampleInputFile" name="met_image" value="{{ old('met_image') }}" required>
-                          <label class="custom-file-label" for="exampleInputFile"> Selectionner Image </label>
+                          <input type="file" class="form-control custom-file-input @error('met_image') is-invalid @enderror" id="exampleInputFile" name="met_image" value="{{ isset($met) ? $met->met_image : old('met_image') }}">
                           @error('met_image')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                           @enderror
+                          <label class="custom-file-label" for="exampleInputFile"> Selectionner Image </label>
+
                         </div>
                       </div>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control @error('met_description') is-invalid @enderror" rows="3" placeholder="Decriver votre Mets." name="met_description" value="{{ old('met_description') }}" required></textarea>
+                        <textarea class="form-control @error('met_description') is-invalid @enderror" rows="3" placeholder="Decriver votre Mets." name="met_description"  required> {{  isset($met) ? $met->met_description : old('met_description') }}</textarea>
                         @error('met_description')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
@@ -113,7 +123,11 @@
                   <!-- /.card-body -->
   
                   <div class="card-footer">
-                    <button type="submit" class="btn btn-info">Enregistrer</button>
+                    @if(isset($met))
+                        <button type="submit" class="btn btn-info">Modifer</button>
+                    @else
+                        <button type="submit" class="btn btn-info">Enregistrer</button>
+                    @endif
                   </div>
                 </form>
               </div>

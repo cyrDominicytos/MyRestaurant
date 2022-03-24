@@ -56,6 +56,7 @@
 <script>
   $(function () {
     bsCustomFileInput.init();
+    $('#exampleInputFile').val(this);
   });
   </script>
 {{-- <!-- AdminLTE for demo purposes -->
