@@ -77,6 +77,7 @@ class FoodController extends Controller
     }
 
     public function delete($id){
-
+       $met=DB::table('mets')->where('met_id',$id)->delete();
+       return redirect()->route('listMenuFood')->with('success', 'Met supprimer avec succès');
     }
 }

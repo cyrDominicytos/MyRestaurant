@@ -35,7 +35,7 @@
                             <div class="row" >
                                 <div class="col-sm-6">
                                   <div class="form-group">
-                                    <a class="deletebtn" href="#" >Supprimer</a>
+                                    <a class="deletebtn" href="{{ route('delete_Food',$food->met_id) }}" >Supprimer</a>
                                   </div>
                                 </div>
                                 <div class="col-sm-6">
