@@ -108,6 +108,7 @@ class FoodController extends Controller
                     "categorie_met_id"=>$request->categorie_met_id,
 
                 ]);
+                
 
         return redirect()->route('listMenuFood')->with('success','Categorie mise à jour avec succés');
     }
