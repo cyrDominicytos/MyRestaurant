@@ -35,17 +35,19 @@ class FoodController extends Controller
     }
     public function show($id=null){
         $category=MetCategory::all();
-        return view('admin.menu.newFood',compact('category'));
+        $met=DB::table('mets')
+            ->join('met_categories','met_categories.met_categorie_id','=','mets.categorie_met_id')
+            ->where('met_id',$id)
+            ->select('mets.*','met_categories.*')
+            ->first();
+        if($id!=null && !$met){
+                return redirect()->route('listMenuFood')->with('error',"Cet met n'existe pas");
+            }
+        return view('admin.menu.newFood',compact('category','met'));
     }
 
     public function create(Request $request){
         
-
-        // $filename=$imageName.'.'.$request->imageUpload->extension(); 
-        // $path=$request->imageUpload->move(
-        //     'assets/img',
-        //     $filename,
-        // );
      $this->validator($request->all())->validate();
 
      $filename=$request->met_image->getClientOriginalName();
@@ -74,6 +76,41 @@ class FoodController extends Controller
 
     public function update(Request $request, $id){
 
+
+        if($request->met_image!=null){
+            $filename=$request->met_image->getClientOriginalName();
+            $path=$request->met_image->storeAs('images',$filename,'public');
+        }
+
+
+        $met=DB::table('mets')->where('met_id',$id)->first();
+        $validate=$request->validate([
+            'met_name'=> ['required', 'string', 'max:255',
+                              Rule::unique('mets')->where(fn ($query) => $query->where('met_name','!=',$met->met_name)),
+                              ],
+            'met_price' => ['required', 'numeric','regex:/^\d+(\.\d{1,2})?$/',], 
+            'met_description' => ['required', 'string', 'max:255'],
+            'met_image'=>['required', 'image','mimes:jpeg,png,jpg,gif,svg|max:2048',],
+            'met_status'=>['required', 'integer'],
+            'met_type'=>['required', 'integer',],
+            'categorie_met_id'=>['required','integer'],
+
+        ]);
+        $categorieUpdate = DB::table('mets')
+                ->where('met_id',$id)
+                ->update([
+                    "met_name"=>$request->met_name,
+                    "met_description"=>$request->met_description,
+                    "met_price"=>$request->met_price,
+                    "met_image"=>$request->met_image!=null ? $path : $met->met_image,
+                    "met_type"=>$request->met_type,
+                    "met_status"=>$request->met_status,
+                    "categorie_met_id"=>$request->categorie_met_id,
+
+                ]);
+                
+
+        return redirect()->route('listMenuFood')->with('success','Categorie mise à jour avec succés');
     }
 
     public function delete($id){

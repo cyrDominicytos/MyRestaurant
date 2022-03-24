@@ -66,8 +66,11 @@ if(!function_exists('permissionModule')){
 }
 
 if(!function_exists('metType')){
-    function metType(){
-        $type=array("1"=>"Entrées", "2"=>"Resistant", "3"=>"Deserts");
+    function metType($met_type=null){
+        $type=array("1"=>"Entrées", "2"=>"Resistance", "3"=>"Deserts");
+        if ($met_type!==null) {
+            return $type[$met_type];
+        }
         return $type;
     }
 }

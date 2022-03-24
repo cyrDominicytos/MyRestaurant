@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <a class="editbtn" href="#" >Modifier</a>
+                                        <a class="editbtn" href="{{ route('edit_Food',$food->met_id) }}" >Modifier</a>
                                       </div>
                                 </div>
                               </div>
