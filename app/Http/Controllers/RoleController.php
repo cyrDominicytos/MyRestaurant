@@ -34,12 +34,11 @@ class RoleController extends Controller
     }
 
     public function createRole(Request $request){
-        
         $this->validator($request->all())->validate();
         $roles=new Role();
-        $roles->role_name=$request['name'];
-        $roles->role_description=$request['description'];
-        $roles->role_slug=$request['slug'];
+        $roles->role_name=$request['role_name'];
+        $roles->role_description=$request['role_description'];
+        $roles->role_slug=$request['role_slug'];
         $roles->save();
         $permi_role=DB::table('permission_role')->insert([
             "role_id"=>$roles->id,

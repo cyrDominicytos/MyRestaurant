@@ -200,7 +200,7 @@
                                 <select class="form-control select2" style="width: 70%;" name="role">
                                   <label for="">Role</label>
                                   @foreach ($roles as $role) 
-                                  <option value="{{ $user->role->role_id }}">{{ $user->role->role_name }}</option>
+                                  <option value="{{ $role->role_id }}">{{ $role->role_slug }}</option>
                                   @endforeach           
                                 </select>
                                 <div class="input-group-append" style="margin-left: 8px">

@@ -50,7 +50,7 @@
                                   @if(is_array(rolePermission($role->role_id)) || is_object(rolePermission($role->role_id)))
                                   @foreach(rolePermission($role->role_id) as $permission)
                                    <?php $index++ ;?>
-                                   @if ($index>=4)
+                                   @if ($index<=4)
                                    <a class="dropdown-item" href="" style="font-size: 12px;color:black; font-weight:bold">{{ getPermissionById($permission)->permission_name }}</a>
                                    @endif
                                   @endforeach
