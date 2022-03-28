@@ -126,59 +126,39 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>  
    <script>
-         var tableResult = [];
+       var tableResult = [];
      var food = document.getElementById('food');
      var type = document.getElementById('type');
      var day = document.getElementById('day');
      var table =  document.getElementById('kt_table_users');
-    //   $(document).ready(function(){
-    //   $("select.langage").change(function(){
-    //     var langage = $(this).children("option:selected").val();
-    //     alert("Vous avez sélectionné le langage : " + langage);
-    //   });
-    // });
-    // document.getElementById('get').onclick=function (){createTable()};
-     
-    // createTable(){
-    //   console.log('Ma confun')
-    // //     var slt = document.querySelector('selector').getElementById('met');
-    // //     slt.addEventListener('change', function () {reduction
-    // //       console.log(this.selectedIndex);
-    // //     });
-      
-    // }
+     var SaveData = [];
  
-
 
     $(document).on('click','#get', function(){
         var Index = food.value + type.value + day.value;
         var labelFood = food.options[food.selectedIndex].label;
         var labelType = type.options[type.selectedIndex].label;
         var labelDay = day.options[day.selectedIndex].label;
-        var MonTableau = [labelFood, labelType, labelDay,Index];
-        console.log(MonTableau);
-      //  console.log(labelFood);
-      //  console.log(labelType);
-      //  console.log(labelDay);
-        console.log(Index);
-    if (Index == 111 ) {
-        console.log('Differebt');
-        // if (Index === MonTableau[0]) {
-        //   console.log('Non');
-        // } else {
-        //   console.log('Oui');
-        // }
-    }
-        var html = '';
+        var MonTableau = [labelFood, labelType, labelDay];
+      
+        if (!SaveData.includes(Index)){
+          //Row in exits
+
+          var html = '';
             html += '<tr ">';
             html += '<td class="text-gray" hidden><input type="text" required id="food[]" name="food[]" hidden  value='+Index+'>'+Index+'</td>'
+            // html += '<td ">'+MonTableau[0]+'</td>';
             html += '<td ">'+MonTableau[0]+'</td>';
             html += '<td ">'+MonTableau[1]+'</td>';
             html += '<td ">'+MonTableau[2]+'</td>';
-            html += '<td ">'+MonTableau[3]+'</td>';
             html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove" id="'+Index+'"><span class="fa fa-trash"></span></button></td></tr>';
             $('#kt_table_users').append(html);
+            SaveData[SaveData.length]=Index;
 
+        }
+        console.log(SaveData);
+   
+       
            
             
     });
@@ -186,10 +166,10 @@
 
     $(document).on('click', '.remove', function(){
         var row_index =$(this).closest("tr").index();
+        alert(row_index)
         var rowId =  $(this).attr("id");
-        tableResult.splice(row_index-1, 1);
+        SaveData.splice(row_index, 1);
         $(this).closest('tr').remove();
-        checkForm();
     });
 
   //  $(document).ready(function() {
