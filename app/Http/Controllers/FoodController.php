@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Met;
+use Illuminate\Http\File;
 use App\Models\MetCategory;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -24,7 +25,6 @@ class FoodController extends Controller
             'met_description' => ['required', 'string', 'max:255'],
             'met_image'=>['required', 'image','mimes:jpeg,png,jpg,gif,svg|max:2048',],
             'met_status'=>['required', 'integer'],
-            'met_type'=>['required', 'integer',],
             'categorie_met_id'=>['required','integer'],
         ]);
 
@@ -58,7 +58,6 @@ class FoodController extends Controller
      $met->met_description=$request->met_description;
      $met->met_image=$path;
      $met->met_status=$request->met_status;
-     $met->met_type=$request->met_type;
      $met->categorie_met_id=$request->categorie_met_id;
      $met->save();
   
@@ -92,7 +91,6 @@ class FoodController extends Controller
             'met_description' => ['required', 'string', 'max:255'],
             'met_image'=>['required', 'image','mimes:jpeg,png,jpg,gif,svg|max:2048',],
             'met_status'=>['required', 'integer'],
-            'met_type'=>['required', 'integer',],
             'categorie_met_id'=>['required','integer'],
 
         ]);
@@ -103,7 +101,6 @@ class FoodController extends Controller
                     "met_description"=>$request->met_description,
                     "met_price"=>$request->met_price,
                     "met_image"=>$request->met_image!=null ? $path : $met->met_image,
-                    "met_type"=>$request->met_type,
                     "met_status"=>$request->met_status,
                     "categorie_met_id"=>$request->categorie_met_id,
 

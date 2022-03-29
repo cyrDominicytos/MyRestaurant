@@ -21,9 +21,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-          
             <div class="card">
-            
               <!-- /.card-header -->
               <div class="card-body">
                
@@ -35,7 +33,6 @@
                     <th>Jour</th>
                   </tr>
                   </thead>
-                 <form action="" method="get">
                   <tbody>
                     <tr>
                       <td> 
@@ -77,7 +74,6 @@
                     
                     </tr>
                 </tbody>
-                 </form>
                    
                 </table>
                 <input id="get" style="float: right; margin-top:15px;background-color:#014463;border:#014463"  class="btn btn-danger" type="button" value="Ajouter" />
@@ -96,6 +92,8 @@
                 <h3 class="card-title">Elément Ajouter</h3>
               </div>
               <div class="card-body">
+                <form action="" >
+                  @csrf
                 <table  class="table table-bordered table-striped" id="kt_table_users">
                   <thead style="background-color: rgb(8, 148, 3)">
                   <tr style="color: #ffffff">
@@ -114,26 +112,25 @@
             </div>
             <!-- /.card -->
           </div>
-
+            <input  id="sauvegarde" style="margin-left:35%; margin-right:auto;  width:30%" class="btn btn-success" type="button" value="Sauvegarder" />
+         </form> 
           {{-- Fin Tableau --}}
         </div>
         <!-- /.row -->
-        <input id="" style="margin-left:35%; margin-right:auto;  width:30%" class="btn btn-success" type="button" value="Sauvegarder" />
-            
 
       </div>
       <!-- /.container-fluid -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>  
    <script>
-       var tableResult = [];
+
+     var tableResult = [];
      var food = document.getElementById('food');
      var type = document.getElementById('type');
      var day = document.getElementById('day');
      var table =  document.getElementById('kt_table_users');
      var SaveData = [];
  
-
     $(document).on('click','#get', function(){
         var Index = food.value + type.value + day.value;
         var labelFood = food.options[food.selectedIndex].label;
@@ -153,30 +150,31 @@
             html += '<td ">'+MonTableau[2]+'</td>';
             html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove" id="'+Index+'"><span class="fa fa-trash"></span></button></td></tr>';
             $('#kt_table_users').append(html);
+            tableResult[Index]=[MonTableau[0],MonTableau[1],MonTableau[2]];
+            console.log(tableResult,Index);
             SaveData[SaveData.length]=Index;
-
         }
-        console.log(SaveData);
-   
-       
-           
-            
+     return tableResult;
     });
 
 
     $(document).on('click', '.remove', function(){
         var row_index =$(this).closest("tr").index();
-        alert(row_index)
         var rowId =  $(this).attr("id");
+        tableResult.splice(rowId, 1);
         SaveData.splice(row_index, 1);
         $(this).closest('tr').remove();
     });
 
-  //  $(document).ready(function() {
-  //           $("#get").click(function() {
-  //             console.log('bonhot');
-  //           });
-  //       });
+   $(document).on("click","#sauvegarde",function(e) {
+        e.preventDefault();
+        if(tableResult.length!=0){
+          console.log(tableResult);
+        }
+        else{
+          console.log("veuillez selectionnez un menu");
+        }
+        });
 
     </script>  
 @endsection

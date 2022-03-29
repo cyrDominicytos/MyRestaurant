@@ -15,8 +15,6 @@ class Met extends Model
         'met_price',
         'met_image',
         'met_status',
-        'met_type',
-        'met_day',
         'categorie_met_id',
     ];
 
