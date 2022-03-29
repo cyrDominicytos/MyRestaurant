@@ -11,7 +11,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Liste des Roles</li>
+              <li class="breadcrumb-item active">Liste des Categories</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -72,5 +72,5 @@
           <!-- /.row -->
         </div>
         <!-- /.container-fluid -->
-        @include('admin.layout.modalLockDeblock')
+        @include('admin.layout.modalDeleteCategory')
 @endsection
