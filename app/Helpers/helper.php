@@ -76,8 +76,11 @@ if(!function_exists('metType')){
 }
 
 if(!function_exists('metJour')){
-    function metJour(){
+    function metJour($metjour=null){
         $jour=array("1"=>"Lundi", "2"=>"Mardi", "3"=>"Mercredi","4"=>"Jeudi","5"=>"Vendredi","6"=>"Samedi","7"=>"Dimanche");
+        if ($metjour!==null) {
+            return $jour[$metjour];
+        }
         return $jour;
     }
 }

@@ -39,8 +39,9 @@
                         <div class="form-group">
                             <div class="input-group date">
                                 <select class="form-control supplies_sales_options_id" id="food" style="width: 50%;" name="role">
-                                  <option value="1">Athèkè</option>
-                                  <option value="2">Haricot</option>
+                                  @foreach ($mets as $met)
+                                  <option value="{{ $met->met_id }}">{{ $met->met_name }}</option>
+                                  @endforeach
                                 </select>
                           </div>
                        </div>  
@@ -49,9 +50,9 @@
                         <div class="form-group">
                           <div class="input-group date">
                               <select class="form-control select2" id="type" style="width: 50%;" name="role">
-                                <option value="1">Decès</option>
-                                <option value="2">Resistance</option>
-                                <option value="3">Diner</option>
+                                @foreach (metType() as $index =>$metType)
+                                <option value="{{ $index }}">{{ $metType }}</option>
+                                @endforeach
                               </select>
                         </div>
                      </div>  
@@ -60,13 +61,9 @@
                         <div class="form-group">
                           <div class="input-group date">
                               <select class="form-control select2" id="day" style="width: 50%;" name="role">
-                                <option value="1">Lundi</option>
-                                <option value="2">Mardi</option>
-                                <option value="3">Mercredi</option>
-                                <option value="4">Jeudi</option>
-                                <option value="5">Vendredi</option>
-                                <option value="6">Samedi</option>
-                                <option value="7">Dimanche</option>
+                                @foreach (metJour() as $index =>$day)
+                                <option value="{{ $index }}">{{ $day }}</option>
+                                @endforeach
                               </select>
                         </div>
                      </div>  
