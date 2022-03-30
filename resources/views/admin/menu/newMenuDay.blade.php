@@ -89,7 +89,7 @@
                 <h3 class="card-title">Elément Ajouter</h3>
               </div>
               <div class="card-body">
-                <form action="" >
+                <form action="{{ route("menufoodcreate") }}" method="POST">
                   @csrf
                 <table  class="table table-bordered table-striped" id="kt_table_users">
                   <thead style="background-color: rgb(8, 148, 3)">
@@ -109,7 +109,7 @@
             </div>
             <!-- /.card -->
           </div>
-            <input  id="sauvegarde" style="margin-left:35%; margin-right:auto;  width:30%" class="btn btn-success" type="button" value="Sauvegarder" />
+            <input id="sauvegarde" style="margin-left:35%; margin-right:auto;  width:30%" class="btn btn-success" type="submit" value="Sauvegarder" />
          </form> 
           {{-- Fin Tableau --}}
         </div>
@@ -140,38 +140,22 @@
 
           var html = '';
             html += '<tr ">';
-            html += '<td class="text-gray" hidden><input type="text" required id="food[]" name="food[]" hidden  value='+Index+'>'+Index+'</td>'
-            // html += '<td ">'+MonTableau[0]+'</td>';
+            html += '<td class="text-gray" hidden><input type="text" required id="food[]" name="food[]" class="form-control" hidden  value='+food.value+'><input type="text" required id="typemet[]" name="typemet[]" class="form-control" hidden  value='+type.value+'><input type="text" required id="jour[]" name="jour[]" hidden  class="form-control" value='+day.value+'>'+Index+'</td>';
             html += '<td ">'+MonTableau[0]+'</td>';
             html += '<td ">'+MonTableau[1]+'</td>';
             html += '<td ">'+MonTableau[2]+'</td>';
             html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove" id="'+Index+'"><span class="fa fa-trash"></span></button></td></tr>';
             $('#kt_table_users').append(html);
-            tableResult[Index]=[MonTableau[0],MonTableau[1],MonTableau[2]];
-            console.log(tableResult,Index);
             SaveData[SaveData.length]=Index;
         }
-     return tableResult;
     });
 
 
     $(document).on('click', '.remove', function(){
         var row_index =$(this).closest("tr").index();
         var rowId =  $(this).attr("id");
-        tableResult.splice(rowId, 1);
         SaveData.splice(row_index, 1);
         $(this).closest('tr').remove();
     });
-
-   $(document).on("click","#sauvegarde",function(e) {
-        e.preventDefault();
-        if(tableResult.length!=0){
-          console.log(tableResult);
-        }
-        else{
-          console.log("veuillez selectionnez un menu");
-        }
-        });
-
     </script>  
 @endsection

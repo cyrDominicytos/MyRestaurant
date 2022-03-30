@@ -337,7 +337,7 @@
                 </a>
                </li>
                <li class="nav-item">
-                <a href="{{route('listMenuDay')}}" class="nav-link">
+                <a href="{{route('listmenuday')}}" class="nav-link">
                   <i class="fa fa-clipboard-list nav-icon"></i>
                   <p>Liste</p>
                 </a>

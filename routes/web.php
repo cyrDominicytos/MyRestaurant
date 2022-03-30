@@ -39,8 +39,9 @@ Route::group(['middleware'=>['auth']], function(){
 
 
     Route::get('Admin/newMenuDay', [App\Http\Controllers\FoodController::class,'menuFood'])->name('newMenuDay');
-    
-    Route::get('Admin/listMenuDay', function(){return view('admin.menu.listMenuDay');})->name('listMenuDay');
+    Route::post('Admin/newMenuDay/create', [App\Http\Controllers\FoodController::class,'storeMenuFood'])->name('menufoodcreate');
+
+    Route::get('Admin/listMenuDay',[App\Http\Controllers\FoodController::class,'listMenuDay'])->name('listmenuday');
 
     Route::get('Admin/listRole',[App\Http\Controllers\RoleController::class,'showRole'])->name('listRole');
     

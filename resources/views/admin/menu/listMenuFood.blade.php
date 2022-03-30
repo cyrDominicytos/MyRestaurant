@@ -30,7 +30,7 @@
                         <div class="label-danger shadow-sm">{{ status($food->met_status) }}</div>
                       @endif
                         <div class="card-body">
-                            <div class="clearfix "> <span class="float-start card-title">{{ $food->met_name }}</span> <span class="float-end badge rounded-pill bg-success mb-3" style="float: right;"><a href="#" class=" text-muted">{{ $food->met_price }} FCAF</a></span></div>
+                            <div class="clearfix "> <span class="float-start card-title">{{ $food->met_name }}</span> <span class="float-end badge rounded-pill bg-success mb-3" style="float: right;"><a href="#" class=" text-muted">{{ $food->met_price }} FCFA</a></span></div>
                             <h5 class="card-text" style="margin-bottom: 25px">{{ $food->met_description }}</h5>
                             <div class="row" >
                                 <div class="col-sm-6">

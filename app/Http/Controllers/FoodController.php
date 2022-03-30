@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Met;
+use App\Models\MenuDay;
 use Illuminate\Http\File;
 use App\Models\MetCategory;
 use Illuminate\Http\Request;
@@ -121,5 +122,21 @@ class FoodController extends Controller
     public function menuFood(){
         $mets=Met::all();
         return view('admin.menu.newMenuDay',compact('mets'));
+    }
+
+    public function storeMenuFood(Request $request){
+       
+        foreach($request->get('food') as $key=>$food){
+            $menuday=new MenuDay();
+            $menuday->met_menu_days_id=$request->get('food')[$key];
+            $menuday->type_met=$request->get('typemet')[$key];
+            $menuday->type_days=$request->get('jour')[$key];
+            $menuday->save();
+        }
+        return redirect()->route('listmenuday')->with('succes','Menu du jour ajouter avec succès');
+    }
+
+    public function listMenuDay(){
+        return view('admin.menu.listMenuDay');
     }
 }
