@@ -37,7 +37,8 @@
             font-size: 28px;
             color: #000000;
             font-family: monospace;
-            background-color: rgb(54, 196, 206);
+            background-image: linear-gradient(to right, rgb(253, 193, 73) , rgb(54, 196, 206));
+            /* background-color: rgb(54, 196, 206); */
             text-align: center;
             border-bottom-left-radius: 10px;
             border-top-right-radius: 10px;
@@ -48,12 +49,13 @@
             margin-left: 18px;
             font-family: serif;
             font-weight: 900;
-            color: black;
+            color: rgb(255, 255, 255);
             
         }
         .row .card-body {
-            background-image:url(' {{asset('dist/img/fuchette.jpg')}}');
+            background-image:url(' {{asset('dist/img/food7.jpg')}}');
             background-size: cover;
+        
          
         }
         .row .titre {
@@ -73,8 +75,8 @@
       <div class="row">
           <div class="col-md-6 ">
               <div class="card card-info">
-                <div class="card-header" style="background:url('{{asset('dist/img/food2.jpg')}}');">
-                    <h3 class="card-title" style="text-align: center">Restaurant Name</h3>
+                <div class="card-header" style="background-color:#014463">
+                    <h3 class="card-title" style="font-size:25px">Restaurant Name</h3>
                   </div>
                   <div class="card-body" style="">
                     <h1 class="titre">Menu Lundi</h1>
@@ -128,6 +130,66 @@
                   <div class="col-md-4"><button type="submit" class="btn btn-success">Publier</button></div>
               </div>
           </div>
+
+          {{-- Colunm right --}}
+
+          <div class="col-md-6 ">
+            <div class="card card-info">
+              <div class="card-header" style="background-color:#014463">
+                  <h3 class="card-title" style="font-size:25px">Restaurant Name</h3>
+                </div>
+                <div class="card-body" style="">
+                  <h1 class="titre">Menu Lundi</h1>
+                   <div class=""> 
+                     
+                      <div class=" listMenu">
+                          <h1>Entrée</h1>
+                          <div class="row">
+                              <div class="col-md-9">
+                                  <p>Salade de Rie au thon</p>
+                                  <p>Salade Grecque</p>
+                              </div>
+                              <div class="col-md-3">
+                                  <p>2000f</p>
+                                  <p>2000f</p>
+                              </div>
+                              
+                          </div>
+                          <h1>Plats</h1>
+                          <div class="row">
+                              <div class="col-md-9">
+                                  <p>Pate avec sauce au poulet</p>
+                                  <p>Spagetti avec omlletes</p>
+                              </div>
+                              <div class="col-md-3">
+                                  <p>2000f</p>
+                                  <p>2000f</p>
+                              </div>
+                              
+                          </div>
+                          <h1>Desserts</h1>
+                          <div class="row">
+                              <div class="col-md-9">
+                                  <p>Salade de Rie au thon</p>
+                                  <p>Salade Grecque</p>
+                              </div>
+                              <div class="col-md-3">
+                                  <p>2000f</p>
+                                  <p>2000f</p>
+                              </div>
+                              
+                          </div>
+                      </div>
+               </div>
+                  <h3 class="footer">Bon appétit!!!</h3>
+                </div>
+            </div>
+            <div class="row" style="margin-left: 15px; margin-bottom:15px">
+                {{-- <div class="col-md-4"><button type="submit" class="btn btn-info">Modifer</button></div> --}}
+                <div class="col-md-4"><button type="submit" class="btn btn-danger">Supprimer</button></div>
+                <div class="col-md-4"><button type="submit" class="btn btn-success">Publier</button></div>
+            </div>
+        </div>
       </div>
     </div>
 </section>
