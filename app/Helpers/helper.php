@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Role;
+use App\Models\MenuDay;
 use App\Models\Permission;
 use Illuminate\Support\Facades\DB;
 
@@ -63,6 +64,35 @@ if(!function_exists('permissionModule')){
           return $perm; 
     }
 
+}
+
+if(!function_exists('menuFoodAll')){
+    function menuFoodAll(){
+        $listmenufood= MenuDay::orderBy('type_days')
+                ->orderBy('type_met')
+                ->orderBy('met_menu_days_id')
+                 ->get();   
+         $jour=0;$entre=[]; $index=0;$result=[];$type=0;
+
+         foreach ($listmenufood as $key => $menufood){
+            if($menufood->type_days.$menufood->type_met==$index || $index==0){
+                $entre[count($entre)]=$menufood;
+                $index=$menufood->type_days.$menufood->type_met;
+                $type=$menufood->type_met;
+                $jour=$menufood->type_days;
+            }else{
+                $result[$jour][$type]=$entre;
+                $entre=[];
+                $entre[count($entre)]=$menufood;
+                $index=$menufood->type_days.$menufood->type_met;
+                $type=$menufood->type_met;
+                $jour=$menufood->type_days;
+            }
+
+         }
+         $result[$jour][$type]=$entre;
+         return $result;
+    }
 }
 
 if(!function_exists('metType')){

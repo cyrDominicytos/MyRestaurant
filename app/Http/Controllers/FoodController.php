@@ -137,6 +137,9 @@ class FoodController extends Controller
     }
 
     public function listMenuDay(){
-        return view('admin.menu.listMenuDay');
+        
+        //dd($listmenufood); 
+        $result = menuFoodAll();
+        return view('admin.menu.listMenuDay',compact('result'));
     }
 }

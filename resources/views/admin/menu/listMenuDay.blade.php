@@ -73,123 +73,44 @@
         
     </style>
       <div class="row">
+        @foreach ($result as $key =>$value)
           <div class="col-md-6 ">
               <div class="card card-info">
                 <div class="card-header" style="background-color:#014463">
                     <h3 class="card-title" style="font-size:25px">Restaurant Name</h3>
                   </div>
                   <div class="card-body" style="">
-                    <h1 class="titre">Menu Lundi</h1>
+                    <h1 class="titre">Menu {{ metJour($key) }}</h1>
                      <div class=""> 
-                       
+                       @foreach ($value as $index=>$metvalue)
+
                         <div class=" listMenu">
-                            <h1>Entrée</h1>
+                            <h1>{{ metType($index) }}</h1>
+                            @foreach ($metvalue as $key1=>$value1)
                             <div class="row">
                                 <div class="col-md-9">
-                                    <p>Salade de Rie au thon</p>
-                                    <p>Salade Grecque</p>
+                                    <p>{{ $value1->met->met_name }}</p>
                                 </div>
                                 <div class="col-md-3">
-                                    <p>2000f</p>
-                                    <p>2000f</p>
+                                    <p>{{ $value1->met->met_price }} </p>
                                 </div>
-                                
                             </div>
-                            <h1>Plats</h1>
-                            <div class="row">
-                                <div class="col-md-9">
-                                    <p>Pate avec sauce au poulet</p>
-                                    <p>Spagetti avec omlletes</p>
-                                </div>
-                                <div class="col-md-3">
-                                    <p>2000f</p>
-                                    <p>2000f</p>
-                                </div>
-                                
-                            </div>
-                            <h1>Desserts</h1>
-                            <div class="row">
-                                <div class="col-md-9">
-                                    <p>Salade de Rie au thon</p>
-                                    <p>Salade Grecque</p>
-                                </div>
-                                <div class="col-md-3">
-                                    <p>2000f</p>
-                                    <p>2000f</p>
-                                </div>
-                                
-                            </div>
+                            @endforeach
                         </div>
+                        
+                        @endforeach
                  </div>
                     <h3 class="footer">Bon appétit!!!</h3>
                   </div>
               </div>
               <div class="row" style="margin-left: 15px; margin-bottom:15px">
                   {{-- <div class="col-md-4"><button type="submit" class="btn btn-info">Modifer</button></div> --}}
-                  <div class="col-md-4"><button type="submit" class="btn btn-danger">Supprimer</button></div>
-                  <div class="col-md-4"><button type="submit" class="btn btn-success">Publier</button></div>
+                  <div class="col-md-4"><a href="#" type="submit" class="btn btn-danger">Supprimer {{ $key }}</a></div>
+                  <div class="col-md-4"><a href="#" type="submit" class="btn btn-success">Publier {{ $key }}</a></div>
               </div>
           </div>
-
+          @endforeach
           {{-- Colunm right --}}
-
-          <div class="col-md-6 ">
-            <div class="card card-info">
-              <div class="card-header" style="background-color:#014463">
-                  <h3 class="card-title" style="font-size:25px">Restaurant Name</h3>
-                </div>
-                <div class="card-body" style="">
-                  <h1 class="titre">Menu Lundi</h1>
-                   <div class=""> 
-                     
-                      <div class=" listMenu">
-                          <h1>Entrée</h1>
-                          <div class="row">
-                              <div class="col-md-9">
-                                  <p>Salade de Rie au thon</p>
-                                  <p>Salade Grecque</p>
-                              </div>
-                              <div class="col-md-3">
-                                  <p>2000f</p>
-                                  <p>2000f</p>
-                              </div>
-                              
-                          </div>
-                          <h1>Plats</h1>
-                          <div class="row">
-                              <div class="col-md-9">
-                                  <p>Pate avec sauce au poulet</p>
-                                  <p>Spagetti avec omlletes</p>
-                              </div>
-                              <div class="col-md-3">
-                                  <p>2000f</p>
-                                  <p>2000f</p>
-                              </div>
-                              
-                          </div>
-                          <h1>Desserts</h1>
-                          <div class="row">
-                              <div class="col-md-9">
-                                  <p>Salade de Rie au thon</p>
-                                  <p>Salade Grecque</p>
-                              </div>
-                              <div class="col-md-3">
-                                  <p>2000f</p>
-                                  <p>2000f</p>
-                              </div>
-                              
-                          </div>
-                      </div>
-               </div>
-                  <h3 class="footer">Bon appétit!!!</h3>
-                </div>
-            </div>
-            <div class="row" style="margin-left: 15px; margin-bottom:15px">
-                {{-- <div class="col-md-4"><button type="submit" class="btn btn-info">Modifer</button></div> --}}
-                <div class="col-md-4"><button type="submit" class="btn btn-danger">Supprimer</button></div>
-                <div class="col-md-4"><button type="submit" class="btn btn-success">Publier</button></div>
-            </div>
-        </div>
       </div>
     </div>
 </section>
