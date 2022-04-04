@@ -16004,6 +16004,10 @@ p.white {
     content: "\f007";
 }
 
+.fa-money:before {
+    content: "\f53c";
+}
+
 .fa-user-alt:before {
     content: "\f406";
 }
