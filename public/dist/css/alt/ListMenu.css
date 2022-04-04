@@ -11,6 +11,14 @@ h2 {
     padding: 3px
 }
 
+.deletebtn:hover {
+    color: white;
+}
+
+.editbtn:hover {
+    color: white;
+}
+
 .editbtn {
     color: #fff;
     background-color: #312f2f;

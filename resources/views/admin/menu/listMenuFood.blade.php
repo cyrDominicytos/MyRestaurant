@@ -35,7 +35,7 @@
                             <div class="row" >
                                 <div class="col-sm-6">
                                   <div class="form-group">
-                                    <a class="deletebtn" href="{{ route('delete_Food',$food->met_id) }}" >Supprimer</a>
+                                    <a class="deletebtn" href="#myModalLock" data-toggle="modal" >Supprimer</a>
                                   </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -54,5 +54,5 @@
             @endif
         </div>
     </main>
-     
+     @include('admin.layout.modalDeleteFood')
 @endsection

@@ -345,7 +345,7 @@
                </ul>
               </li>
 
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-poll" style="color: rgb(54, 196, 206)"></i>
                   <p>
@@ -362,7 +362,7 @@
                 </a>
                </li>
                </ul>
-              </li>
+              </li> --}}
 
               
             </ul>
