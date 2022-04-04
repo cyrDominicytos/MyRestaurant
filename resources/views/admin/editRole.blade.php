@@ -91,7 +91,9 @@
       </section>
        
   <link rel="stylesheet" href="{{asset('css/newrole.css')}}">
-
+  {{-- jQuery Script --}}
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  {{-- Check Slug --}}
         <script>
               // var expanded = false;
 
@@ -106,6 +108,16 @@
 //     expanded = false;
 //   }
 // }
+
+$('#role_name').change(function(e) {
+       $.get('{{ url("Admin/check_slug") }}', 
+       { 'role_name': $(this).val() }, 
+       function( data ) {
+         console.log(data);
+           $('#role_slug').val(data.slug);
+       }
+       );
+});
 
 var acc = document.getElementsByClassName("accordion");
 var i;

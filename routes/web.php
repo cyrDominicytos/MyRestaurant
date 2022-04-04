@@ -63,6 +63,8 @@ Route::group(['middleware'=>['auth']], function(){
     Route::get('Admin/editRole/{id}',[App\Http\Controllers\RoleController::class, 'edit'])->name('edit_Role');
     Route::post('Admin/updateRole/{id}',[App\Http\Controllers\RoleController::class, 'updateRole'])->name('update_Role'); 
     Route::get('Admin/deleteRole/{id}',[App\Http\Controllers\RoleController::class, 'delete'])->name('delete_Role'); 
+    
+    Route::get('Admin/check_slug',[App\Http\Controllers\RoleController::class, 'createSlug'])->name('create_slug');
 });
    
 

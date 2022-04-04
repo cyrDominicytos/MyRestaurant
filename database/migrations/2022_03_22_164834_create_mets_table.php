@@ -18,7 +18,7 @@ class CreateMetsTable extends Migration
             $table->string('met_name')->unique();
             $table->string('met_description');
             $table->double('met_price');
-            $table->string('met_image');
+            $table->string('met_image')->nullable();
             $table->integer('met_status');
             $table->unsignedBigInteger('categorie_met_id');
             $table->timestamps();

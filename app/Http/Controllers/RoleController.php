@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Role;
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class RoleController extends Controller
 {
@@ -28,7 +30,7 @@ class RoleController extends Controller
         return Validator::make($data, [
             'role_name' => ['required', 'string', 'max:255','unique:roles'],
             'role_description' => ['required', 'string', 'max:255'],
-            'role_slug' => ['required', 'string', 'max:255',],
+            'role_slug' => ['required', 'string', 'max:255','unique:roles'],
             'permission'=>['required'],
         ]);
     }
@@ -64,7 +66,7 @@ class RoleController extends Controller
                               Rule::unique('roles')->where(fn ($query) => $query->where('role_name','!=',$role->role_name)),
                               ],
             'role_description' => ['required', 'string', 'max:255'],
-            'role_slug' => ['required', 'string', 'max:255',],
+            'role_slug' => ['required', 'string', 'max:255','unique:roles,role_id'.$role->role_slug],
             'permission'=>['required'],
 
         ]);
@@ -95,5 +97,11 @@ class RoleController extends Controller
             return redirect()->route('listRole')->with('success', 'user is successfully deleted');
         }
         
+    }
+    
+    public function createSlug(Request $request){
+       // $slug = SlugService::createSlug(Role::class,'role_slug', request('role_name'));
+        $slug=Str::slug(request('role_name'));
+        return response()->json(['slug' => $slug]);
     }
 }

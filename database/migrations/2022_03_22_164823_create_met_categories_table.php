@@ -16,7 +16,7 @@ class CreateMetCategoriesTable extends Migration
         Schema::create('met_categories', function (Blueprint $table) {
             $table->id('met_categorie_id');
             $table->string('met_categorie_name')->unique();
-            $table->string('met_categorie_description');
+            $table->string('met_categorie_description')->nullable();
             $table->timestamps();
         });
     }

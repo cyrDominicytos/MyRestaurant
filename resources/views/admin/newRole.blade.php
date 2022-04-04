@@ -30,7 +30,7 @@
                         <div class="form-group col-md-6">
                           <label>Designation du role*:</label>
                           <div class="input-group">
-                            <input type="text" class="form-control @error('role_name') is-invalid @enderror" name="role_name" value="{{old('role_name')}}" required >
+                            <input type="text" class="form-control @error('role_name') is-invalid @enderror" name="role_name"  id="role_name" value="{{old('role_name')}}" required >
                             @error('role_name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -43,7 +43,7 @@
                         <div class="form-group col-md-6">
                           <label>Slug du role*:</label>
                           <div class="input-group">
-                            <input type="text" class="form-control @error('role_slug') is-invalid @enderror" name="role_slug" value="{{ old('role_slug') }}" required>
+                            <input type="text" class="form-control @error('role_slug') is-invalid @enderror" name="role_slug" id="role_slug" value="{{ old('role_slug') }}" required>
                             @error('role_slug')
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
@@ -95,7 +95,10 @@
        
   <link rel="stylesheet" href="{{asset('css/newrole.css')}}">
 
-        <script>
+  {{-- jQuery Script --}}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+{{-- Check Slug --}}
+<script>
               // var expanded = false;
 
 // function showCheckboxes() {
@@ -109,6 +112,16 @@
 //     expanded = false;
 //   }
 // }
+
+$('#role_name').change(function(e) {
+       $.get('{{ url("Admin/check_slug") }}', 
+       { 'role_name': $(this).val() }, 
+       function( data ) {
+         console.log(data);
+           $('#role_slug').val(data.slug);
+       }
+       );
+});
 
 var acc = document.getElementsByClassName("accordion");
 var i;
@@ -129,5 +142,5 @@ for (i = 0; i < acc.length; i++) {
   });
 }
 
-        </script>
+</script>
 @endsection
