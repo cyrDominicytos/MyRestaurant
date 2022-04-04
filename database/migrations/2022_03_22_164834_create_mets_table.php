@@ -16,7 +16,7 @@ class CreateMetsTable extends Migration
         Schema::create('mets', function (Blueprint $table) {
             $table->id('met_id');
             $table->string('met_name')->unique();
-            $table->string('met_description');
+            $table->string('met_description')->nullable();
             $table->double('met_price');
             $table->string('met_image')->nullable();
             $table->integer('met_status');
