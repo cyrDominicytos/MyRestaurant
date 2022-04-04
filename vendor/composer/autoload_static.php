@@ -570,6 +570,7 @@ class ComposerStaticInit045b419f6ddc081a11f104e7f651439d
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Mail\\UserMail' => __DIR__ . '/../..' . '/app/Mail/UserMail.php',
+        'App\\Models\\Client' => __DIR__ . '/../..' . '/app/Models/Client.php',
         'App\\Models\\MenuDay' => __DIR__ . '/../..' . '/app/Models/MenuDay.php',
         'App\\Models\\Met' => __DIR__ . '/../..' . '/app/Models/Met.php',
         'App\\Models\\MetCategory' => __DIR__ . '/../..' . '/app/Models/MetCategory.php',

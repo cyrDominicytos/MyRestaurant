@@ -73,3 +73,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/client',[App\Http\Controllers\Client\Auth\LoginController::class, 'loginform'])->name('client.login');
+Route::post('/client',[App\Http\Controllers\Client\Auth\LoginController::class, 'login']);
+Route::get('/home/client',[App\Http\Controllers\Client\DashoardClient::class, 'home'])->name('home');
+Route::post('/deconnexion', [App\Http\Controllers\Client\Auth\LoginController::class, 'logout'])->name('client.logout');

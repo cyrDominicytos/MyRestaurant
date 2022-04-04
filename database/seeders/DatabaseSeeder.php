@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Role;
 use App\Models\User;
+use App\Models\Client;
 use App\Models\Permission;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -74,7 +75,6 @@ class DatabaseSeeder extends Seeder
                 )
         ]);
         $user=User::create(["firstname"=>"John", "lastname"=>"Doe","email"=>"oloucholapatrick@gmail.com","password"=>Hash::make("12345678"),"role_user_id"=>1,"isbanned"=>0,"phone_number"=>"68586922"]);
-
 
     // $table->unsignedBigInteger('role_id');
     // $table->json('permission_list');
