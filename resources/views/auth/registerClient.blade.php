@@ -13,6 +13,7 @@
                 <form action="#" method="post">
                     <input type="text" name="Username" placeholder="Nom" required=""/>
                     <input type="text" name="Username" placeholder="Prénom" required=""/>
+                    <input type="text" name="Username" placeholder="Numéro de téléphone" required=""/>
                     <input type="email"  name="Email" placeholder="Email" required=""/>
                     <input type="password" name="Password" placeholder="Mot de passe" required=""/>
                     <input type="text" name="password" placeholder="Confirmer Mot de passe" required="">
