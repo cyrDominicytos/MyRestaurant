@@ -21103,3 +21103,65 @@ input.checkbox:checked:after {
 div#staticBackdropRegister {
     z-index: 9999;
 }
+
+
+/*************           Card Menu List Client Css   ***/
+
+.containers .card {
+    position: relative;
+    max-width: 300px;
+    height: 215px;
+    background-color: #fff;
+    margin: 30px 10px;
+    padding: 20px 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    transition: 0.3s ease-in-out;
+    border-radius: 15px;
+}
+
+.containers .card:hover {
+    height: 250px;
+}
+
+.containers .card .image {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    top: -40%;
+    left: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.containers .card .image img {
+    max-width: 100%;
+    border-radius: 15px;
+}
+
+.containers .card .content {
+    position: relative;
+    top: -140px;
+    padding: 10px 15px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+}
+
+.containers .card .content h3 {
+    color: rgb(228, 8, 8);
+    font-weight: bold;
+}
+
+.containers .card .content p {
+    color: black;
+    font-weight: bold;
+}
+
+.containers .card:hover .content {
+    margin-top: 70px;
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0.2s;
+}

@@ -8,7 +8,7 @@
             @foreach ($foods as $food)
             <div class="item">
                 <div class="news-img">
-                    <a href="blog-single.html"><img src="{{ Storage::url($food->met_image)}}" class="img-fluid img-responsive"
+                    <a href="{{route('menu_client')}}"><img src="{{ Storage::url($food->met_image)}}" class="img-fluid img-responsive"
                             alt="news image"></a>
                     <div class="title-wrap">
                         <h4 class="title"><a href="blog-single.html">{{ $food->met_name }}</a></h4>

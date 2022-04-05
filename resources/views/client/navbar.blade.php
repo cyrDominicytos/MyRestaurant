@@ -21,13 +21,13 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav mx-lg-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Accueil <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{route('index_client')}}">Accueil <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
+                        <a class="nav-link" href="{{route('menu_client')}}">Menu</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
+                        <a class="nav-link" href="contact.html">Panier</a>
                     </li>
                 </ul>
             </div>
@@ -39,18 +39,14 @@
                 }
             </style>
             <!-- search button -->
-<<<<<<< HEAD
             {{-- @if (Auth::check()) --}}
-=======
-            @if (Auth::check())
             {{-- input your code there --}}
-            <div class="search-right ml-lg-3">
+            {{-- <div class="search-right ml-lg-3">
                 <a class="dropdown-item" href="{{ route('logout_client') }}">
                     Deconnexion
                 </a>
             </div> 
-            @else
->>>>>>> 4d35403f1e13d6b1544480751c8e00d46d0ad98f
+            @else --}}
             <div class="search-right ml-lg-3">
                 <a data-bs-toggle="modal" data-bs-target="#staticBackdropReservation">
                     Reservation
