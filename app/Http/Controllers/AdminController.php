@@ -92,7 +92,7 @@ class AdminController extends Controller
 
         Mail::to($user->email)->send(new UserMail($user));
         
-         return redirect()->route('list')->with('success', 'user is successfully create');
+        return redirect()->route('list')->with('success', 'user is successfully create');
     }
 
     public function edit($id){
