@@ -18,7 +18,7 @@ class RoleController extends Controller
     }
 
     public function showRole(){
-        $roles=Role::all();
+        $roles=Role::all()->where('role_name','!=','Client');
         return view('admin.listRole',compact('roles'));
     }
     public function newRole(){
@@ -100,7 +100,6 @@ class RoleController extends Controller
     }
     
     public function createSlug(Request $request){
-       // $slug = SlugService::createSlug(Role::class,'role_slug', request('role_name'));
         $slug=Str::slug(request('role_name'));
         return response()->json(['slug' => $slug]);
     }

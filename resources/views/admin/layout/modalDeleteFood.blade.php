@@ -15,7 +15,7 @@
         </div>
         <div class="modal-footer justify-content-center">
           <button type="button" class="btn btn-success" data-dismiss="modal"> Non</button>
-            <a style="color: white" href="{{ route('delete_Food',$food->met_id) }}" class="btn btn-danger"> oui</a>
+            <a style="color: white" href="{{ route('delete_Food',$food->met_id ?? '') }}" class="btn btn-danger"> oui</a>
         
         </div>
       </div>

@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
 
         // \App\Models\User::factory(10)->create();
         $roles=Role::create(["role_name"=>"Adminstrateur","role_description"=>"utilisateur ayants le droit d'ajouter les employés","role_slug"=>"super_admin"]);
+        $roles=Role::create(["role_name"=>"Client","role_description"=>"utilisateur sipmle ","role_slug"=>"client"]);
 
         $permission=Permission::create(["permission_name"=>"consule_user","permission_module"=>"user","permission_description"=>" gestion des employés"]);
         $permission=Permission::create(["permission_name"=>"creer_user","permission_module"=>"user","permission_description"=>" gestion des employés"]);
