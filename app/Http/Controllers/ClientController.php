@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Met;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class ClientController extends Controller
 {
@@ -29,7 +33,21 @@ class ClientController extends Controller
     }
     public function create(Request $request){
 
-        dd($request->all());
+        $this->validator($request->all())->validate();
+        $user=new User();
+        $user->firstname=$request['firstname'];
+        $user->lastname=$request['lastname'];
+        $user->phone_number=$request['phone_number'];
+        $user->email=$request['email'];
+        $user->password=Hash::make($request['password']);
+        $user->role_user_id=2;
+        $user->save();
+        return redirect()->route('index_client')->with('success', 'client is successfully create');
+    }
 
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('index_client');
     }
 }

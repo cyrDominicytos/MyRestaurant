@@ -42,10 +42,17 @@ class LoginController extends Controller
 
     public function logout()
     {
+
         if(Auth::user()->role->role_slug!='client'){
             Auth::logout();
             return redirect('logout');
         }
+    }
 
+    protected function authenticated(Request $request, $user)
+    {
+        if ( $user->role->role_slug=='client') {
+            return redirect()->route('index_client');
+        }
     }
 }

@@ -79,3 +79,4 @@ Route::get('/moi',[App\Http\Controllers\AdminController::class, 'new']);
 
 Route::get('/',[App\Http\Controllers\ClientController::class, 'index'])->name('index_client');
 Route::post('/create/client',[App\Http\Controllers\ClientController::class,'create'])->name('create_client');
+Route::get('/deconnexion',[App\Http\Controllers\ClientController::class,'logout'])->name('logout_client');

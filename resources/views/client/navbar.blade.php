@@ -41,6 +41,11 @@
             <!-- search button -->
             @if (Auth::check())
             {{-- input your code there --}}
+            <div class="search-right ml-lg-3">
+                <a class="dropdown-item" href="{{ route('logout_client') }}">
+                    Deconnexion
+                </a>
+            </div> 
             @else
             <div class="search-right ml-lg-3">
                 <a data-bs-toggle="modal" data-bs-target="#staticBackdropLogin">

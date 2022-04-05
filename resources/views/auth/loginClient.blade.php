@@ -9,14 +9,25 @@
             <div class="login-top sign-top">
                 <div class="agileits-login">
                 <h5>Connecter-vous Ici</h5>
-                <form action="#" method="post">
-                    <input type="email" class="email" name="Email" placeholder="Email" required=""/>
-                    <input type="password" class="password" name="Password" placeholder="Mot de passe" required=""/>
+                <form action="{{ route('login') }}" method="POST">
+                    @csrf
+                    <input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Adresse Email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                    <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Mot de passe" name="password" required autocomplete="current-password">
+                    @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
                     <div class="wthree-text"> 
                         <ul> 
                             <li>
                                 <label class="anim">
-                                    <input type="checkbox" class="checkbox">
+                                    <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                                     <span> Se rappeler de moi </span> 
                                 </label> 
                             </li>
