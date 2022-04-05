@@ -10,7 +10,7 @@
             <div class="login-top sign-top">
                 <div class="agileits-login register">
                 <h5>Inscrivez-vous Ici</h5>
-                <form action="#" method="post">
+                <form action="{{ route('create_client') }}" method="post">
                   @csrf
                     <input type="text" name="lastname" class="form-control @error('lastname') is-invalid @enderror" placeholder="Nom" required/>
                     @error('lastname')
@@ -42,7 +42,7 @@
                           <strong>{{ $message }}</strong>
                       </span>
                     @enderror
-                    
+
                     <div class="w3ls-submit"> 
                         <input type="submit" value="M'inscrit">  	
                     </div>	

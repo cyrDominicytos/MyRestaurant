@@ -78,3 +78,4 @@ Route::get('/moi',[App\Http\Controllers\AdminController::class, 'new']);
 //Route::get('/clientHome', function () {return view('client.home');})->name('clientHome');
 
 Route::get('/',[App\Http\Controllers\ClientController::class, 'index'])->name('index_client');
+Route::post('/create/client',[App\Http\Controllers\ClientController::class,'create'])->name('create_client');

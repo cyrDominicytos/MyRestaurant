@@ -14,4 +14,8 @@ class ClientController extends Controller
         $foods=Met::all();
         return view('client.home',compact('foods'));
     }
+
+    public function create(Request $request){
+        
+    }
 }
