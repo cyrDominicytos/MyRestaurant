@@ -24,7 +24,7 @@
                           <strong>{{ $message }}</strong>
                       </span>
                     @enderror
-                    <input type="text" name="firstname"  class="form-control @error('firstname') is-invalid @enderror" placeholder="Numéro" required/>
+                    <input type="text" name="phone_number"  class="form-control @error('firstname') is-invalid @enderror" placeholder="Numéro" required/>
                     @error('numero')
                       <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>

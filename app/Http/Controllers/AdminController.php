@@ -75,20 +75,7 @@ class AdminController extends Controller
       return view('admin.list',compact('users'));
     }
     public function createUser(Request $request){
-        // dd($request->all());
         $this->validator($request->all())->validate();
-        // $user=User::create([
-        //     "firstname"=>$request->firstname,
-        //     "lastname"=>$request->lastname,
-        //     "phone_number"=>$request->phone_number,
-        //     "email"=>$request->email,
-        //     "origin"=>$request->origin,
-        //     "adress"=>$request->adress,
-        //     "birthday"=>$request->birthday,
-        //     "password"=>Hash::make($request->password),
-        //     "sex"=>$request->sex,
-        //     "role_user_id"=>$request->role,
-        // ]);
         $user=new User();
         $user->firstname=$request['firstname'];
         $user->lastname=$request['lastname'];

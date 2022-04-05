@@ -39,6 +39,9 @@
                 }
             </style>
             <!-- search button -->
+            @if (Auth::check())
+            {{-- input your code there --}}
+            @else
             <div class="search-right ml-lg-3">
                 <a data-bs-toggle="modal" data-bs-target="#staticBackdropLogin">
                     Connexion
@@ -54,7 +57,9 @@
                         <label class="button searchbutton" for="searchright"><i class="fas fa-search"></i></label>
                     </form>
                 </div> --}}
-            </div>
+            </div> 
+            @endif
+
             <!-- //search button -->
             <!-- toggle switch for light and dark theme -->
             <div class="cont-ser-position">
