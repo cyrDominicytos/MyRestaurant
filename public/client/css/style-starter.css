@@ -20879,7 +20879,8 @@ p.count-text {
 .agileits-login input[type="text"],
 .agileits-login input[type="password"],
 .agileits-login input[type="email"],
-.agileits-login textarea {
+.agileits-login input[type="datetime-local"],
+.agileits-login select {
     outline: none;
     font-size: 1em;
     color: #fff;
@@ -20945,6 +20946,12 @@ p.count-text {
 
 .agileits-login :-ms-input-placeholder {
     color: #fff;
+}
+
+.agileits-login select option {
+    margin-bottom: 1em;
+    background: #353434;
+    color: white;
 }
 
 .modal-body {

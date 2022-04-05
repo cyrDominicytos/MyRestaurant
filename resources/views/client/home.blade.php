@@ -32,4 +32,5 @@
 
   @include('auth.loginClient')
   @include('auth.registerClient')
+  @include('client.reservation')
 @endsection

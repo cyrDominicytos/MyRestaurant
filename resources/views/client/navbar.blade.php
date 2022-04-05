@@ -39,16 +39,22 @@
                 }
             </style>
             <!-- search button -->
-            @if (Auth::check())
-            {{-- input your code there --}}
-            @else
+            {{-- @if (Auth::check()) --}}
             <div class="search-right ml-lg-3">
+                <a data-bs-toggle="modal" data-bs-target="#staticBackdropReservation">
+                    Reservation
+                </a>
+    
+            </div>
+            {{-- @else --}}
+
+            {{-- <div class="search-right ml-lg-3">
                 <a data-bs-toggle="modal" data-bs-target="#staticBackdropLogin">
                     Connexion
                 </a>
                   <a data-bs-toggle="modal" data-bs-target="#staticBackdropRegister">
                     Inscription
-                  </a>
+                  </a> --}}
       
                 {{-- <div class="search-container">
                     <form action="/search" method="get">
@@ -57,8 +63,8 @@
                         <label class="button searchbutton" for="searchright"><i class="fas fa-search"></i></label>
                     </form>
                 </div> --}}
-            </div> 
-            @endif
+            {{-- </div> 
+            @endif --}}
 
             <!-- //search button -->
             <!-- toggle switch for light and dark theme -->
