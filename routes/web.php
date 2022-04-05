@@ -63,15 +63,18 @@ Route::group(['middleware'=>['auth']], function(){
     Route::get('Admin/editRole/{id}',[App\Http\Controllers\RoleController::class, 'edit'])->name('edit_Role');
     Route::post('Admin/updateRole/{id}',[App\Http\Controllers\RoleController::class, 'updateRole'])->name('update_Role'); 
     Route::get('Admin/deleteRole/{id}',[App\Http\Controllers\RoleController::class, 'delete'])->name('delete_Role'); 
+
+    Route::get('Admin/check_slug',[App\Http\Controllers\RoleController::class, 'createSlug'])->name('create_slug');
 });
    
 
 Route::get('/moi',[App\Http\Controllers\AdminController::class, 'new']);
-Route::get('/', function () {
-    return view('auth.login');});
+Route::get('/logout', function () { return view('auth.login');});
 
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/moi',[App\Http\Controllers\AdminController::class, 'new']);
-Route::get('/clientHome', function () {return view('client.home');})->name('clientHome');
+//Route::get('/clientHome', function () {return view('client.home');})->name('clientHome');
+
+Route::get('/',[App\Http\Controllers\ClientController::class, 'index'])->name('index_client');
