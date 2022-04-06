@@ -12,8 +12,8 @@
                 <h5>Reservation en ligne </h5>
                 <form action="" method="post">
                   @csrf
-                    <input type="text" name="lastname" class="" placeholder="Numéro de téléphone" required/>
-                    <input type="datetime-local" name="phone_number"   placeholder="Numéro" required/>
+                   
+                    <input type="datetime-local" name="phone_number"   placeholder="Date et Heure" required/>
                     <select name="people" required>
                         <option value="" disabled selected hidden>Nombre de personne</option>
                         
@@ -21,6 +21,13 @@
                         <option value="tea">2</option>
                         <option value="milk">3</option>
                     </select>
+                    <select name="people" required>
+                      <option value="" disabled selected hidden>Type de reservation</option>
+                      <option value="coffee">Reservation VIP</option>
+                      <option value="tea">Reservation Standard</option>
+                      
+                  </select>
+                  <input type="text" name="phone_number"   placeholder="Details complementaire" required/>
                  <div class="w3ls-submit"> 
                         <input type="submit" value="Reserver">  	
                     </div>	

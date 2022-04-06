@@ -367,8 +367,78 @@
               
             </ul>
           </li>
+          {{-- ---- --}}
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-ticket-alt"></i>
+              <p>
+                 Reservation
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+           <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{{route('newReservation')}}" class="nav-link">
+                <i class="fa fa-tag nav-icon" style="color: rgb(54, 196, 206)"></i>
+                <p>Creer</p>
+              </a>
+             </li>
+           <li class="nav-item">
+            <a href="{{route('listReservation')}}" class="nav-link">
+              <i class="fa fa-clipboard-list nav-icon" style="color: rgb(54, 196, 206)"></i>
+              <p>Liste</p>
+            </a>
+           </li>
+           </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-crop-alt"></i>
+              <p>
+                 Table
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+           <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{{route('newTable')}}" class="nav-link">
+                <i class="fa fa-tag nav-icon" style="color: rgb(54, 196, 206)"></i>
+                <p>Affecter Numéro</p>
+              </a>
+             </li>
+           <li class="nav-item">
+            <a href="{{route('listTable')}}" class="nav-link">
+              <i class="fa fa-clipboard-list nav-icon" style="color: rgb(54, 196, 206)"></i>
+              <p>Liste</p>
+            </a>
+           </li>
+           </ul>
+          </li>
          
-         
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-cookie"></i>
+              <p>
+                 Commande
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+           <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{{route('newCommande')}}" class="nav-link">
+                <i class="fa fa-tag nav-icon" style="color: rgb(54, 196, 206)"></i>
+                <p>Creer</p>
+              </a>
+             </li>
+           <li class="nav-item">
+            <a href="{{route('listCommande')}}" class="nav-link">
+              <i class="fa fa-clipboard-list nav-icon" style="color: rgb(54, 196, 206)"></i>
+              <p>Liste</p>
+            </a>
+           </li>
+           </ul>
+          </li>
          
          
          
