@@ -32,7 +32,7 @@
                   <div class="card-body">
                     <div class="form-group">
                       <label>Nom du client</label>
-                      <select class="form-control custom-select" name="reservation_user_id">
+                      <select class="form-control custom-select" name="reservation_user_id" required>
                         @foreach ($users as $user)
                           <option value="{{ $user->id }}">{{ $user->lastname }} {{ $user->firstname }}</option>
                         @endforeach
@@ -102,5 +102,4 @@
         </div><!-- /.container-fluid -->
       </section>
       <!-- /.content -->
-
 @endsection
