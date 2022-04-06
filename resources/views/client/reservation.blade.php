@@ -16,16 +16,11 @@
                     <input type="datetime-local" name="phone_number"   placeholder="Numéro" required/>
                     <select name="people" required>
                         <option value="" disabled selected hidden>Nombre de personne</option>
+                        
                         <option value="coffee">1</option>
                         <option value="tea">2</option>
                         <option value="milk">3</option>
                     </select>
-                    <select name="type" required>
-                        <option value="" disabled selected hidden>Type </option>
-                        <option value="coffee">Petit dejeuner</option>
-                        <option value="tea">Resistance</option>
-                        <option value="milk">Desserts</option>
-                      </select>
                  <div class="w3ls-submit"> 
                         <input type="submit" value="Reserver">  	
                     </div>	

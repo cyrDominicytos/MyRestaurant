@@ -16,7 +16,7 @@
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
                 <span class="navbar-toggler-icon fa icon-close fa-times"></span>
-            </button>
+            </button> 
 
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav mx-lg-auto">
@@ -38,40 +38,28 @@
                     text-transform: uppercase;
                 }
             </style>
-            <!-- search button -->
-            {{-- @if (Auth::check()) --}}
+            @if (Auth::check()) 
             {{-- input your code there --}}
-            {{-- <div class="search-right ml-lg-3">
-                <a class="dropdown-item" href="{{ route('logout_client') }}">
+             <div class="search-right ml-lg-3">
+                <a class="nav-item" href="{{ route('logout_client') }}">
                     Deconnexion
                 </a>
             </div> 
-            @else --}}
             <div class="search-right ml-lg-3">
                 <a data-bs-toggle="modal" data-bs-target="#staticBackdropReservation">
                     Reservation
                 </a>
-    
             </div>
-            {{-- @else --}}
-
-            {{-- <div class="search-right ml-lg-3">
+            @else
+             <div class="search-right ml-lg-3">
                 <a data-bs-toggle="modal" data-bs-target="#staticBackdropLogin">
                     Connexion
                 </a>
-                  <a data-bs-toggle="modal" data-bs-target="#staticBackdropRegister">
+                 <a data-bs-toggle="modal" data-bs-target="#staticBackdropRegister">
                     Inscription
-                  </a> --}}
-      
-                {{-- <div class="search-container">
-                    <form action="/search" method="get">
-                        <input class="search expandright" id="searchright" type="search" name="q"
-                            placeholder="Search">
-                        <label class="button searchbutton" for="searchright"><i class="fas fa-search"></i></label>
-                    </form>
-                </div> --}}
-            {{-- </div> 
-            @endif --}}
+                </a> 
+            </div> 
+            @endif 
 
             <!-- //search button -->
             <!-- toggle switch for light and dark theme -->
