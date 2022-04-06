@@ -72,8 +72,9 @@
         }
         
     </style>
+    @if (count($result)!=1)
       <div class="row">
-        @foreach ($result as $key =>$value)
+        @foreach ($result as $key=>$value)
           <div class="col-md-6 ">
               <div class="card card-info">
                 <div class="card-header" style="background-color:#014463">
@@ -110,9 +111,15 @@
               </div>
           </div>
           @endforeach
+
           {{-- Colunm right --}}
       </div>
     </div>
+    @else
+    <div class="alert alert-info">
+        Aucun menu du jour disponible
+    </div>
+    @endif
 </section>
 
 @endsection
