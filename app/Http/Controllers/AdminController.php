@@ -39,30 +39,6 @@ class AdminController extends Controller
         ]);
     }
     
-    public function new(){
-        $roleModel= new Role();
-        $user = User::all();
-        $role=Role::all();
-        //dd($roleModel->get());
-        $perol=$roleModel->get();
-        //dd($perol[0]->permissions());
-        $permrole=json_decode($perol[0]->permissions());
-        //dd(count($permrole));
-         
-        $tbl =getPermissionById($permrole[1]);
-       // dd($tbl);
-        //dd($role[0]->permissions());
-        $perm = json_decode($role[0]->permissions());
-        $permissions=permissionModule();
-        //dd(getPermissionById($perm[0]));
-        
-        /*$roles=DB::table('roles')
-        ->join('permission_role','permission_role.role_id','=','roles.role_id')
-        ->select('*')
-        ->get();*/
-        //dd($role);
-        return view('show',compact('user','role','perm'));
-    }
      
     public function showUser(){
         $roles=Role::all();

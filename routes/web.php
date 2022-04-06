@@ -24,7 +24,7 @@ Route::group(['middleware'=>['auth']], function(){
     Route::get('Admin/listTable', function(){return view('admin.table.list');})->name('listTable');
 
        //Reservation route
-       Route::get('Admin/reservation', function(){return view('admin.reservation.new');})->name('newReservation');
+       Route::get('Admin/reservation',[App\Http\Controllers\ReservationController::class,'new'])->name('newReservation');
        Route::get('Admin/listReservation', function(){return view('admin.reservation.list');})->name('listReservation');
 
           //Commande route
@@ -81,13 +81,11 @@ Route::group(['middleware'=>['auth']], function(){
 });
    
 
-Route::get('/moi',[App\Http\Controllers\AdminController::class, 'new']);
 Route::get('/logout', function () { return view('auth.login');});
 
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/moi',[App\Http\Controllers\AdminController::class, 'new']);
 //Route::get('/clientHome', function () {return view('client.home');})->name('clientHome');
 
 Route::get('/',[App\Http\Controllers\ClientController::class, 'index'])->name('index_client');

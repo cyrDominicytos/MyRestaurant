@@ -30,48 +30,44 @@
                 <form action="" method="post" enctype="multipart/form-data">
                   @csrf
                   <div class="card-body">
-                 
+                    <div class="form-group">
+                      <label>Nom du client</label>
+                      <select class="form-control custom-select" name="reservation_user_id">
+                        @foreach ($users as $user)
+                          <option value="{{ $user->id }}">{{ $user->lastname }} {{ $user->firstname }}</option>
+                        @endforeach
+                      </select>
+                    </div>
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Type de Reservation</label>
-                                <select class="form-control custom-select" name="categorie_met_id" required>
-                                  <option value="">VIP</option>
-                                  <option value="">Standard</option>
+                                <select class="form-control custom-select" name="reservation_type" required>
+                                  <option value="VIP">VIP</option>
+                                  <option value="Standard">Standard</option>
                                 </select>
                               </div>
                         </div>
-                       
                         <div class="col-sm-6">
                           <div class="form-group">
                             <label>Nombre de Personnes</label>
-                            <select class="form-control custom-select" name="met_status" id="met_status" required>
-                              <option value="">2</option>
-                              <option value="">3</option>
-                            </select>
+                            <input type="number" class="form-control @error('reservation_people') is-invalid @enderror " name="reservation_people" placeholder="Nombre de personnes" required>
                           </div>
                         </div>
-                      </div>
-                     
-                   
-                        <div class="form-group">
-                          <label>Date et Heure </label>
-                          <input type="datetime-local" class="form-control @error('met_price') is-invalid @enderror " name="met_price" placeholder="Enter le prix du mets"  value="{{ isset($met) ? $met->met_price : old('met_price') }}"  required>
-                      
-                        </div>
-                     
-
-                    <div class="form-group">
-                      <label for="inputMessage">Details</label>
-                        <textarea  class="form-control @error('met_description') is-invalid @enderror" name="met_description" rows="4" placeholder="Details supplémentaire "  required>{{ isset($met) ? $met->met_description : old('met_description') }}</textarea>
-                      
                     </div>
+                      <div class="form-group">
+                        <label>Date et Heure </label>
+                        <input type="datetime-local" class="form-control @error('reservation_days') is-invalid @enderror " name="reservation_days" placeholder="Enter le prix du mets"  value="{{ isset($met) ? $met->met_price : old('met_price') }}"  required>
+                      </div>
+                      <div class="form-group">
+                      <label for="inputMessage">Details</label>met_price
+                        <textarea  class="form-control @error('reservation_datail') is-invalid @enderror" name="reservation_datail" rows="4" placeholder="Details supplémentaire "  required>{{ isset($met) ? $met->met_description : old('met_description') }}</textarea>
+                      </div>
                   </div>
                   <!-- /.card-body -->
   
                   <div class="card-footer">
                         <button type="submit" class="btn btn-info">Reserver</button>
-                 
                   </div>
                 </form>
               </div>
@@ -89,16 +85,12 @@
                 </div>
                 <div class="card-body mx-auto" >
                     <div class="carousel slide" data-ride="carousel">
-                       
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <img src="{{asset('dist/img/reservation-la-gi_1.jpg')}}" class="img-fluid" alt="">
-                            </div>
-                         					
+                            </div>			
                         </div>
-                     
                     </div>
-    
                 </div>
                 <!-- /.card-body -->
               </div>
