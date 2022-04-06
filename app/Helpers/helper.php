@@ -88,7 +88,6 @@ if(!function_exists('menuFoodAll')){
                 $type=$menufood->type_met;
                 $jour=$menufood->type_days;
             }
-
          }
          $result[$jour][$type]=$entre;
          return $result;
