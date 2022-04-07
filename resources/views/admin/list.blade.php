@@ -94,4 +94,5 @@
       </section>
       @include('admin.layout.modal.modalConfirmation')
 </div>
+
 @endsection
