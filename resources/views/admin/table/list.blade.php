@@ -37,15 +37,18 @@
                     </tr>
                     </thead>
                     <tbody>
-                   
+                      @foreach ($tables as $table)
                         <tr>
                         
-                          <td>Table 01</td>
-                          <td>04 </td>
+                          <td>Table {{ $table->table_number }}</td>
+                          <td>{{ $table->table_number_personne }} </td>
                           <td> 
-                             {{-- <small class="badge badge-danger">Occupé</small> --}}
-                             {{-- <small class="badge badge-info">Libre</small> --}}
-                             <small class="badge badge-warning">En attente de paiement</small>
+                            @if ($table->table_status)
+                             <small class="badge badge-info">Disponible</small>
+                            @else
+                              <small class="badge badge-warning"> En attente</small>
+                            @endif
+                             
                           </td>
                           <td>
                             <div class="nav-item dropdown">
@@ -59,7 +62,7 @@
                           
                           </td>
                         </tr>
-                    
+                        @endforeach
                     </tbody>
                    
                   </table>

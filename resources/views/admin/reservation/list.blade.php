@@ -24,7 +24,6 @@
             <div class="col-12">
             
               <div class="card">
-              
                 <!-- /.card-header -->
                 <div class="card-body">
                   <table id="example2" class="table table-bordered table-striped">
@@ -39,25 +38,30 @@
                     </tr>
                     </thead>
                     <tbody>
-                   
+                    @foreach ($reservation as $reser)
                         <tr>
-                        
-                          <td>01</td>
-                          <td>VIP</td>
-                          <td>22/05/2022 22h45'</td>
-                          <td>06</td>
+                          <td>{{ $reser->reservation_id }}</td>
+                          <td>{{ $reser->reservation_type }}</td>
+                          <td>{{  $reser->reservation_days }}</td>
+                          <td>{{ $reser->reservation_people }}</td>
                           <td> 
                              {{-- <small class="badge badge-danger">Occupé</small> --}}
                              {{-- <small class="badge badge-info">Libre</small> --}}
-                             <small class="badge badge-warning">En attente </small>
+                             @if ($reser->reservation_status)
+                              <small class="badge badge-info">valider </small>
+                             @else
+                              <small class="badge badge-warning">En attente </small>
+                             @endif
+                             
                           </td>
                           <td>
                             <div class="nav-item dropdown">
                               <a  class="nav-link" type="button"   aria-expanded="false" data-toggle="dropdown"><i class="fa fa-cogs" style="color: black"></i></a>
                               <div class="dropdown-menu ">
-                                  <a class="dropdown-item" href="" style="font-size: 12px;color:green; font-weight:bold"><i class="fa fa-check" style="margin-right:10px;color:green"></i>Valider</a>
-                              
-                                  <a class="dropdown-item " href="#myModal" data-toggle="modal" style="font-size: 12px;color:red; font-weight:bold"><i class="fa fa-trash" style="margin-right:10px;color:red"></i>Supprimer</a>
+                                 @if (!$reser->reservation_status)
+                                 <a class="dropdown-item" href="{{ route('publishReservation',$reser->reservation_id) }}" style="font-size: 12px;color:green; font-weight:bold"><i class="fa fa-check" style="margin-right:10px;color:green"></i>Valider</a>
+                                 @endif
+                                  <a class="dropdown-item " href="#myModal {{route('deleteReservation',$reser->reservation_id)  }}" data-toggle="modal" style="font-size: 12px;color:red; font-weight:bold"><i class="fa fa-trash" style="margin-right:10px;color:red"></i>Supprimer</a>
                               </div> 
                           </div>
                           
@@ -65,7 +69,7 @@
                         </tr>
                     
                     </tbody>
-                   
+                    @endforeach
                   </table>
                 </div>
                 <!-- /.card-body -->

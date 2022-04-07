@@ -76,7 +76,7 @@ class DatabaseSeeder extends Seeder
                 )
         ]);
         $user=User::create(["firstname"=>"John", "lastname"=>"Doe","email"=>"oloucholapatrick@gmail.com","password"=>Hash::make("12345678"),"role_user_id"=>1,"isbanned"=>0,"phone_number"=>"68586922"]);
-
+        $user=User::create(["firstname"=>"Lorem", "lastname"=>"piscum","email"=>"client@gmail.com","password"=>Hash::make("12345678"),"role_user_id"=>2,"isbanned"=>0,"phone_number"=>"90993612"]);
     // $table->unsignedBigInteger('role_id');
     // $table->json('permission_list');
     // $table->timestamps();

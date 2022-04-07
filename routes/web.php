@@ -20,13 +20,16 @@ Route::group(['middleware'=>['auth']], function(){
 
 
     //Table route
-    Route::get('Admin/table', function(){return view('admin.table.new');})->name('newTable');
-    Route::get('Admin/listTable', function(){return view('admin.table.list');})->name('listTable');
+    Route::get('Admin/table',[App\Http\Controllers\TableController::class,'new'])->name('newTable');
+    Route::post('Admin/table',[App\Http\Controllers\TableController::class,'store'])->name('storeTable');
+    Route::get('Admin/listTable', [App\Http\Controllers\TableController::class,'index'])->name('listTable');
 
        //Reservation route
-       Route::get('Admin/reservation',[App\Http\Controllers\ReservationController::class,'new'])->name('newReservation');
-       Route::get('Admin/listReservation', function(){return view('admin.reservation.list');})->name('listReservation');
-
+    Route::get('Admin/reservation',[App\Http\Controllers\ReservationController::class,'new'])->name('newReservation');
+    Route::post('Admin/reservation',[App\Http\Controllers\ReservationController::class,'store'])->name('createReservation');
+    Route::get('Admin/listReservation',[App\Http\Controllers\ReservationController::class,'index'])->name('listReservation');
+    Route::get('Admin/Reservation/publish/{id}',[App\Http\Controllers\ReservationController::class,'publish'])->name('publishReservation');
+    Route::get('Admin/Reservation/delete/{id}',[App\Http\Controllers\ReservationController::class,'delete'])->name('deleteReservation');
           //Commande route
     Route::get('Admin/commande', function(){return view('admin.commande.new');})->name('newCommande');
     Route::get('Admin/listCommande', function(){return view('admin.commande.list');})->name('listCommande');

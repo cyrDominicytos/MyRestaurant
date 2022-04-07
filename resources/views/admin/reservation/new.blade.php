@@ -27,7 +27,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form action="" method="post" enctype="multipart/form-data">
+                <form action="{{ route('createReservation') }}" method="POST">
                   @csrf
                   <div class="card-body">
                     <div class="form-group">
@@ -51,17 +51,32 @@
                         <div class="col-sm-6">
                           <div class="form-group">
                             <label>Nombre de Personnes</label>
-                            <input type="number" class="form-control @error('reservation_people') is-invalid @enderror " name="reservation_people" placeholder="Nombre de personnes" required>
+                            <input type="number" class="form-control @error('reservation_people') is-invalid @enderror " name="reservation_people" placeholder="Nombre de personnes" value="{{ old('reservation_people') }}"required>
+                            @error('reservation_people')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                           </div>
                         </div>
                     </div>
                       <div class="form-group">
                         <label>Date et Heure </label>
-                        <input type="datetime-local" class="form-control @error('reservation_days') is-invalid @enderror " name="reservation_days" placeholder="Enter le prix du mets"  value="{{ isset($met) ? $met->met_price : old('met_price') }}"  required>
+                        <input type="datetime-local" class="form-control @error('reservation_days') is-invalid @enderror " name="reservation_days" placeholder="Enter le prix du mets"  value="{{  old('reservation_days') }}"  required>
+                        @error('reservation_days')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                       </div>
                       <div class="form-group">
-                      <label for="inputMessage">Details</label>met_price
-                        <textarea  class="form-control @error('reservation_datail') is-invalid @enderror" name="reservation_datail" rows="4" placeholder="Details supplémentaire "  required>{{ isset($met) ? $met->met_description : old('met_description') }}</textarea>
+                      <label for="inputMessage">Details</label>
+                        <textarea  class="form-control @error('reservation_datail') is-invalid @enderror" name="reservation_datail" rows="4" placeholder="Details supplémentaire "  required>{{  old('reservation_datail') }}</textarea>
+                        @error('reservation_datail')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                       </div>
                   </div>
                   <!-- /.card-body -->
