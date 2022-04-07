@@ -37,6 +37,7 @@
         </div> --}}
         <div class="container">
             <div class="row">
+               
                 <div class="col-lg-4">
                     <div class="card card-margin">
                             <h2 class="index">N° 01_2022</h5>
@@ -53,7 +54,8 @@
                                         <span class="widget-49-meeting-time"><br> 12:00 à 13.30 Heure</span>
                                     </div>
                                 </div>
-                            
+                                <span class="widget-49-pro-title" style="margin-right: auto; margin-left:20%"><span style="color: #014463; font-weight:bold">Statut</span> : <small class="badge badge-warning">En attente </small></span>
+                                                                 <br>
                                 <span class="widget-49-pro-title" style="margin-right: auto; margin-left:20%"><span style="color: #014463; font-weight:bold">Nombre de Mets</span> : 3</span>
                            
                                 <ol class="liste">
@@ -69,49 +71,7 @@
                     </div>
                     <div class="row" >
                         <div class="col-sm-4">
-                            <a href="#" class="Cmdbtn bg-gradient-green">Traiter</a>
-                        </div>
-                        <div class="col-sm-4">
-                            <a href="#" class="Cmdbtn bg-info">Modifier</a>
-                        </div>
-                        <div class="col-sm-4">
-                            <a href="#" class="Cmdbtn bg-danger">Supprimer</a>
-                        </div>
-                      </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="card card-margin">
-                            <h2 class="index">N° 01_2022</h5>
-                                <h2 class="">Commande de Moufid DAOUDA</h5>
-                        <div class="card-body pt-0">
-                            <div class="widget-49">
-                                <div class="wrapper">
-                                    <div class="date-primary">
-                                        <span class="widget-49-date-day">09</span>
-                                        <span class="widget-49-date-month">Dec</span>
-                                    </div>
-                                    <div class="info">
-                                        <span class="widget-49-pro-title"><span style="color: #014463; font-weight:bold">Montant Total</span> : 15000f</span>
-                                        <span class="widget-49-meeting-time"><br> 12:00 à 13.30 Heure</span>
-                                    </div>
-                                </div>
-                            
-                                <span class="widget-49-pro-title" style="margin-right: auto; margin-left:20%"><span style="color: #014463; font-weight:bold">Nombre de Mets</span> : 3</span>
-                           
-                                <ol class="liste">
-                                    <li class="liste-item"><span>Amala</span></li>
-                                    <li class="liste-item"><span>Atchèkèe</span></li>
-                                    <li class="liste-item"><span>Salade</span></li>
-                                </ol>
-                                <div class="widget-49-meeting-action">
-                                    <a href="#" class="btn btn-sm btn-flash-border-primary">Voir plus</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row" >
-                        <div class="col-sm-4">
-                            <a href="#" class="Cmdbtn bg-gradient-green">Traiter</a>
+                            <a  href="#myModal" data-toggle="modal" class="Cmdbtn bg-gradient-orange">Traiter</a>
                         </div>
                         <div class="col-sm-4">
                             <a href="#" class="Cmdbtn bg-info">Modifier</a>
@@ -125,7 +85,7 @@
           
             </div>
     </main>
-     {{-- @include('admin.layout.modalDeleteFood') --}}
+     @include('admin.layout.modalFormsCommand')
      <style>
 .row .Cmdbtn a{
     text-decoration: none;
@@ -134,7 +94,7 @@
     margin-top: 5px;
     width: 100%;
     padding: 10px;
-    color: black;
+    color: white;
     border-radius: 8px
 }
 
@@ -151,7 +111,7 @@
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #cfcece;
+    background-color: #f1efef;
     background-clip: border-box;
     border: 1px solid #e6e4e9;
     border-radius: 8px;

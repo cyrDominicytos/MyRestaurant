@@ -84,5 +84,5 @@
           <!-- /.row -->
         </div>
         <!-- /.container-fluid -->
-        @include('admin.layout.modalConfirmation')
+        @include('admin.layout.modal.modalConfirmation')
 @endsection

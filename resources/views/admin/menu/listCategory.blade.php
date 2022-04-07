@@ -72,5 +72,5 @@
           <!-- /.row -->
         </div>
         <!-- /.container-fluid -->
-        @include('admin.layout.modalDeleteCategory')
+        @include('admin.layout.modal.modalDeleteCategory')
 @endsection

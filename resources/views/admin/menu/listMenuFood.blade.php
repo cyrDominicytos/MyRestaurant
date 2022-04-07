@@ -54,5 +54,5 @@
             @endif
         </div>
     </main>
-     @include('admin.layout.modalDeleteFood')
+     @include('admin.layout.modal.modalDeleteFood')
 @endsection
