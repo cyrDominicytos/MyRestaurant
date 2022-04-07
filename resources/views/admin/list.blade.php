@@ -92,6 +92,6 @@
         </div>
         <!-- /.container-fluid -->
       </section>
-      @include('admin.layout.modalConfirmation')
+      @include('admin.layout.modal.modalConfirmation')
 </div>
 @endsection

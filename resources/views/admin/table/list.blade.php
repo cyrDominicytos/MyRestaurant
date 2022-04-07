@@ -54,9 +54,9 @@
                             <div class="nav-item dropdown">
                               <a  class="nav-link" type="button"   aria-expanded="false" data-toggle="dropdown"><i class="fa fa-cogs" style="color: black"></i></a>
                               <div class="dropdown-menu ">
-                                  <a class="dropdown-item" href="" style="font-size: 12px;color:green; font-weight:bold"><i class="fa fa-user" style="margin-right:10px;color:green"></i>Affecter un serveur</a>
+                                  <a class="dropdown-item" href="#myModal" data-toggle="modal" style="font-size: 12px;color:green; font-weight:bold"><i class="fa fa-user" style="margin-right:10px;color:green"></i>Affecter un serveur</a>
                                   <a class="dropdown-item" href="" style="font-size: 12px;color:green; font-weight:bold"><i class="fa fa-comment-dollar" style="margin-right:10px;color:green"></i>Envoyer la facture</a>
-                                  <a class="dropdown-item " href="#myModal" data-toggle="modal" style="font-size: 12px;color:red; font-weight:bold"><i class="fa fa-trash" style="margin-right:10px;color:red"></i>Supprimer</a>
+                                  <a class="dropdown-item "  style="font-size: 12px;color:red; font-weight:bold"><i class="fa fa-trash" style="margin-right:10px;color:red"></i>Supprimer</a>
                               </div> 
                           </div>
                           
@@ -76,5 +76,5 @@
           <!-- /.row -->
         </div>
         <!-- /.container-fluid -->
-        {{-- @include('admin.layout.modalConfirmation') --}}
+        @include('admin.layout.modal.affectserv')
 @endsection

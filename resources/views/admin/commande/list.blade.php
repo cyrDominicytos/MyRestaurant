@@ -85,7 +85,7 @@
           
             </div>
     </main>
-     @include('admin.layout.modalFormsCommand')
+     @include('admin.layout.modal.modalFormsCommand')
      <style>
 .row .Cmdbtn a{
     text-decoration: none;
